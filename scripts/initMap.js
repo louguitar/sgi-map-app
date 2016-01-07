@@ -57,15 +57,34 @@ function mapInit() {
   var mapMinZoom = 4;
   var mapMaxZoom = 17;
 
-  // add conifer overlay; use klokantech script
-  var overlay = new klokantech.MapTilerMapType(map, function(x,y,z) {
-          return "http://conifertiles.allredbw.com/conifer/{z}/{x}/{y}.png".replace('{z}',z).replace('{x}',x).replace('{y}',y); },
-        mapBounds, mapMinZoom, mapMaxZoom);
-
-  // add opacity control
-  var opacitycontrol = new klokantech.OpacityControl(map, overlay);
-
   // fit map to mapBounds
   map.fitBounds(mapBounds);
 
+  if (document.getElementById('00').checked) {
+    // add conifer overlay; use klokantech script
+    var overlay = new klokantech.MapTilerMapType(map, function(x,y,z) {
+            return "http://conifertiles.allredbw.com/conifer/{z}/{x}/{y}.png".replace('{z}',z).replace('{x}',x).replace('{y}',y); },
+          mapBounds, mapMinZoom, mapMaxZoom);
+
+    // add opacity control
+    // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
+  } else {
+      map.overlayMapTypes.clear();
+  };
+
+  $('.dataTiles').click(function () {
+    if (document.getElementById('00').checked) {
+
+      // add conifer overlay; use klokantech script
+      var overlay = new klokantech.MapTilerMapType(map, function(x,y,z) {
+              return "http://conifertiles.allredbw.com/conifer/{z}/{x}/{y}.png".replace('{z}',z).replace('{x}',x).replace('{y}',y); },
+            mapBounds, mapMinZoom, mapMaxZoom);
+
+      // add opacity control
+      // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
+    }
+    else {
+        map.overlayMapTypes.clear();
+    }
+  });
 }
