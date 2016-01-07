@@ -115,4 +115,45 @@ function mapInit() {
         map.overlayMapTypes.clear();
     }
   });
+
+  // listen for clicks on dataDownload layer
+  $('.dataDownload').click(function () {
+    // get checkbox name
+    var checkBoxName = $(this).attr('name');
+
+    // if checkbox is checked, load data
+    if ($(this).prop('checked')){
+      // load geojson
+      map.data.loadGeoJson('data/' + checkBoxName + '.json');
+
+      // set style
+      map.data.setStyle( {
+          fillColor: 'red',
+          strokeColor: 'red',
+          strokeWeight: 2
+        })
+
+      // open download when user clicks on county
+      map.data.addListener('click', function(event) {
+        window.open(event.feature.getProperty('s3Link'),"_self")
+      });
+
+      // bold when user hovers
+      map.data.addListener('mouseover', function(event) {
+        map.data.revertStyle();
+        map.data.overrideStyle(event.feature, {strokeWeight: 8});
+      });
+
+      map.data.addListener('mouseout', function(event) {
+        map.data.revertStyle();
+      });
+    }
+    // if checkbox is not checked, clear data
+    else {
+       map.data.setMap(null);
+       map.data = new google.maps.Data({map:map});
+       map.data.setMap(map);
+    }
+  });
+  
 }
