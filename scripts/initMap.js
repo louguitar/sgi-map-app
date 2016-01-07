@@ -73,17 +73,10 @@ function mapInit() {
     mapMaxZoom: 17
   }
 
-  // set map bounds of conifer tiles
-  // var mapBounds = new google.maps.LatLngBounds(
-  //   new google.maps.LatLng(36.889596, -121.724515),
-  //   new google.maps.LatLng(46.887497, -105.554831));
-
-  // set min and max zoom for conifer tiles
-  // var mapMinZoom = 4;
-  // var mapMaxZoom = 17;
-
+  // load conifer data first
+  // if checkbox is checked, load data
   if (document.getElementsByName('coniferTiles')[0].checked) {
-    // add conifer overlay; use klokantech script
+    // add data overlay; use klokantech script
     var overlay = new klokantech.MapTilerMapType(map,
       dataTiles['coniferTiles'].function,
       dataTiles['coniferTiles'].mapBounds,
@@ -92,15 +85,22 @@ function mapInit() {
 
     // add opacity control
     // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
-  } else {
+  }
+  // if checkbox is not checked, clear all overlays
+  else {
       map.overlayMapTypes.clear();
   };
 
+  // listen for clicks on dataTiles layer
   $('.dataTiles').click(function () {
+
+    // get checkbox name
     var checkBoxName = $(this).attr('name');
+
+    // if checkbox is checked, load data
     if ($(this).prop('checked')){
 
-      // add conifer overlay; use klokantech script
+      // add data overlay; use klokantech script
       var overlay = new klokantech.MapTilerMapType(map,
         dataTiles[checkBoxName].function,
         dataTiles[checkBoxName].mapBounds,
@@ -110,6 +110,7 @@ function mapInit() {
       // add opacity control
       // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
     }
+    // if checkbox is not checked, clear all overlays
     else {
         map.overlayMapTypes.clear();
     }
