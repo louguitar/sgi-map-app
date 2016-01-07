@@ -48,14 +48,22 @@ function mapInit() {
   // set ROADMAP as the default basemap
   map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 
-  // set map bounds of tiles
+  // set map bounds of conifer tiles
   var mapBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng(36.889596, -121.724515),
     new google.maps.LatLng(46.887497, -105.554831));
 
-  // set min and max zoom for tiles
+  // set min and max zoom for conifer tiles
   var mapMinZoom = 4;
   var mapMaxZoom = 17;
+
+  // add conifer overlay; use klokantech script
+  var overlay = new klokantech.MapTilerMapType(map, function(x,y,z) {
+          return "http://conifertiles.allredbw.com/conifer/{z}/{x}/{y}.png".replace('{z}',z).replace('{x}',x).replace('{y}',y); },
+        mapBounds, mapMinZoom, mapMaxZoom);
+
+  // add opacity control
+  var opacitycontrol = new klokantech.OpacityControl(map, overlay);
 
   // fit map to mapBounds
   map.fitBounds(mapBounds);
