@@ -48,6 +48,14 @@ function mapInit() {
   // set ROADMAP as the default basemap
   map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 
+  // set globalMapBounds; largest extent of data
+  var globalMapBounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(36.889596, -121.724515),
+    new google.maps.LatLng(46.887497, -105.554831));
+
+  // fit map to globalMapBounds
+  map.fitBounds(globalMapBounds);
+
   // set map bounds of conifer tiles
   var mapBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng(36.889596, -121.724515),
@@ -56,9 +64,6 @@ function mapInit() {
   // set min and max zoom for conifer tiles
   var mapMinZoom = 4;
   var mapMaxZoom = 17;
-
-  // fit map to mapBounds
-  map.fitBounds(mapBounds);
 
   if (document.getElementById('00').checked) {
     // add conifer overlay; use klokantech script
