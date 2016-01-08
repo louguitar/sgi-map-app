@@ -32,6 +32,7 @@ function initMap() {
       ]
     },{
       "featureType": "water",
+      "elementType": "geometry.fill",
       "stylers": [
         { "color": "#B3E2FF" }
       ]
