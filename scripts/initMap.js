@@ -1,4 +1,4 @@
-function mapInit() {
+function initMap() {
 
   // base google maps api options
   var opts = {
