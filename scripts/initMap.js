@@ -56,7 +56,9 @@ function mapInit() {
   // fit map to globalMapBounds
   map.fitBounds(globalMapBounds);
 
-  // create empty object
+
+
+  // create empty object to hold tile information
   var dataTiles = {};
 
   // fill with conifer data information
@@ -71,17 +73,26 @@ function mapInit() {
     // min and max zoom of data
     mapMinZoom: 4,
     mapMaxZoom: 17
-  }
+  };
 
-  // load conifer data first
+
+
+  // uncheck data download boxes
+  $(".dataDownload").prop('checked', false);
+
+  // define landing layers, layers that will be loaded upon landing
+  var landing = 'conifer';
+  var landingTiles = landing + 'Tiles';
+
+  // load landing layer first
   // if checkbox is checked, load data
-  if (document.getElementsByName('coniferTiles')[0].checked) {
+  if (document.getElementsByName(landingTiles)[0].checked) {
     // add data overlay; use klokantech script
     var overlay = new klokantech.MapTilerMapType(map,
-      dataTiles['coniferTiles'].function,
-      dataTiles['coniferTiles'].mapBounds,
-      dataTiles['coniferTiles'].mapMinZoom,
-      dataTiles['coniferTiles'].mapMaxZoom);
+      dataTiles[landingTiles].function,
+      dataTiles[landingTiles].mapBounds,
+      dataTiles[landingTiles].mapMinZoom,
+      dataTiles[landingTiles].mapMaxZoom);
 
     // add opacity control
     // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
@@ -90,15 +101,9 @@ function mapInit() {
   else {
     // clear overlay
     map.overlayMapTypes.clear();
-
-    // uncheck data box
-    document.getElementsByName("coniferDownload")[0].checked = false;
-
-    // clear data
-    map.data.setMap(null);
-    map.data = new google.maps.Data({map:map});
-    map.data.setMap(map);
   };
+
+
 
   // listen for clicks on dataTiles layer
   $('.dataTiles').click(function () {
@@ -125,7 +130,7 @@ function mapInit() {
       map.overlayMapTypes.clear();
 
       // uncheck data box
-      document.getElementsByName("coniferDownload")[0].checked = false;
+      document.getElementsByName('coniferDownload')[0].checked = false;
 
       // clear data
       map.data.setMap(null);
@@ -133,6 +138,8 @@ function mapInit() {
       map.data.setMap(map);
     }
   });
+
+
 
   // listen for clicks on dataDownload layer
   $('.dataDownload').click(function () {
