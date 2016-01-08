@@ -86,9 +86,18 @@ function mapInit() {
     // add opacity control
     // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
   }
-  // if checkbox is not checked, clear all overlays
+  // if checkbox is not checked, clear all overlays and data
   else {
-      map.overlayMapTypes.clear();
+    // clear overlay
+    map.overlayMapTypes.clear();
+
+    // uncheck data box
+    document.getElementsByName("coniferDownload")[0].checked = false;
+
+    // clear data
+    map.data.setMap(null);
+    map.data = new google.maps.Data({map:map});
+    map.data.setMap(map);
   };
 
   // listen for clicks on dataTiles layer
@@ -110,9 +119,18 @@ function mapInit() {
       // add opacity control
       // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
     }
-    // if checkbox is not checked, clear all overlays
+    // if checkbox is not checked, clear all overlays and data
     else {
-        map.overlayMapTypes.clear();
+      // clear overlay
+      map.overlayMapTypes.clear();
+
+      // uncheck data box
+      document.getElementsByName("coniferDownload")[0].checked = false;
+
+      // clear data
+      map.data.setMap(null);
+      map.data = new google.maps.Data({map:map});
+      map.data.setMap(map);
     }
   });
 
@@ -155,5 +173,5 @@ function mapInit() {
        map.data.setMap(map);
     }
   });
-  
+
 }
