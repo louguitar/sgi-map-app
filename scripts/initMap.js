@@ -110,6 +110,8 @@ function mapInit() {
 
     // get checkbox name
     var checkBoxName = $(this).attr('name');
+    // parse checkbox name to data download name
+    var checkBoxDownload = checkBoxName.split("Tiles")[0] + "Download";
 
     // if checkbox is checked, load data
     if ($(this).prop('checked')){
@@ -130,7 +132,7 @@ function mapInit() {
       map.overlayMapTypes.clear();
 
       // uncheck data box
-      document.getElementsByName('coniferDownload')[0].checked = false;
+      document.getElementsByName(checkBoxDownload)[0].checked = false;
 
       // clear data
       map.data.setMap(null);
@@ -145,9 +147,32 @@ function mapInit() {
   $('.dataDownload').click(function () {
     // get checkbox name
     var checkBoxName = $(this).attr('name');
+    // parse checkbox name to tiles names
+    var checkBoxTiles = checkBoxName.split("Download")[0] + "Tiles";
 
-    // if checkbox is checked, load data
+    // if checkbox is checked, load data and tiles
     if ($(this).prop('checked')){
+
+      // load tile layer
+      if (document.getElementsByName(checkBoxTiles)[0].checked) {
+        // do nothing
+      }
+      else {
+        // check box
+        document.getElementsByName(checkBoxTiles)[0].checked = true;
+
+        // load tiles
+        // add data overlay; use klokantech script
+        var overlay = new klokantech.MapTilerMapType(map,
+          dataTiles[checkBoxTiles].function,
+          dataTiles[checkBoxTiles].mapBounds,
+          dataTiles[checkBoxTiles].mapMinZoom,
+          dataTiles[checkBoxTiles].mapMaxZoom);
+
+        // add opacity control
+        // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
+      }
+
       // load geojson
       map.data.loadGeoJson('data/' + checkBoxName + '.json');
 
