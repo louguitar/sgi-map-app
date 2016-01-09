@@ -20,15 +20,25 @@
       	border: 1px solid gray;
       	padding: 5px 10px;
       }
+
+      #aboutBox {
+      	position: absolute;
+      	top: 250px;
+      	right: 20px;
+      	font-family: 'arial', 'sans-serif';
+      	font-size: 18px;
+      	background-color: white;
+      	border: 1px solid gray;
+      	padding: 5px 10px;
+      }
     </style>
   </head>
 
   <body>
     <div id="map"></div>
 
-    <!-- green pallete, 3 colors -->
     <div id="dataBox">
-      <span style="text-decoration: underline">Data</span><br>
+      <span style="font-weight: bold">Data</span><br>
       <input type="checkbox" id="00" name="coniferTiles" class="dataTiles"
         checked="checked" />
       <label for="00"> Conifer</label><br />
@@ -41,6 +51,7 @@
 
       <span style="text-decoration: underline"> % cover per acre </span><br>
 
+      <!-- green pallete, 3 colors -->
       <span style="background-color: #e5f5e0">&nbsp &nbsp </span>
       <span style="font-size: 18px">&nbsp < 1 &nbsp &nbsp Phase I</span><br>
 
@@ -51,8 +62,14 @@
       <span style="font-size: 18px">&nbsp > 20 &nbsp Phase III</span><br>
 
       <!-- <a href="ftp://ftp.cfc.umt.edu/Special/Allred/sgi/conifer/">
-        Download state data</href>
-    </div> -->
+        Download state data</href> -->
+    </div>
+
+    <div id="aboutBox">
+      <span style="font-weight: bold">About</span><br>
+      <a href="https://github.com/allredbw/sgi-map-app/wiki" target="_blank">
+        Documentation</href>
+    </div>
 
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?callback=initMap">
