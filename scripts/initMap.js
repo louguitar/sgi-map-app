@@ -4,8 +4,8 @@ function initMap() {
   var opts = {
     streetViewControl: false,
     tilt: 0,
-    center: new google.maps.LatLng(0, 0),
-    zoom: 3,
+    center: new google.maps.LatLng(42, -113),
+    zoom: 6,
     minZoom: 4,
     maxZoom: 18
   };
@@ -49,13 +49,10 @@ function initMap() {
   // set ROADMAP as the default basemap
   map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 
-  // set globalMapBounds; largest extent of data
+  // set globalMapBounds; largest extent of available data
   var globalMapBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng(36.889596, -121.724515),
     new google.maps.LatLng(46.887497, -105.554831));
-
-  // fit map to globalMapBounds
-  map.fitBounds(globalMapBounds);
 
 
 
