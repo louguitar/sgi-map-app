@@ -132,10 +132,10 @@ function initMap() {
       // uncheck data box
       document.getElementsByName(checkBoxDownload)[0].checked = false;
 
-      // clear data
-      map.data.setMap(null);
-      map.data = new google.maps.Data({map:map});
-      map.data.setMap(map);
+      // iterate over each feature and remove
+      map.data.forEach(function(feature) {
+      map.data.remove(feature);
+     });
     }
   });
 
@@ -198,9 +198,10 @@ function initMap() {
     }
     // if checkbox is not checked, clear data
     else {
-       map.data.setMap(null);
-       map.data = new google.maps.Data({map:map});
-       map.data.setMap(map);
+      // iterate over each feature and remove
+      map.data.forEach(function(feature) {
+      map.data.remove(feature);
+     });
     }
   });
 
