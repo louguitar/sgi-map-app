@@ -171,8 +171,11 @@ function initMap() {
         // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
       }
 
-      // load geojson
-      map.data.loadGeoJson('data/' + checkBoxName + '.json');
+      // load topojson; use clientside topojson api to convert to geojson
+      $.getJSON('data/' + checkBoxName + 'Topo.json', function(data){
+            geoJsonObject = topojson.feature(data, data.objects.counties)
+            map.data.addGeoJson(geoJsonObject);
+          });
 
       // set style
       map.data.setStyle( {
