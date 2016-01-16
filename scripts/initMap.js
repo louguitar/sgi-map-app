@@ -210,6 +210,9 @@ function initMap() {
 
 
 
+  // define object for holding refLayers
+  var refLayers = {};
+
   // listen for clicks on refLayers
   $('.refLayers').click(function () {
     // get checkbox name
@@ -218,24 +221,31 @@ function initMap() {
     // if checkbox is checked, load data and tiles
     if ($(this).prop('checked')){
 
+      // initialize refLayers object to hold data
+      refLayers[checkBoxName] = new google.maps.Data();
+
       // load topojson; use clientside topojson api to convert to geojson
       $.getJSON('data/' + checkBoxName + 'Topo.json', function(data){
-            geoJsonObject = topojson.feature(data, data.objects.pacs)
-            map.data.addGeoJson(geoJsonObject);
+            geoJsonObject = topojson.feature(data, eval("data.objects." +
+              checkBoxName))
+            refLayers[checkBoxName].addGeoJson(geoJsonObject);
           });
 
       // set style
-      map.data.setStyle( {
+      refLayers[checkBoxName].setStyle( {
           fillColor: 'blue',
           strokeColor: 'blue',
           strokeWeight: 2
         })
+
+        // set layer to map
+        refLayers[checkBoxName].setMap(map)
     }
     // if checkbox is not checked, clear data
     else {
       // iterate over each feature and remove
-      map.data.forEach(function(feature) {
-      map.data.remove(feature);
+      refLayers[checkBoxName].forEach(function(feature) {
+      refLayers[checkBoxName].remove(feature);
      });
     }
   });
