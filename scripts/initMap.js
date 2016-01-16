@@ -208,4 +208,36 @@ function initMap() {
     }
   });
 
+
+
+  // listen for clicks on refLayers
+  $('.refLayers').click(function () {
+    // get checkbox name
+    var checkBoxName = $(this).attr('name');
+
+    // if checkbox is checked, load data and tiles
+    if ($(this).prop('checked')){
+
+      // load topojson; use clientside topojson api to convert to geojson
+      $.getJSON('data/' + checkBoxName + 'Topo.json', function(data){
+            geoJsonObject = topojson.feature(data, data.objects.pacs)
+            map.data.addGeoJson(geoJsonObject);
+          });
+
+      // set style
+      map.data.setStyle( {
+          fillColor: 'blue',
+          strokeColor: 'blue',
+          strokeWeight: 2
+        })
+    }
+    // if checkbox is not checked, clear data
+    else {
+      // iterate over each feature and remove
+      map.data.forEach(function(feature) {
+      map.data.remove(feature);
+     });
+    }
+  });
+
 }
