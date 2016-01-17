@@ -78,6 +78,11 @@ function initMap() {
   // uncheck data download boxes
   $(".dataDownload").prop('checked', false);
 
+  // uncheck reference layer boxes
+  $(".refLayers").prop('checked', false);
+
+
+
   // define landing layers, layers that will be loaded upon landing
   var landing = 'conifer';
   var landingTiles = landing + 'Tiles';
@@ -133,13 +138,16 @@ function initMap() {
       document.getElementsByName(checkBoxDownload)[0].checked = false;
 
       // iterate over each feature and remove
-      map.data.forEach(function(feature) {
-      map.data.remove(feature);
+      downloadLayers[checkBoxDownload].forEach(function(feature) {
+      downloadLayers[checkBoxDownload].remove(feature);
      });
     }
   });
 
 
+
+  // define object for holding refLayers
+  var downloadLayers = {};
 
   // listen for clicks on dataDownload layer
   $('.dataDownload').click(function () {
@@ -171,39 +179,46 @@ function initMap() {
         // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
       }
 
+      // initialize refLayers object to hold data
+      downloadLayers[checkBoxName] = new google.maps.Data();
+
       // load topojson; use clientside topojson api to convert to geojson
       $.getJSON('data/' + checkBoxName + 'Topo.json', function(data){
-            geoJsonObject = topojson.feature(data, data.objects.counties)
-            map.data.addGeoJson(geoJsonObject);
+            geoJsonObject = topojson.feature(data, eval("data.objects." +
+              checkBoxName))
+            downloadLayers[checkBoxName].addGeoJson(geoJsonObject);
           });
 
       // set style
-      map.data.setStyle( {
+      downloadLayers[checkBoxName].setStyle( {
           fillColor: 'red',
           strokeColor: 'red',
           strokeWeight: 2
         })
 
       // open download when user clicks on county
-      map.data.addListener('click', function(event) {
+      downloadLayers[checkBoxName].addListener('click', function(event) {
         window.open(event.feature.getProperty('s3Link'),"_self")
       });
 
       // bold when user hovers
-      map.data.addListener('mouseover', function(event) {
-        map.data.revertStyle();
-        map.data.overrideStyle(event.feature, {strokeWeight: 8});
+      downloadLayers[checkBoxName].addListener('mouseover', function(event) {
+        downloadLayers[checkBoxName].revertStyle();
+        downloadLayers[checkBoxName].overrideStyle(event.feature, {strokeWeight: 8});
       });
 
-      map.data.addListener('mouseout', function(event) {
-        map.data.revertStyle();
+      downloadLayers[checkBoxName].addListener('mouseout', function(event) {
+        downloadLayers[checkBoxName].revertStyle();
       });
+
+      // set layer to map
+      downloadLayers[checkBoxName].setMap(map)
     }
     // if checkbox is not checked, clear data
     else {
       // iterate over each feature and remove
-      map.data.forEach(function(feature) {
-      map.data.remove(feature);
+      downloadLayers[checkBoxName].forEach(function(feature) {
+      downloadLayers[checkBoxName].remove(feature);
      });
     }
   });
