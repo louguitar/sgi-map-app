@@ -146,8 +146,20 @@ function initMap() {
 
 
 
-  // define object for holding refLayers
+  // define object for holding downloadLayers
   var downloadLayers = {};
+
+  // define object for holding refLayers styles
+  var downloadLayersStyles = {};
+
+  // populate styles
+  downloadLayersStyles['coniferDownload'] = {
+    fillColor: '#1b9e77',
+    strokeColor: '#1b9e77',
+    strokeWeight: 2
+  }
+
+
 
   // listen for clicks on dataDownload layer
   $('.dataDownload').click(function () {
@@ -191,10 +203,10 @@ function initMap() {
 
       // set style
       downloadLayers[checkBoxName].setStyle( {
-          fillColor: 'red',
-          strokeColor: 'red',
-          strokeWeight: 2
-        })
+        fillColor: downloadLayersStyles[checkBoxName].fillColor,
+        strokeColor: downloadLayersStyles[checkBoxName].strokeColor,
+        strokeWeight: downloadLayersStyles[checkBoxName].strokeWeight
+      });
 
       // open download when user clicks on county
       downloadLayers[checkBoxName].addListener('click', function(event) {
@@ -212,7 +224,7 @@ function initMap() {
       });
 
       // set layer to map
-      downloadLayers[checkBoxName].setMap(map)
+      downloadLayers[checkBoxName].setMap(map);
     }
     // if checkbox is not checked, clear data
     else {
@@ -227,6 +239,18 @@ function initMap() {
 
   // define object for holding refLayers
   var refLayers = {};
+
+  // define object for holding refLayers styles
+  var refLayersStyles = {};
+
+  // populate styles
+  refLayersStyles['mgmtZonesRefLayer'] = {
+    fillColor: '#d95f02',
+    strokeColor: '#d95f02',
+    strokeWeight: 2
+  }
+
+
 
   // listen for clicks on refLayers
   $('.refLayers').click(function () {
@@ -248,13 +272,13 @@ function initMap() {
 
       // set style
       refLayers[checkBoxName].setStyle( {
-          fillColor: 'blue',
-          strokeColor: 'blue',
-          strokeWeight: 2
-        })
+        fillColor: refLayersStyles[checkBoxName].fillColor,
+        strokeColor: refLayersStyles[checkBoxName].strokeColor,
+        strokeWeight: refLayersStyles[checkBoxName].strokeWeight
+      });
 
-        // set layer to map
-        refLayers[checkBoxName].setMap(map)
+      // set layer to map
+      refLayers[checkBoxName].setMap(map);
     }
     // if checkbox is not checked, clear data
     else {
