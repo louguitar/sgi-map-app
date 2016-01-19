@@ -244,11 +244,19 @@ function initMap() {
   var refLayersStyles = {};
 
   // populate styles
+  // mgmtZonesRefLayer
   refLayersStyles['mgmtZonesRefLayer'] = {
     fillColor: '#d95f02',
     strokeColor: '#d95f02',
     strokeWeight: 2
   };
+
+  // pacRefLayer
+  refLayersStyles['pacRefLayer'] = {
+    fillColor: '#7570b3',
+    strokeColor: '#7570b3',
+    strokeWeight: 2
+  }
 
   // define infoWindow for clicks
   var infoWindowRef = new google.maps.InfoWindow;
