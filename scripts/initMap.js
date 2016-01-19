@@ -248,6 +248,22 @@ function initMap() {
     fillColor: '#d95f02',
     strokeColor: '#d95f02',
     strokeWeight: 2
+  };
+
+  // define infoWindow for clicks
+  var infoWindowRef = new google.maps.InfoWindow;
+
+  // define object for holding refLayers click listeners
+  var refLayersClick = {};
+
+  // populate click listeners
+  refLayersClick['mgmtZonesRefLayer'] = function(event) {
+    var contentString = 'Management zone ' +
+      event.feature.getProperty('zone') + '<br/>' +
+      event.feature.getProperty('name');
+		infoWindowRef.setContent(contentString);
+    infoWindowRef.setPosition(event.latLng);
+    infoWindowRef.open(map);
   }
 
 
@@ -271,22 +287,25 @@ function initMap() {
           });
 
       // set style
-      refLayers[checkBoxName].setStyle( {
-        fillColor: refLayersStyles[checkBoxName].fillColor,
-        strokeColor: refLayersStyles[checkBoxName].strokeColor,
-        strokeWeight: refLayersStyles[checkBoxName].strokeWeight
-      });
+      refLayers[checkBoxName].setStyle(refLayersStyles[checkBoxName]);
 
       // set layer to map
       refLayers[checkBoxName].setMap(map);
+
+      // listen for clicks
+      refLayers[checkBoxName].addListener('click',
+        refLayersClick[checkBoxName]);
     }
     // if checkbox is not checked, clear data
     else {
       // iterate over each feature and remove
       refLayers[checkBoxName].forEach(function(feature) {
-      refLayers[checkBoxName].remove(feature);
-     });
-    }
+        refLayers[checkBoxName].remove(feature);
+      });
+
+    // close infoWindows
+    infoWindowRef.close();
+   };
   });
 
-}
+};
