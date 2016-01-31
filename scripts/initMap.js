@@ -63,7 +63,7 @@ function initMap() {
   dataTiles['coniferTiles'] = {
     // function that returns url of tile location
     function: function(x,y,z) {
-            return "http://sgitiles.allredbw.com/conifer/{z}/{x}/{y}.png".replace('{z}',z).replace('{x}',x).replace('{y}',y); },
+            return "http://tiles.allredsgi.org/conifer/{z}/{x}/{y}.png".replace('{z}',z).replace('{x}',x).replace('{y}',y); },
     // map bounds of data
     mapBounds: new google.maps.LatLngBounds(
       new google.maps.LatLng(36.889596, -121.724515),
