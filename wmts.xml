@@ -24,7 +24,7 @@
     <ows:Operation name="GetTile">
       <ows:DCP>
         <ows:HTTP>
-          <ows:Get xlink:href="http://sgitiles.allredbw.com/">
+          <ows:Get xlink:href="http://tiles.allredsgi.org/">
             <ows:Constraint name="GetEncoding">
               <ows:AllowedValues>
                 <ows:Value>RESTful</ows:Value>
@@ -37,11 +37,11 @@
   </ows:OperationsMetadata>
   <Contents>
       <Layer>
-      <ows:Title>conifers</ows:Title>
-      <ows:Identifier>conifer</ows:Identifier>
+      <ows:Title>Ecosystem RR Class</ows:Title>
+      <ows:Identifier>rrClass</ows:Identifier>
       <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
-        <ows:LowerCorner>-121.724515 36.889596</ows:LowerCorner>
-        <ows:UpperCorner>-105.554831 46.887497</ows:UpperCorner>
+        <ows:LowerCorner>-123.462836 36.491475</ows:LowerCorner>
+        <ows:UpperCorner>-109.089701 48.963203</ows:UpperCorner>
       </ows:WGS84BoundingBox>
       <Style isDefault="true">
         <ows:Identifier>default</ows:Identifier>
@@ -50,7 +50,23 @@
       <TileMatrixSetLink>
         <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
       </TileMatrixSetLink>
-      <ResourceURL format="image/png" resourceType="tile" template="http://sgitiles.allredbw.com/conifer/{TileMatrix}/{TileCol}/{TileRow}.png"/>
+      <ResourceURL format="image/png" resourceType="tile" template="http://tiles.allredsgi.org/rrClass/{TileMatrix}/{TileCol}/{TileRow}.png"/>
+    </Layer>
+      <Layer>
+      <ows:Title>Tree Canopy Cover</ows:Title>
+      <ows:Identifier>treeCanopyCover</ows:Identifier>
+      <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
+        <ows:LowerCorner>-121.725 36.8896</ows:LowerCorner>
+        <ows:UpperCorner>-105.555 46.8875</ows:UpperCorner>
+      </ows:WGS84BoundingBox>
+      <Style isDefault="true">
+        <ows:Identifier>default</ows:Identifier>
+      </Style>
+      <Format>image/png</Format>
+      <TileMatrixSetLink>
+        <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
+      </TileMatrixSetLink>
+      <ResourceURL format="image/png" resourceType="tile" template="http://tiles.allredsgi.org/conifer/{TileMatrix}/{TileCol}/{TileRow}.png"/>
     </Layer>
     <TileMatrixSet>
       <ows:Title>GoogleMapsCompatible</ows:Title>
