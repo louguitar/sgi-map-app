@@ -1,5 +1,8 @@
 function initMap() {
 
+  // define global maxZoom; maxZoom when no layer is displayed
+  var globalMaxZoom = 20
+
   // base google maps api options
   var opts = {
     streetViewControl: false,
@@ -7,7 +10,7 @@ function initMap() {
     center: new google.maps.LatLng(42, -113),
     zoom: 6,
     minZoom: 4,
-    maxZoom: 17
+    maxZoom: globalMaxZoom
   };
 
   // initialize map
@@ -112,6 +115,9 @@ function initMap() {
       maxZoom: dataTiles[landingTiles].mapMaxZoom,
     });
 
+    // set maxZoom
+    map.setOptions({maxZoom: dataTiles[landingTiles].mapMaxZoom});
+
     // push imageMapType
     map.overlayMapTypes.push(imageMapType);
   }
@@ -121,6 +127,9 @@ function initMap() {
 
     // clear overlay
     map.overlayMapTypes.clear();
+
+    // set maxZoom to globalMaxZoom
+    map.setOptions({maxZoom: globalMaxZoom});
   };
 
 
@@ -155,6 +164,9 @@ function initMap() {
         maxZoom: dataTiles[checkBoxName].mapMaxZoom,
       });
 
+      // set maxZoom
+      map.setOptions({maxZoom: dataTiles[checkBoxName].mapMaxZoom});
+
       // push imageMapType
       map.overlayMapTypes.push(imageMapType);
     }
@@ -164,6 +176,9 @@ function initMap() {
 
       // clear overlay
       map.overlayMapTypes.clear();
+
+      // set maxZoom to globalMaxZoom
+      map.setOptions({maxZoom: globalMaxZoom});
 
       // uncheck data box
       document.getElementsByName(checkBoxDownload)[0].checked = false;
@@ -228,6 +243,9 @@ function initMap() {
           minZoom: dataTiles[checkBoxTiles].mapMinZoom,
           maxZoom: dataTiles[checkBoxTiles].mapMaxZoom,
         });
+
+        // set maxZoom
+        map.setOptions({maxZoom: dataTiles[checkBoxTiles].mapMaxZoom});
 
         // push imageMapType
         map.overlayMapTypes.push(imageMapType);
