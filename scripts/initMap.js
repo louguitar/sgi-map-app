@@ -183,10 +183,13 @@ function initMap() {
       // uncheck data box
       document.getElementsByName(checkBoxDownload)[0].checked = false;
 
-      // iterate over each feature and remove
-      downloadLayers[checkBoxDownload].forEach(function(feature) {
-      downloadLayers[checkBoxDownload].remove(feature);
-     });
+      // if downloadLayers is not undefined, iterate over each feature and
+      // remove
+      if (typeof downloadLayers[checkBoxDownload] != 'undefined') {
+        downloadLayers[checkBoxDownload].forEach(function(feature) {
+        downloadLayers[checkBoxDownload].remove(feature);
+       });
+      }
     }
   });
 
