@@ -62,7 +62,7 @@ function initMap() {
   // create empty object to hold tile information
   var dataTiles = {};
 
-  // fill with conifer data information
+  // conifer data information
   dataTiles['coniferTiles'] = {
 
     // map bounds of data
@@ -77,6 +77,22 @@ function initMap() {
     // url of tiles
     url: "http://tiles.allredsgi.org/conifer/"
   };
+
+  // rrClass information
+  dataTiles['rrClass'] = {
+
+    // map bounds of data
+    mapBounds: new google.maps.LatLngBounds(
+      new google.maps.LatLng(36.491475, -123.462836),
+      new google.maps.LatLng(48.963203, -109.089701)),
+
+    // min and max zoom of data
+    mapMinZoom: 4,
+    mapMaxZoom: 13,
+
+    // url of tiles
+    url: "http://tiles.allredsgi.org/rrClass/"
+  }
 
 
 
