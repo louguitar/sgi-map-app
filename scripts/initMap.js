@@ -15,36 +15,47 @@ function initMap() {
 
   // set ROADMAP styles
   map.set('styles', [
-    {
-      "featureType": "landscape.natural.landcover",
-      "stylers": [
-        { "visibility": "off" }
-      ]
-    },{
-      "featureType": "landscape.natural.terrain",
-      "stylers": [
-        { "visibility": "off" }
-      ]
-    },{
-      "featureType": "poi.park",
-      "stylers": [
-        { "visibility": "off" }
-      ]
-    },{
-      "featureType": "water",
-      "elementType": "geometry.fill",
-      "stylers": [
-        { "color": "#B3E2FF" }
-      ]
-    },{
-      "featureType": "landscape.natural",
-      "elementType": "geometry.fill",
-      "stylers": [
-        { "color": "#fffefe" }
-      ]
-    },{
-    }
-  ]);
+  {
+    "featureType": "landscape",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#fffefe" }
+    ]
+  },{
+    "featureType": "poi.park",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "administrative",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "poi",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "color": "#46bcec" }
+    ]
+  },{
+    "featureType": "road.highway",
+    "stylers": [
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "road",
+    "stylers": [
+      { "saturation": -25 }
+    ]
+  }
+]);
 
   // set ROADMAP as the default basemap
   map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
