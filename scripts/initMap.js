@@ -7,7 +7,7 @@ function initMap() {
   var opts = {
     streetViewControl: false,
     tilt: 0,
-    center: new google.maps.LatLng(42, -113),
+    center: new google.maps.LatLng(42, -112),
     zoom: 6,
     minZoom: 4,
     maxZoom: globalMaxZoom
@@ -104,14 +104,13 @@ function initMap() {
 
 
 
-  // define landing layers, layers that will be loaded upon landing
-  var landing = 'conifer';
-  var landingTiles = landing + 'Tiles';
+  // which checkbox is checked upon landing
+  var checkedBoxLanding = $('input:checkbox:checked').map(function() {
+    return this.name;
+  }).get();
 
-  // load landing layer first
-  // if checkbox is checked, load data
-  if (document.getElementsByName(landingTiles)[0].checked) {
-
+  // if at least one dataTiles checkbox is checked, load it
+  if (checkedBoxLanding.length != 0) {
     // create ImageMapType
     var imageMapType = new google.maps.ImageMapType({
       getTileUrl: function(coord, zoom) {
@@ -123,29 +122,19 @@ function initMap() {
           proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
           proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
         );
-        if (!dataTiles[landingTiles].mapBounds.intersects(tileBounds) || zoom < dataTiles[landingTiles].mapMinZoom || zoom > dataTiles[landingTiles].mapMaxZoom) return null;
-        return dataTiles[landingTiles].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
+        if (!dataTiles[checkedBoxLanding].mapBounds.intersects(tileBounds) || zoom < dataTiles[checkedBoxLanding].mapMinZoom || zoom > dataTiles[checkedBoxLanding].mapMaxZoom) return null;
+        return dataTiles[checkedBoxLanding].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
       },
       tileSize: new google.maps.Size(256, 256),
-      minZoom: dataTiles[landingTiles].mapMinZoom,
-      maxZoom: dataTiles[landingTiles].mapMaxZoom,
+      minZoom: dataTiles[checkedBoxLanding].mapMinZoom,
+      maxZoom: dataTiles[checkedBoxLanding].mapMaxZoom,
     });
 
     // set maxZoom
-    map.setOptions({maxZoom: dataTiles[landingTiles].mapMaxZoom});
+    map.setOptions({maxZoom: dataTiles[checkedBoxLanding].mapMaxZoom});
 
     // push imageMapType
     map.overlayMapTypes.push(imageMapType);
-  }
-
-  // if checkbox is not checked, clear all overlays and data
-  else {
-
-    // clear overlay
-    map.overlayMapTypes.clear();
-
-    // set maxZoom to globalMaxZoom
-    map.setOptions({maxZoom: globalMaxZoom});
   }
 
 
