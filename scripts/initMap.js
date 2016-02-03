@@ -1,7 +1,7 @@
 function initMap() {
 
   // define global maxZoom; maxZoom when no layer is displayed
-  var globalMaxZoom = 20
+  var globalMaxZoom = 20;
 
   // base google maps api options
   var opts = {
@@ -79,7 +79,7 @@ function initMap() {
   };
 
   // rrClass information
-  dataTiles['rrClass'] = {
+  dataTiles['rrClassTiles'] = {
 
     // map bounds of data
     mapBounds: new google.maps.LatLngBounds(
@@ -92,7 +92,7 @@ function initMap() {
 
     // url of tiles
     url: "http://tiles.allredsgi.org/rrClass/"
-  }
+  };
 
 
 
@@ -146,12 +146,30 @@ function initMap() {
 
     // set maxZoom to globalMaxZoom
     map.setOptions({maxZoom: globalMaxZoom});
-  };
+  }
 
 
 
-  // listen for clicks on dataTiles layer
+    // listen for clicks on dataTiles layer
   $('.dataTiles').click(function () {
+
+    // clear overlay
+    map.overlayMapTypes.clear();
+
+    // uncheck other dataTiles boxes
+    $('.dataTiles').not(this).prop('checked', false);
+
+    // clear downloadLayers
+    for (var property in downloadLayers) {
+      if (downloadLayers.hasOwnProperty(property)) {
+        downloadLayers[property].forEach(function(feature) {
+        downloadLayers[property].remove(feature)
+      });
+      }
+    }
+
+    // uncheck data download boxes
+    $(".dataDownload").prop('checked', false);
 
     // get checkbox name
     var checkBoxName = $(this).attr('name');
@@ -187,7 +205,7 @@ function initMap() {
       map.overlayMapTypes.push(imageMapType);
     }
 
-    // if checkbox is not checked, clear all overlays and data
+    // if checkbox is unchecked, clear all overlays and data
     else {
 
       // clear overlay
@@ -196,12 +214,10 @@ function initMap() {
       // set maxZoom to globalMaxZoom
       map.setOptions({maxZoom: globalMaxZoom});
 
-      // uncheck data box
-      document.getElementsByName(checkBoxDownload)[0].checked = false;
-
       // if downloadLayers is not undefined, iterate over each feature and
       // remove
       if (typeof downloadLayers[checkBoxDownload] != 'undefined') {
+        $('.dataDownload').prop('checked', false);
         downloadLayers[checkBoxDownload].forEach(function(feature) {
         downloadLayers[checkBoxDownload].remove(feature);
        });
@@ -222,12 +238,13 @@ function initMap() {
     fillColor: '#1b9e77',
     strokeColor: '#1b9e77',
     strokeWeight: 2
-  }
+  };
 
 
 
   // listen for clicks on dataDownload layer
   $('.dataDownload').click(function () {
+
     // get checkbox name
     var checkBoxName = $(this).attr('name');
     // parse checkbox name to tiles names
@@ -241,6 +258,12 @@ function initMap() {
         // do nothing
       }
       else {
+        // uncheck other dataTiles boxes
+        $('.dataTiles').not(this).prop('checked', false);
+
+        // clear overlay
+        map.overlayMapTypes.clear();
+
         // check box
         document.getElementsByName(checkBoxTiles)[0].checked = true;
 
@@ -335,7 +358,7 @@ function initMap() {
     fillColor: '#7570b3',
     strokeColor: '#7570b3',
     strokeWeight: 2
-  }
+  };
 
   // define infoWindow for clicks
   var infoWindowRef = new google.maps.InfoWindow;
@@ -351,7 +374,7 @@ function initMap() {
 		infoWindowRef.setContent(contentString);
     infoWindowRef.setPosition(event.latLng);
     infoWindowRef.open(map);
-  }
+  };
 
 
 
@@ -392,7 +415,7 @@ function initMap() {
 
     // close infoWindows
     infoWindowRef.close();
-   };
+   }
   });
 
 };
