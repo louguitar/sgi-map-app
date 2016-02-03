@@ -1,13 +1,16 @@
 function initMap() {
 
+  // define global maxZoom; maxZoom when no layer is displayed
+  var globalMaxZoom = 20;
+
   // base google maps api options
   var opts = {
     streetViewControl: false,
     tilt: 0,
-    center: new google.maps.LatLng(42, -113),
+    center: new google.maps.LatLng(42, -112),
     zoom: 6,
     minZoom: 4,
-    maxZoom: 18
+    maxZoom: globalMaxZoom
   };
 
   // initialize map
@@ -70,18 +73,36 @@ function initMap() {
   // create empty object to hold tile information
   var dataTiles = {};
 
-  // fill with conifer data information
+  // conifer data information
   dataTiles['coniferTiles'] = {
-    // function that returns url of tile location
-    function: function(x,y,z) {
-            return "http://tiles.allredsgi.org/conifer/{z}/{x}/{y}.png".replace('{z}',z).replace('{x}',x).replace('{y}',y); },
+
     // map bounds of data
     mapBounds: new google.maps.LatLngBounds(
       new google.maps.LatLng(36.889596, -121.724515),
       new google.maps.LatLng(46.887497, -105.554831)),
+
     // min and max zoom of data
     mapMinZoom: 4,
-    mapMaxZoom: 17
+    mapMaxZoom: 17,
+
+    // url of tiles
+    url: "http://tiles.allredsgi.org/conifer/"
+  };
+
+  // rrClass information
+  dataTiles['rrClassTiles'] = {
+
+    // map bounds of data
+    mapBounds: new google.maps.LatLngBounds(
+      new google.maps.LatLng(36.491475, -123.462836),
+      new google.maps.LatLng(48.963203, -109.089701)),
+
+    // min and max zoom of data
+    mapMinZoom: 4,
+    mapMaxZoom: 13,
+
+    // url of tiles
+    url: "http://tiles.allredsgi.org/rrClass/"
   };
 
 
@@ -94,33 +115,61 @@ function initMap() {
 
 
 
-  // define landing layers, layers that will be loaded upon landing
-  var landing = 'conifer';
-  var landingTiles = landing + 'Tiles';
+  // which checkbox is checked upon landing
+  var checkedBoxLanding = $('input:checkbox:checked').map(function() {
+    return this.name;
+  }).get();
 
-  // load landing layer first
-  // if checkbox is checked, load data
-  if (document.getElementsByName(landingTiles)[0].checked) {
-    // add data overlay; use klokantech script
-    var overlay = new klokantech.MapTilerMapType(map,
-      dataTiles[landingTiles].function,
-      dataTiles[landingTiles].mapBounds,
-      dataTiles[landingTiles].mapMinZoom,
-      dataTiles[landingTiles].mapMaxZoom);
+  // if at least one dataTiles checkbox is checked, load it
+  if (checkedBoxLanding.length != 0) {
+    // create ImageMapType
+    var imageMapType = new google.maps.ImageMapType({
+      getTileUrl: function(coord, zoom) {
+        var proj = map.getProjection();
+        var z2 = Math.pow(2, zoom);
+        var tileXSize = 256 / z2;
+        var tileYSize = 256 / z2;
+        var tileBounds = new google.maps.LatLngBounds(
+          proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
+          proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
+        );
+        if (!dataTiles[checkedBoxLanding].mapBounds.intersects(tileBounds) || zoom < dataTiles[checkedBoxLanding].mapMinZoom || zoom > dataTiles[checkedBoxLanding].mapMaxZoom) return null;
+        return dataTiles[checkedBoxLanding].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
+      },
+      tileSize: new google.maps.Size(256, 256),
+      minZoom: dataTiles[checkedBoxLanding].mapMinZoom,
+      maxZoom: dataTiles[checkedBoxLanding].mapMaxZoom,
+    });
 
-    // add opacity control
-    // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
+    // set maxZoom
+    map.setOptions({maxZoom: dataTiles[checkedBoxLanding].mapMaxZoom});
+
+    // push imageMapType
+    map.overlayMapTypes.push(imageMapType);
   }
-  // if checkbox is not checked, clear all overlays and data
-  else {
+
+
+
+    // listen for clicks on dataTiles layer
+  $('.dataTiles').click(function () {
+
     // clear overlay
     map.overlayMapTypes.clear();
-  };
 
+    // uncheck other dataTiles boxes
+    $('.dataTiles').not(this).prop('checked', false);
 
+    // clear downloadLayers
+    for (var property in downloadLayers) {
+      if (downloadLayers.hasOwnProperty(property)) {
+        downloadLayers[property].forEach(function(feature) {
+        downloadLayers[property].remove(feature)
+      });
+      }
+    }
 
-  // listen for clicks on dataTiles layer
-  $('.dataTiles').click(function () {
+    // uncheck data download boxes
+    $(".dataDownload").prop('checked', false);
 
     // get checkbox name
     var checkBoxName = $(this).attr('name');
@@ -130,27 +179,45 @@ function initMap() {
     // if checkbox is checked, load data
     if ($(this).prop('checked')){
 
-      // add data overlay; use klokantech script
-      var overlay = new klokantech.MapTilerMapType(map,
-        dataTiles[checkBoxName].function,
-        dataTiles[checkBoxName].mapBounds,
-        dataTiles[checkBoxName].mapMinZoom,
-        dataTiles[checkBoxName].mapMaxZoom);
+      // create ImageMapType
+      var imageMapType = new google.maps.ImageMapType({
+        getTileUrl: function(coord, zoom) {
+          var proj = map.getProjection();
+          var z2 = Math.pow(2, zoom);
+          var tileXSize = 256 / z2;
+          var tileYSize = 256 / z2;
+          var tileBounds = new google.maps.LatLngBounds(
+            proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
+            proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
+          );
+          if (!dataTiles[checkBoxName].mapBounds.intersects(tileBounds) || zoom < dataTiles[checkBoxName].mapMinZoom || zoom > dataTiles[checkBoxName].mapMaxZoom) return null;
+          return dataTiles[checkBoxName].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
+        },
+        tileSize: new google.maps.Size(256, 256),
+        minZoom: dataTiles[checkBoxName].mapMinZoom,
+        maxZoom: dataTiles[checkBoxName].mapMaxZoom,
+      });
 
-      // add opacity control
-      // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
+      // set maxZoom
+      map.setOptions({maxZoom: dataTiles[checkBoxName].mapMaxZoom});
+
+      // push imageMapType
+      map.overlayMapTypes.push(imageMapType);
     }
-    // if checkbox is not checked, clear all overlays and data
+
+    // if checkbox is unchecked, clear all overlays and data
     else {
+
       // clear overlay
       map.overlayMapTypes.clear();
 
-      // uncheck data box
-      document.getElementsByName(checkBoxDownload)[0].checked = false;
+      // set maxZoom to globalMaxZoom
+      map.setOptions({maxZoom: globalMaxZoom});
 
       // if downloadLayers is not undefined, iterate over each feature and
       // remove
       if (typeof downloadLayers[checkBoxDownload] != 'undefined') {
+        $('.dataDownload').prop('checked', false);
         downloadLayers[checkBoxDownload].forEach(function(feature) {
         downloadLayers[checkBoxDownload].remove(feature);
        });
@@ -171,12 +238,13 @@ function initMap() {
     fillColor: '#1b9e77',
     strokeColor: '#1b9e77',
     strokeWeight: 2
-  }
+  };
 
 
 
   // listen for clicks on dataDownload layer
   $('.dataDownload').click(function () {
+
     // get checkbox name
     var checkBoxName = $(this).attr('name');
     // parse checkbox name to tiles names
@@ -190,22 +258,42 @@ function initMap() {
         // do nothing
       }
       else {
+        // uncheck other dataTiles boxes
+        $('.dataTiles').not(this).prop('checked', false);
+
+        // clear overlay
+        map.overlayMapTypes.clear();
+
         // check box
         document.getElementsByName(checkBoxTiles)[0].checked = true;
 
-        // load tiles
-        // add data overlay; use klokantech script
-        var overlay = new klokantech.MapTilerMapType(map,
-          dataTiles[checkBoxTiles].function,
-          dataTiles[checkBoxTiles].mapBounds,
-          dataTiles[checkBoxTiles].mapMinZoom,
-          dataTiles[checkBoxTiles].mapMaxZoom);
+        // create ImageMapType
+        var imageMapType = new google.maps.ImageMapType({
+          getTileUrl: function(coord, zoom) {
+            var proj = map.getProjection();
+            var z2 = Math.pow(2, zoom);
+            var tileXSize = 256 / z2;
+            var tileYSize = 256 / z2;
+            var tileBounds = new google.maps.LatLngBounds(
+              proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
+              proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
+            );
+            if (!dataTiles[checkBoxTiles].mapBounds.intersects(tileBounds) || zoom < dataTiles[checkBoxTiles].mapMinZoom || zoom > dataTiles[checkBoxTiles].mapMaxZoom) return null;
+            return dataTiles[checkBoxTiles].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
+          },
+          tileSize: new google.maps.Size(256, 256),
+          minZoom: dataTiles[checkBoxTiles].mapMinZoom,
+          maxZoom: dataTiles[checkBoxTiles].mapMaxZoom,
+        });
 
-        // add opacity control
-        // var opacitycontrol = new klokantech.OpacityControl(map, overlay);
+        // set maxZoom
+        map.setOptions({maxZoom: dataTiles[checkBoxTiles].mapMaxZoom});
+
+        // push imageMapType
+        map.overlayMapTypes.push(imageMapType);
       }
 
-      // initialize refLayers object to hold data
+      // initialize downloadLayers object to hold data
       downloadLayers[checkBoxName] = new google.maps.Data();
 
       // load topojson; use clientside topojson api to convert to geojson
@@ -270,7 +358,7 @@ function initMap() {
     fillColor: '#7570b3',
     strokeColor: '#7570b3',
     strokeWeight: 2
-  }
+  };
 
   // define infoWindow for clicks
   var infoWindowRef = new google.maps.InfoWindow;
@@ -286,7 +374,7 @@ function initMap() {
 		infoWindowRef.setContent(contentString);
     infoWindowRef.setPosition(event.latLng);
     infoWindowRef.open(map);
-  }
+  };
 
 
 
@@ -327,7 +415,7 @@ function initMap() {
 
     // close infoWindows
     infoWindowRef.close();
-   };
+   }
   });
 
 };

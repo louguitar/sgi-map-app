@@ -5,7 +5,6 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="scripts/mapTilerIndex.js"></script>
     <script src="scripts/initMap.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <style>
@@ -25,7 +24,7 @@
       #aboutBox {
       	position: absolute;
       	top: 30px;
-      	right: 300px;
+      	right: 450px;
       	font-family: 'arial', 'sans-serif';
       	font-size: 18px;
       	background-color: white;
@@ -40,6 +39,8 @@
 
     <div id="dataBox">
       <span style="font-weight: bold">Data</span><br>
+
+      <!-- conifer layer -->
       <input type="checkbox" id="00" name="coniferTiles" class="dataTiles"
         checked="checked" />
       <label for="00"> Conifer</label><br />
@@ -70,6 +71,29 @@
 
       <span style="background-color: #006d2c">&nbsp &nbsp </span>
       <span style="font-size: 18px">&nbsp > 50 </span><br>
+
+      <!-- rrClass layer -->
+      <hr>
+      <input type="checkbox" id="01" name="rrClassTiles" class="dataTiles">
+      <label for="01"> Ecosystem R &amp R</label><br />
+
+      <!-- green, red, yellow pallete -->
+      <span style="background-color: #38a809">&nbsp &nbsp </span>
+      <span style="font-size: 18px">&nbsp High </span><br>
+
+      <span style="background-color: #ffff00">&nbsp &nbsp </span>
+      <span style="font-size: 18px">&nbsp Moderate </span><br>
+
+      <span style="background-color: #e60000">&nbsp &nbsp </span>
+      <span style="font-size: 18px">&nbsp Low </span><br>
+
+      <!-- download links for rrClass layer -->
+      <span style="font-size: 15px">&nbsp &nbsp
+      <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrClass.zip">
+        Download Ecosystem R &amp R Classes raster (50 MB)</a></span><br>
+      <span style="font-size: 15px">&nbsp &nbsp
+      <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrGeodatabase.zip">
+        Download file geodatabase (400 MB)</a></span><br>
 
       <!-- reference layers -->
       <hr>
