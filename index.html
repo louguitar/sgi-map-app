@@ -7,7 +7,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="scripts/initMap.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
-    <script src="scripts/switch.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <!-- <script src="scripts/switch.js"></script> -->
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <!-- End Bootstrap -->
+    
     <link rel="stylesheet" type="text/css" href="style.css">
     
     
@@ -18,7 +27,7 @@
     <div id="map"></div>
 
     <div id="dataBox">
-      <span style="font-weight: bold">Data</span><br>
+      <a href="#" data-toggle="collapse" data-target="#conifer-collapse"><div class="tcc-header" ><span class="header-text">Tree Canopy Cover</span></div></a>
 
       <!-- conifer layer -->
       
@@ -37,19 +46,43 @@
 
 
 
-
-     
-	  <input type="checkbox" id="00" name="coniferTiles" class="dataTiles"
+	<div id="conifer-collapse" class="collapse in">
+		<div class="data-container">
+     <input type="checkbox" id="00" name="coniferTiles" class="dataTiles"
         checked="checked" />
-      <label for="00"> Conifer</label><br />
+      <label for="00" class="conifer-headline"> Conifer Coverage Areas</label><br />
+     
+     
+     
+     
+      <span style="text-decoration: underline"> Canopy cover / acre (%) </span><br>
+	  <div class="canopy-cover-graph">
+      <!-- green pallete, 6 colors -->
+      <span style="background-color: #edf8e9">&nbsp &nbsp </span>
+      <span style="font-size: 18px">&nbsp < 1 </span><br>
 
+      <span style="background-color: #c7e9c0">&nbsp &nbsp </span>
+      <span style="font-size: 18px">&nbsp 1 - 4 </span><br>
+
+      <span style="background-color: #a1d99b">&nbsp &nbsp </span>
+      <span style="font-size: 18px">&nbsp 4 - 10 </span><br>
+
+      <span style="background-color: #74c476">&nbsp &nbsp </span>
+      <span style="font-size: 18px"> &nbsp 10 - 20 </span><br>
+
+      <span style="background-color: #31a354">&nbsp &nbsp </span>
+      <span style="font-size: 18px">&nbsp 20 - 50 </span><br>
+
+      <span style="background-color: #006d2c">&nbsp &nbsp </span>
+      <span style="font-size: 18px">&nbsp > 50 </span><br>
+      </div>
 
 
       <input type="checkbox" id="20" name="coniferDownload"
         class="dataDownload" />
-      <label for="20"> Conifer download</label><br />
+      <label for="20" class="conifer-headline"> Conifer Data Download</label><br />
 
-      <span style="font-size: 15px">&nbsp &nbsp Click county to download</span><br>
+      <span class="dataBox-copy">&nbsp &nbsp Click county to download data.</span><br>
 
       <span style="text-decoration: underline"> Canopy cover / acre (%) </span><br>
 
@@ -71,13 +104,18 @@
 
       <span style="background-color: #006d2c">&nbsp &nbsp </span>
       <span style="font-size: 18px">&nbsp > 50 </span><br>
-
-      <!-- rrClass layer -->
       <hr>
+		</div>
+      </div>
+      <!-- rrClass layer -->
+     <a href="#" data-toggle="collapse" data-target="#ecosystem-collapse"><div class="eco-header" ><span class="header-text">Ecosystem</span></div></a>
+     <div id="ecosystem-collapse" class="collapse">
+	 <div class="data-container">
       <input type="checkbox" id="01" name="rrClassTiles" class="dataTiles">
-      <label for="01"> Ecosystem R &amp R</label><br />
+      <label for="01" class="ecosystem-headline"> Ecosystem R &amp R</label><br />
 
       <!-- green, red, yellow pallete -->
+      
       <span style="background-color: #38a809">&nbsp &nbsp </span>
       <span style="font-size: 18px">&nbsp High </span><br>
 
@@ -86,7 +124,7 @@
 
       <span style="background-color: #e60000">&nbsp &nbsp </span>
       <span style="font-size: 18px">&nbsp Low </span><br>
-
+      
       <!-- download links for rrClass layer -->
       <span style="font-size: 15px">&nbsp &nbsp
       <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrClass.zip">
@@ -97,27 +135,37 @@
 
       <!-- reference layers -->
       <hr>
+    </div>
+    </div>
+      <a href="#" data-toggle="collapse" data-target="#reference-collapse"><div class="ref-header" ><span class="header-text">Reference</span></div></a>
+     <div id="reference-collapse" class="collapse">
+	 <div class="data-container">
+
       <input type="checkbox" id="40" name="pacRefLayer"
         class="refLayers" />
-      <label for="40">Sage Grouse PAC</label><br />
+      <label for="40" class="reference-headline">Sage Grouse PAC</label><br />
       <span style="font-size: 15px">&nbsp &nbsp
       <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrousePAC.zip">
         Download shapefile</a></span><br>
 
       <input type="checkbox" id="41" name="mgmtZonesRefLayer"
         class="refLayers" />
-      <label for="41">Sage Grouse mgmt zones</label><br />
+      <label for="41" class="reference-headline">Sage Grouse mgmt zones</label><br />
       <span style="font-size: 15px">&nbsp &nbsp
         <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrouseMgmtZones.zip">
         Download shapefile</a></span><br>
-
+      </div>
+      </div>
+    </div>
     </div>
 
-    <div id="aboutBox">
+    <!--
+<div id="aboutBox">
       <span style="font-weight: bold">About</span><br>
       <a href="https://github.com/allredbw/sgi-map-app/wiki" target="_blank">
         Documentation</href>
     </div>
+-->
 
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?callback=initMap">
@@ -133,6 +181,8 @@
       ga('create', 'UA-72521221-1', 'auto');
       ga('send', 'pageview');
     </script>
+    
+
    
   </body>
 </html>
