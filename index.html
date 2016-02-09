@@ -7,10 +7,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="scripts/initMap.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="scripts/switch.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    
+    
   </head>
 
   <body>
+	
     <div id="map"></div>
 
     <div id="dataBox">
@@ -18,20 +22,28 @@
 
       <!-- conifer layer -->
       
-    <div class="onoffswitch">
-        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked="checked">
-        <label class="onoffswitch-label" for="myonoffswitch">
+
+
+  <!--
+<div class="onoffswitch">
+        <input type="checkbox" name="coniferTiles onoffswitch" class="dataTiles onoffswitch-checkbox" id="00" checked="checked" />
+        <label class="onoffswitch-label" for="00">
             <span class="onoffswitch-inner"></span>
             <span class="onoffswitch-switch"></span>
         </label>
     </div>
-    <label for="00"> Conifer</label><br />
+    <label for="00">Conifer</label><br /> 
+-->
 
-      <!--
-<input type="checkbox" id="00" name="coniferTiles" class="dataTiles"
+
+
+
+     
+	  <input type="checkbox" id="00" name="coniferTiles" class="dataTiles"
         checked="checked" />
       <label for="00"> Conifer</label><br />
--->
+
+
 
       <input type="checkbox" id="20" name="coniferDownload"
         class="dataDownload" />
@@ -121,6 +133,6 @@
       ga('create', 'UA-72521221-1', 'auto');
       ga('send', 'pageview');
     </script>
-
+   
   </body>
 </html>
