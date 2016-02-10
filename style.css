@@ -96,6 +96,7 @@ a:focus, a:hover {
  .data-container {
 	 padding-left: 20px;
 	 padding-right: 20px;
+	 margin-bottom: 20px;
  }
  
 .conifer-headline {
@@ -123,10 +124,11 @@ a:focus, a:hover {
 }
 
 .dataBox-copy {
-	font-size: 12px;
+	font-size: 13px;
 	padding-left: 20px;
 	position: relative;
 	top: -10px;
+	color: #666;
 }
 
 .canopy-cover-graph {
@@ -137,6 +139,36 @@ a:focus, a:hover {
 	min-width: 20px;
 	background-color: #edf8e9;
 }
+
+#ecosystem-collapse {
+	padding-bottom: 20px;	
+}
+
+#ecosystem-collapse a {
+	font-size: 15px; 
+	/* color: #a17358; */
+}
+
+#ecosystem-collapse a:hover { 
+	/* color: #666; */
+}
+
+#reference-collapse {
+	padding-bottom: 20px;	
+}
+
+#reference-collapse a {
+	font-size: 15px; 
+	/* color: #ea8b42; */
+	margin-left: 15px;
+	position: relative;
+	top: -10px;
+}
+
+#reference-collapse a:hover { 
+	/* color: #666; */
+}
+
 /*----------- Toggle Style -------------*/    
 /*
 .onoffswitch {
@@ -272,6 +304,7 @@ div.tog.on:hover:after{
   clear: both;
   padding: 0;
   width: 100%;
+  text-align: center;
 }
 @media (min-width: 700px) {
   .chart {
@@ -297,10 +330,16 @@ div.tog.on:hover:after{
   .chart li {
     display: inline-block;
     height: 100px;
-    margin: 0 1.8% 0 0;
+    /* margin: 0 1.8% 0 0; */
     width: 15%;
   }
-}
+  .eco li {
+	  width: 30%;
+	  display: inline-block;
+	  height: 100px;
+	  text-align: center;
+  }
+  }
 .chart .axis {
   display: none;
   top: emCalc(-45px);
@@ -344,46 +383,87 @@ div.tog.on:hover:after{
 }
 @media (min-width: 700px) {
   .chart .skill {
-    bottom: 20px;
+    bottom: 0px;
     position: absolute;
     font-size: 16px;
-    font-size: 1rem;
+    font-size: 1.3rem;
+    color: #000;
+  }
+  .green5 .skill, .green6 .skill  {
+	  color: #fff;
   }
 }
 .chart .green1 {
   background: #edf8e9;
-  border: 1px solid #4ecdc4;
+  border: 1px solid #a8a8a8;
   background-size: 100%;
 
 }
 .chart .green2 {
   background: #c7e9c0;
-  border: 1px solid #ff6b6b;
+  border: 1px solid #a8a8a8;
   background-size: 100%;
 
 }
 .chart .green4 {
   background: #74c476;
-  border: 1px solid #97f464;
+  border: 1px solid #a8a8a8;
   background-size: 100%;
 
 }
 .chart .green3 {
   background: #a1d99b;
-  border: 1px solid #ffcd92;
+  border: 1px solid #a8a8a8;
   background-size: 100%;
   }
   
 .chart .green5 {
   background: #31a354;
-  border: 1px solid #ab64f4;
+  border: 1px solid #a8a8a8;
   background-size: 100%;
 
 }
 
 .chart .green6 {
   background: #006d2c;
-  border: 1px solid #ab64f4;
+  border: 1px solid #a8a8a8;
   background-size: 100%;
 
-}/*-------- END Conifer Graph --------*/
+}
+
+.chart .red1 {
+	background: #E60000;
+	border: 1px solid #a8a8a8;
+	background-size: 100%;
+}
+
+.chart .yellow1 {
+	background: #FFFF00;
+	border: 1px solid #a8a8a8;
+	background-size: 100%;
+}
+
+.chart .green7 {
+	background: #38A809;
+	border: 1px solid #a8a8a8;
+	background-size: 100%;
+}
+.green7 .skill, .red1 .skill  {
+	  color: #fff;
+  }
+
+
+
+.chart.eco {
+	margin-bottom: -30px;
+}
+
+.graph-text {
+	text-align: center;
+	font-size: 13px;
+	
+}
+
+
+
+/*-------- END Conifer Graph --------*/

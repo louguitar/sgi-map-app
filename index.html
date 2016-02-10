@@ -8,7 +8,7 @@
     <script src="scripts/initMap.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <!-- <script src="scripts/switch.js"></script> -->
+     <!--<script src="scripts/switch.js"></script>-->
     
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -16,7 +16,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     
     <!-- End Bootstrap -->
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" type="text/css" href="style.css">
     
     
@@ -51,27 +52,29 @@
      <input type="checkbox" id="00" name="coniferTiles" class="dataTiles"
         checked="checked" />
       <label for="00" class="conifer-headline"> Conifer Coverage Areas</label><br />
+      <div class="dataBox-copy">&nbsp &nbsp Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in libero vehicula, molestie erat eget, ullamcorper odio.</div>
      
      
      
      
-      <span style="text-decoration: underline"> Canopy cover / acre (%) </span><br>
+      
 	  
 <ul class="chart">    
-	<li class="bar green1" style="height: 10%;" title="95"><div class="skill">< 1</div></li>    
-	<li class="bar green2" style="height: 20%;" title="90"><div class="skill">1 - 4</div></li>    
-	<li class="bar green3" style="height: 40%;" title="80"><div class="skill">4 - 10</div></li>    
-	<li class="bar green4" style="height: 50%;" title="75"><div class="skill">10 - 20</div></li>    
-	<li class="bar green5" style="height: 60%;" title="40"><div class="skill">20 - 50</div></li>
-	<li class="bar green6" style="height: 60%;" title="40"><div class="skill"> > 50</div></li>
-	
+	<li class="bar green1" style="height: 20%;" title="95"><div class="skill">< 1</div></li>    
+	<li class="bar green2" style="height: 25%;" title="90"><div class="skill">1 - 4</div></li>    
+	<li class="bar green3" style="height: 35%;" title="80"><div class="skill">4 - 10</div></li>    
+	<li class="bar green4" style="height: 45%;" title="75"><div class="skill">10 - 20</div></li>    
+	<li class="bar green5" style="height: 55%;" title="40"><div class="skill">20 - 50</div></li>
+	<li class="bar green6" style="height: 65%;" title="40"><div class="skill"> > 50</div></li>
+	<div class="graph-text">Canopy cover / acre (%)</div>
 </ul>
+
 	  
       <input type="checkbox" id="20" name="coniferDownload"
         class="dataDownload" />
       <label for="20" class="conifer-headline"> Conifer Data Download</label><br />
 
-      <span class="dataBox-copy">&nbsp &nbsp Click county to download data.</span><br>
+      <div class="dataBox-copy">&nbsp &nbsp Click county to download data.</div><br>
 
       <!--
 <span style="text-decoration: underline"> Canopy cover / acre (%) </span><br>
@@ -96,7 +99,7 @@
       <span style="background-color: #006d2c">&nbsp &nbsp </span>
       <span style="font-size: 18px">&nbsp > 50 </span><br>
 -->
-     
+     </div>
       		</div>
       
       <!-- rrClass layer -->
@@ -108,25 +111,23 @@
 
       <!-- green, red, yellow pallete -->
       
-      <span style="background-color: #38a809">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp High </span><br>
-
-      <span style="background-color: #ffff00">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp Moderate </span><br>
-
-      <span style="background-color: #e60000">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp Low </span><br>
+      
+<ul class="chart eco">    
+	<li class="bar red1" style="height: 25%;" title="95"><div class="skill">Low</div></li>    
+	<li class="bar yellow1" style="height: 40%;" title="90"><div class="skill">Moderate</div></li>    
+	<li class="bar green7" style="height: 55%;" title="80"><div class="skill">High</div></li>    
+</ul>
       
       <!-- download links for rrClass layer -->
-      <span style="font-size: 15px">&nbsp &nbsp
+      <span style="font-size: 15px; color: #a17358">&nbsp &nbsp
       <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrClass.zip">
-        Download Ecosystem R &amp R Classes raster (50 MB)</a></span><br>
+        <i class="fa fa-download"></i>&nbsp Ecosystem R &amp R Classes raster (50 MB)</a></span><br>
       <span style="font-size: 15px">&nbsp &nbsp
       <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrGeodatabase.zip">
-        Download file geodatabase (400 MB)</a></span><br>
+        <i class="fa fa-download"></i>&nbsp Geodatabase (400 MB)</a></span><br>
 
       <!-- reference layers -->
-      <hr>
+     
     </div>
     </div>
       <a href="#" data-toggle="collapse" data-target="#reference-collapse"><div class="ref-header" ><span class="header-text">Reference</span></div></a>
@@ -136,19 +137,18 @@
       <input type="checkbox" id="40" name="pacRefLayer"
         class="refLayers" />
       <label for="40" class="reference-headline">Sage Grouse PAC</label><br />
-      <span style="font-size: 15px">&nbsp &nbsp
-      <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrousePAC.zip">
-        Download shapefile</a></span><br>
+            <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrousePAC.zip">
+        <i class="fa fa-download"></i>&nbsp shapefile</a><br>
 
       <input type="checkbox" id="41" name="mgmtZonesRefLayer"
         class="refLayers" />
       <label for="41" class="reference-headline">Sage Grouse mgmt zones</label><br />
-      <span style="font-size: 15px">&nbsp &nbsp
+      
         <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrouseMgmtZones.zip">
-        Download shapefile</a></span><br>
+        <i class="fa fa-download"></i>&nbsp shapefile</a><br>
         </div>
       </div>
-      </div>
+      
     </div>
     </div>
 
