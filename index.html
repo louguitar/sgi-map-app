@@ -8,6 +8,7 @@
     <script src="scripts/initMap.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=IM+Fell+English' rel='stylesheet' type='text/css'>
      <!--<script src="scripts/switch.js"></script>-->
     
     <!-- Bootstrap -->
@@ -24,10 +25,19 @@
   </head>
 
   <body>
-	
+	<div id="header"> 
+		<a href="#"><div class="map-logo">
+		<img align="left" alt="" src="images/grouse.png">
+<div class="map-title">Sage Grouse Initiative</div><br>
+<div class="map-tagline">Wildlife Conservation Through Sustainable Ranching.</div>
+		</div></a>
+		<nav class="map-nav"><a id="toggle1" class="tree-cover-btn">Tree Cover</a> | <a id="toggle2" class="ecosystem-btn">Ecosystem</a> | <a id="toggle3" class="reference-btn">Reference</a>
+		</nav>
+	</div>
     <div id="map"></div>
 
     <div id="dataBox">
+	  <div id="tree-toggle">
       <a href="#" data-toggle="collapse" data-target="#conifer-collapse"><div class="tcc-header" ><span class="header-text">Tree Canopy Cover</span></div></a>
 
       <!-- conifer layer -->
@@ -101,8 +111,9 @@
 -->
      </div>
       		</div>
-      
+	  </div>
       <!-- rrClass layer -->
+      <div id="eco-toggle">
      <a href="#" data-toggle="collapse" data-target="#ecosystem-collapse"><div class="eco-header" ><span class="header-text">Ecosystem</span></div></a>
      <div id="ecosystem-collapse" class="collapse">
 	 <div class="data-container">
@@ -130,6 +141,8 @@
      
     </div>
     </div>
+      </div>
+      <div id="ref-toggle"
       <a href="#" data-toggle="collapse" data-target="#reference-collapse"><div class="ref-header" ><span class="header-text">Reference</span></div></a>
      <div id="reference-collapse" class="collapse">
 	 <div class="data-container">
@@ -148,7 +161,7 @@
         <i class="fa fa-download"></i>&nbsp shapefile</a><br>
         </div>
       </div>
-      
+    </div>
     </div>
     </div>
 
@@ -175,6 +188,24 @@
       ga('send', 'pageview');
     </script>
     
+    <script>
+	$(document).ready(function () {
+    $("#toggle1").click(function () {
+	    $(this).toggleClass('clicked');
+        $("#tree-toggle").toggleClass("hidden unhidden");
+    });
+    $("#toggle2").click(function () {
+	    $(this).toggleClass('clicked');
+        $("#eco-toggle").toggleClass("hidden unhidden");
+    });
+    $("#toggle3").click(function () {
+	    $(this).toggleClass('clicked');
+        $("#ref-toggle").toggleClass("hidden unhidden");
+    });
+ });
+
+
+	</script>
 
    
   </body>
