@@ -56,38 +56,29 @@
      
      
       <span style="text-decoration: underline"> Canopy cover / acre (%) </span><br>
-	  <div class="canopy-cover-graph">
-      <!-- green pallete, 6 colors -->
-      <span style="background-color: #edf8e9">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp < 1 </span><br>
-
-      <span style="background-color: #c7e9c0">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp 1 - 4 </span><br>
-
-      <span style="background-color: #a1d99b">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp 4 - 10 </span><br>
-
-      <span style="background-color: #74c476">&nbsp &nbsp </span>
-      <span style="font-size: 18px"> &nbsp 10 - 20 </span><br>
-
-      <span style="background-color: #31a354">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp 20 - 50 </span><br>
-
-      <span style="background-color: #006d2c">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp > 50 </span><br>
-      </div>
-
-
+	  
+<ul class="chart">    
+	<li class="bar green1" style="height: 10%;" title="95"><div class="skill">< 1</div></li>    
+	<li class="bar green2" style="height: 20%;" title="90"><div class="skill">1 - 4</div></li>    
+	<li class="bar green3" style="height: 40%;" title="80"><div class="skill">4 - 10</div></li>    
+	<li class="bar green4" style="height: 50%;" title="75"><div class="skill">10 - 20</div></li>    
+	<li class="bar green5" style="height: 60%;" title="40"><div class="skill">20 - 50</div></li>
+	<li class="bar green6" style="height: 60%;" title="40"><div class="skill"> > 50</div></li>
+	
+</ul>
+	  
       <input type="checkbox" id="20" name="coniferDownload"
         class="dataDownload" />
       <label for="20" class="conifer-headline"> Conifer Data Download</label><br />
 
       <span class="dataBox-copy">&nbsp &nbsp Click county to download data.</span><br>
 
-      <span style="text-decoration: underline"> Canopy cover / acre (%) </span><br>
+      <!--
+<span style="text-decoration: underline"> Canopy cover / acre (%) </span><br>
 
       <!-- green pallete, 6 colors -->
-      <span style="background-color: #edf8e9">&nbsp &nbsp </span>
+      <!--
+<span style="background-color: #edf8e9">&nbsp &nbsp </span>
       <span style="font-size: 18px">&nbsp < 1 </span><br>
 
       <span style="background-color: #c7e9c0">&nbsp &nbsp </span>
@@ -104,9 +95,10 @@
 
       <span style="background-color: #006d2c">&nbsp &nbsp </span>
       <span style="font-size: 18px">&nbsp > 50 </span><br>
-      <hr>
-		</div>
-      </div>
+-->
+     
+      		</div>
+      
       <!-- rrClass layer -->
      <a href="#" data-toggle="collapse" data-target="#ecosystem-collapse"><div class="eco-header" ><span class="header-text">Ecosystem</span></div></a>
      <div id="ecosystem-collapse" class="collapse">
@@ -154,6 +146,7 @@
       <span style="font-size: 15px">&nbsp &nbsp
         <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrouseMgmtZones.zip">
         Download shapefile</a></span><br>
+        </div>
       </div>
       </div>
     </div>
