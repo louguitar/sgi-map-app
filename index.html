@@ -9,19 +9,17 @@
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=IM+Fell+English' rel='stylesheet' type='text/css'>
-     <!--<script src="scripts/switch.js"></script>-->
     
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    
     <!-- End Bootstrap -->
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="fancybox/jquery.fancybox.css" type="text/css" media="screen" />
     <script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    
     
   </head>
 
@@ -47,23 +45,18 @@
       
 
 
-  <!--
-<div class="onoffswitch">
-        <input type="checkbox" name="coniferTiles onoffswitch" class="dataTiles onoffswitch-checkbox" id="00" checked="checked" />
-        <label class="onoffswitch-label" for="00">
-            <span class="onoffswitch-inner"></span>
-            <span class="onoffswitch-switch"></span>
-        </label>
-    </div>
-    <label for="00">Conifer</label><br /> 
--->
-
-
-
 	<div id="conifer-collapse" class="collapse in">
 		<div class="data-container">
-     <input type="checkbox" id="00" name="coniferTiles" class="dataTiles"
-        checked="checked" />
+			
+	<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
+    <input type="checkbox" id="00" name="coniferTiles" class="dataTiles" checked="checked" />
+    <span class="checkbox-switch-inner">
+      <span class="checkbox-switch-on"></span>
+      	<span class="checkbox-switch-off"></span>
+     	 <span class="checkbox-switch-handle"></span>
+	  </span>
+	</label>
+       
       <label for="00" class="conifer-headline"> Conifer Coverage Areas</label><br />
       <div class="dataBox-copy">&nbsp &nbsp Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in libero vehicula, molestie erat eget, ullamcorper odio.</div>
      
@@ -83,35 +76,22 @@
 </ul>
 
 	  
-      <input type="checkbox" id="20" name="coniferDownload"
-        class="dataDownload" />
+	  
+	  
+	  <label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
+    <input type="checkbox" id="20" name="coniferDownload" class="dataDownload" />
+    <span class="checkbox-switch-inner">
+      <span class="checkbox-switch-on"></span>
+      	<span class="checkbox-switch-off"></span>
+     	 <span class="checkbox-switch-handle"></span>
+	  </span>
+	</label>
+
+      
       <label for="20" class="conifer-headline"> Conifer Data Download</label><br />
 
       <div class="dataBox-copy">&nbsp &nbsp Click county to download data.</div><br>
-
-      <!--
-<span style="text-decoration: underline"> Canopy cover / acre (%) </span><br>
-
-      <!-- green pallete, 6 colors -->
-      <!--
-<span style="background-color: #edf8e9">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp < 1 </span><br>
-
-      <span style="background-color: #c7e9c0">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp 1 - 4 </span><br>
-
-      <span style="background-color: #a1d99b">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp 4 - 10 </span><br>
-
-      <span style="background-color: #74c476">&nbsp &nbsp </span>
-      <span style="font-size: 18px"> &nbsp 10 - 20 </span><br>
-
-      <span style="background-color: #31a354">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp 20 - 50 </span><br>
-
-      <span style="background-color: #006d2c">&nbsp &nbsp </span>
-      <span style="font-size: 18px">&nbsp > 50 </span><br>
--->
+      
      </div>
       		</div>
 	  </div>
@@ -120,8 +100,20 @@
      <a href="#" data-toggle="collapse" data-target="#ecosystem-collapse"><div class="eco-header" ><span class="header-text">Ecosystem</span></div></a>
      <div id="ecosystem-collapse" class="collapse">
 	 <div class="data-container">
-      <input type="checkbox" id="01" name="rrClassTiles" class="dataTiles">
+		 
+	<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
+    <input type="checkbox" id="01" name="rrClassTiles" class="dataTiles">
+    <span class="checkbox-switch-inner">
+      <span class="checkbox-switch-on"></span>
+      	<span class="checkbox-switch-off"></span>
+     	 <span class="checkbox-switch-handle"></span>
+	  </span>
+	</label>
+
+      
       <label for="01" class="ecosystem-headline"> Ecosystem R &amp R</label><br />
+      
+      <div class="dataBox-copy">&nbsp &nbsp Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div><br>
 
       <!-- green, red, yellow pallete -->
       
@@ -150,16 +142,35 @@
      <div id="reference-collapse" class="collapse">
 	 <div class="data-container">
 
-      <input type="checkbox" id="40" name="pacRefLayer"
-        class="refLayers" />
+
+<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
+    <input type="checkbox" id="40" name="pacRefLayer" class="refLayers" />
+    <span class="checkbox-switch-inner">
+      <span class="checkbox-switch-on"></span>
+      	<span class="checkbox-switch-off"></span>
+     	 <span class="checkbox-switch-handle"></span>
+	  </span>
+	</label>
+
+      
       <label for="40" class="reference-headline">Sage Grouse PAC</label><br />
+      <div class="dataBox-copy">&nbsp &nbsp Priority areas for conservation.</div>
             <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrousePAC.zip">
         <i class="fa fa-download"></i>&nbsp shapefile</a><br>
 
-      <input type="checkbox" id="41" name="mgmtZonesRefLayer"
-        class="refLayers" />
-      <label for="41" class="reference-headline">Sage Grouse mgmt zones</label><br />
+
+<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
+    <input type="checkbox" id="41" name="mgmtZonesRefLayer" class="refLayers" />
+    <span class="checkbox-switch-inner">
+      <span class="checkbox-switch-on"></span>
+      	<span class="checkbox-switch-off"></span>
+     	 <span class="checkbox-switch-handle"></span>
+	  </span>
+	</label>
+
       
+      <label for="41" class="reference-headline">Sage Grouse mgmt zones</label><br />
+      <div class="dataBox-copy">&nbsp &nbsp Click each managment zone  for more detials.</div>
         <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrouseMgmtZones.zip">
         <i class="fa fa-download"></i>&nbsp shapefile</a><br>
         </div>
@@ -174,11 +185,20 @@
 		<span class="icons"><a href="#"><i class="fa fa-twitter"></i></a></span>
 		</span><span class="icons"><a href="#"><i class="fa fa-rss"></i></a></span>
 		</div>
-		<div class="footer-nav"><a id="inline" href="#get-involved" class="footer-btn fancybox">Get Involved</a> | <a href="#" class="footer-btn">About the Map</a> | <a href="#" class="footer-btn">Terms of Use</a></div>
+		<div class="footer-nav"><a id="inline" href="#get-involved" class="footer-btn fancybox">Get Involved</a> | <a href="#about-map" class="footer-btn fancybox">About the Map</a> | <a href="#terms-of-use" class="footer-btn fancybox">Terms of Use</a></div>
 	</div>
 	
 	
-	<div id="get-involved" style="width: 500px; display: none;">This content is for the Get Involved section </div>
+	<div id="get-involved" style="width: 500px; display: none;">This content is for the Get Involved section. </div>
+	
+	<div id="about-map" style="width: 500px; display: none;">This content is About the Map with maybe a link to GitHub. </div>
+	
+	<div id="terms-of-use" style="width: 500px; display: none;"><h1>Terms of Use.</h1>
+	<ul>
+		<li>Don't do this.</li>
+		<li>Don't do that.</li>
+	</ul>
+	 </div>
     <!--
 <div id="aboutBox">
       <span style="font-weight: bold">About</span><br>
@@ -235,8 +255,6 @@
     });
   });
 </script>
- 
-
    
   </body>
 </html>
