@@ -14,6 +14,83 @@ a:focus, a:hover {
 	height: 62px;
 	background-image: url(images/header_bg.jpg);
 }
+
+#footer {
+    bottom: 0; /* Sit it on the bottom */
+    right: 0;
+    left: 0;
+    position: absolute;
+    width: 100%; /* As wide as it's allowed */
+    background-color: #707e86;
+    border-top: solid 2px #cccccc;
+    color: #999;
+}
+
+.footer-nav {
+	float: right;
+	padding-top: 8px;
+	position: relative;
+	right: 5%;
+}
+
+.footer-btn {
+	color: #fff;
+	padding: 0 30px;
+	-o-transition:color .2s ease-out, background .2s ease-in;
+	-ms-transition:color .2s ease-out, background .2s ease-in;
+	-moz-transition:color .2s ease-out, background .2s ease-in;
+	-webkit-transition:color .2s ease-out, background .2s ease-in;
+	/* ...and now override with proper CSS property */
+  	transition:color .2s ease-out, background .2s ease-in;
+
+}
+
+.footer-btn:hover, .footer-btn:active, footer-btn:focus {
+	color: #333;
+
+}
+
+
+.social-icons {
+	height: 40px;
+	position: relative;
+	left: 10%;
+	width: 400px;
+	float: left;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: 'Lato', serif;
+}
+
+.follow-us {
+	position: relative;
+	bottom: 3px;
+	font-size: 14px;
+}
+
+.icons {
+	font-size: 26px;
+	padding: 0 10px;
+	color: #fff;
+	
+}
+
+.icons a {
+	color: #fff;
+	-o-transition:color .2s ease-out, background .2s ease-in;
+	-ms-transition:color .2s ease-out, background .2s ease-in;
+	-moz-transition:color .2s ease-out, background .2s ease-in;
+	-webkit-transition:color .2s ease-out, background .2s ease-in;
+	/* ...and now override with proper CSS property */
+  	transition:color .2s ease-out, background .2s ease-in;
+
+}
+
+.icons a:hover, .icons a:active, icons a:focus {
+	color: #333;
+	
+}
+
 .map-logo {
 	position: relative;
 	left: 10%;
@@ -282,7 +359,13 @@ a:focus, a:hover {
 }
 
 
-
+#wrapper {
+	left: 0px;
+	top: 62px;
+	bottom: 40px;
+	right: 0;
+	position: absolute;
+    }
 
 /*----------- Toggle Style -------------*/    
 /*
