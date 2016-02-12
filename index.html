@@ -59,7 +59,7 @@
        
       <label for="00" class="conifer-headline">Tree Canopy Cover
 </label><a id="inline" href="#conifer-areas-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
-      <div class="dataBox-copy">&nbsp &nbsp Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in libero vehicula, molestie erat eget, ullamcorper odio.</div>
+      <div class="dataBox-copy">High-resolution map of tree canopy cover across sage grouse habitat.</div>
      
      
      
@@ -89,9 +89,9 @@
 	</label>
 
       
-      <label for="20" class="conifer-headline"> Tree Canopy Data Download</label><a id="inline" href="#conifer-dl-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
+      <label for="20" class="conifer-headline"> Tree Canopy Data Download</label><!-- <a id="inline" href="#conifer-dl-i" class="fancybox"><i class="fa fa-info-circle info"></i></a> --><br />
 
-      <div class="dataBox-copy">&nbsp &nbsp Click county to download data.</div><br>
+      <div class="dataBox-copy">Click county to download a raster GeoTiff of tree canopy cover.</div><br>
       
      </div>
       		</div>
@@ -114,7 +114,7 @@
       
       <label for="01" class="ecosystem-headline"> Ecosystem RESISTANCE & RESILIENCE</label><a id="inline" href="#ecosystem-rr-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
       
-      <div class="dataBox-copy">&nbsp &nbsp Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div><br>
+      <div class="dataBox-copy">Index of relative ecosystem resilience to disturbance and resistance to cheatgrass based on underlying soil temperature and moisture regimes.</div><br>
 
       <!-- green, red, yellow pallete -->
       
@@ -154,7 +154,7 @@
 	</label>
 
       
-      <label for="40" class="reference-headline">Sage Grouse PAC</label><a id="inline" href="#sagegrouse-pac-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
+      <label for="40" class="reference-headline">Sage Grouse PAC</label><!-- <a id="inline" href="#sagegrouse-pac-i" class="fancybox"><i class="fa fa-info-circle info"></i></a> --><br />
       <div class="dataBox-copy">&nbsp &nbsp Priority areas for conservation.</div>
             <a class="shapefile-dl-btn" href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrousePAC.zip">
         <i class="fa fa-download"></i>&nbsp shapefile</a><br>
@@ -170,7 +170,7 @@
 	</label>
 
       
-      <label for="41" class="reference-headline">Sage Grouse mgmt zones</label><a id="inline" href="#sagegrouse-mgmt-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
+      <label for="41" class="reference-headline">Sage Grouse mgmt zones</label><!-- <a id="inline" href="#sagegrouse-mgmt-i" class="fancybox"><i class="fa fa-info-circle info"> --></i></a><br />
       <div class="dataBox-copy">&nbsp &nbsp Click each managment zone  for more detials.</div>
         <a class="shapefile-dl-btn"href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrouseMgmtZones.zip">
         <i class="fa fa-download"></i>&nbsp shapefile</a><br>
@@ -190,9 +190,9 @@
 	</div>
 	
 	<!-- FancyBox content ---->
-	<div id="get-involved" style="width: 500px; display: none;">This content is for the Get Involved section. </div>
+	<div id="get-involved" class="popup" style="display: none;"><h2>View Data in GIS </h2>Data in the SGI web application can be easily imported and viewed in GIS software without downloading big datasets. Instructions can be found on the <a href="http://www.sagegrouseinitiative.com/sgi-map-description-and-instructions/" target="_blank">SGI Map Description page</a>.  </div>
 	
-	<div id="about-map" style="width: 500px; display: none;">This content is About the Map with maybe a link to GitHub. </div>
+	<div id="about-map" class="popup" style="display: none;"><h2>About the Map</h2>This application visualizes, distributes, and interactively analyzes spatial data produced by the NRCS funded <a href="http://www.sagegrouseinitiative.com/">Sage Grouse Initiative</a> science team. More information can be found on the <a href="http://www.sagegrouseinitiative.com/sgi-map-description-and-instructions/">SGI Map Description page</a>. </div>
 	
 	<!--
 <div id="terms-of-use" style="width: 500px; display: none;"><h1>Terms of Use.</h1>
@@ -203,15 +203,168 @@
 	 </div>
 -->
 	 
-	<div id="conifer-areas-i" style="width: 500px; display: none;">This is more detailed content on Conifer Coverage Areas. </div>
+	<div id="conifer-areas-i" class="popup" style="display: none;"><h2>Tree Canopy Cover</h2>This product provides a high-resolution estimate of tree canopy cover on a per acre basis. Thematic raster data represents tree canopy cover (% cover per acre) in the following classes:<br>
+	<ul>
+		<li>less than 1% or absent</li>
+		<li>1 - 4%</li>
+		<li>4 - 10%</li>
+		<li>10 - 20%</li>
+		<li>20 - 50%</li>
+		<li>greater than 50%</li>
+	</ul>
+	<p>Data are in 1m spatial resolution suitable for analysis in a GIS. The canopy cover product is derived from 1 meter 4-band NAIP imagery from various years (see below). A spatial wavelet analysis (SWA) algorithm was implemented in MATLAB for conifer detection. It is intended to target conifer canopy cover; however, the SWA method used detects non-conifer tree species in some situations. Therefore, users should ground truth results when making site-specific land management decisions. SWA is particularly good at detecting conifer trees in arid environments, although has known limitations. The SWA algorithm requires a minimum of 2-3 pixels in width for tree detection. Therefore, the minimum tree detection size using 1m spatial resolution NAIP imagery is 2-3m in diameter. Conifer tree detection accuracy decreases in mesic environments such as wetlands, riparian areas and mountainous zones where mixed deciduous and conifer tree diversity exists. This map provides an estimate of conifer cover on a per-acre basis based on a census of all trees, not exclusively encroaching trees.</p>
+	<table class="heavyTable">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>NAIP year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>California</td>
+          <td>2012</td>
+        </tr>
+        <tr>
+          <td>Colorado</td>
+          <td>2013</td>
+        </tr>
+        <tr>
+          <td>Idaho</td>
+          <td>2013</td>
+        </tr>
+        <tr>
+          <td>Montana</td>
+          <td>2013</td>
+        </tr>
+        <tr>
+          <td>Nevada</td>
+          <td>2013</td>
+        </tr>
+        <tr>
+          <td>Oregon</td>
+          <td>2012</td>
+        </tr>
+
+		<tr>
+          <td>Utah</td>
+          <td>2011</td>
+        </tr>
+
+
+      </tbody>
+    </table>
+<p>Falkowski et al. In Review. Mapping tree canopy cover in support of proactive prairie grouse conservation in western North America></p>
+	</div>
 	
-	<div id="conifer-dl-i" style="width: 500px; display: none;">This is more detailed content on Conifer Data Downloads. </div>
+	<div id="conifer-dl-i" class="popup" style="display: none;">This is more detailed content on Conifer Data Downloads. </div>
 	
-	<div id="ecosystem-rr-i" style="width: 500px; display: none;">This is more detailed content on Ecosystem R & R. </div>
+	<div id="ecosystem-rr-i" class="popup" style="display: none;"><h2>Ecosystem Resistance & Resilience</h2><p>This layer depicts a simplified index of relative ecosystem resilience to disturbance and resistance to cheatgrass (“R&R”), providing a tool for rapid risk assessment across sage-grouse habitats in the western range. Potential ecosystem R&R depends in part on the biophysical conditions an area is capable of supporting and soil temperature and moisture regimes can be used to depict this gradient at large scales (Chambers et al. 2014). Soils data were derived from two primary sources: 1) completed and interim soil surveys available through the Soil Survey Geographic Database (SSURGO), and 2) the State Soils Geographic Database (STATSGO2) to fill gaps where SSURGO data were not available. Using best available information and expert input, each soil temperature and moisture regime/moisture subclass was placed into one of three categories of relative R&R: high, moderate, and low (Table 1; Maestas et al. 2016). Soils with high water tables, wetlands, or frequent ponding that would not typically support sagebrush were not rated.</p>
+<p>This tool is most appropriate for regional and landscape level planning and prioritization. When combined with other data layers, such as the sage-grouse PACs and existing land cover, planners can use this tool to inform where to prioritize strategic actions before, during, and after wildfire to conserve sagebrush habitats and prevent conversion to annual grasslands. At more local scales, depicting the actual soil temperature/moisture subclasses included in the file geodatabase, rather than just the index, provides a more nuanced view of the environmental gradient. Application of this tool is just one step in the planning process and must be followed by more detailed site assessments to verify soils and incorporate additional factors, such as current vegetation condition, that heavily influence R&R.</p>
+
+<p>Table 1. Rating of relative resilience and resistance across predominant rangeland ecosystems in the western sage-grouse range. From Maestas et al. 2016.</p>
+
+
+
+<table class="heavyTable">
+      <thead>
+        <tr>
+          <th>Soil temperature and moisture regime; moisture subclass</th>
+          <th>Common name</th>
+          <th>Typical shrub type</th>
+          <th>R&R rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cryic/Xeric-Typic</td>
+          <td>Cold/moist</td>
+          <td>Mountain big sagebrush, mountain brush</td>
+          <td>High</td>
+        </tr>
+        <tr>
+          <td>Cryic/Xeric bordering on Aridic</td>
+          <td>Cold/moist bordering on dry</td>
+          <td>Mountain big sagebrush</td>
+          <td>High</td>
+        </tr>
+        <tr>
+          <td>Frigid/Xeric-Typic</td>
+          <td>Cool/moist</td>
+          <td>Mountain big sagebrush, mountain brush</td>
+          <td>High</td>
+        </tr>
+        <tr>
+          <td>Cryic/Aridic bordering on Xeric</td>
+          <td>Cold/dry bordering on moist</td>
+          <td>Mountain big sagebrush, low sagebrush</td>
+          <td>High</td>
+        </tr>
+        <tr>
+          <td>Cryic/Aridic-Typic</td>
+          <td>Cold/dry</td>
+          <td>Low sagebrush</td>
+          <td>Moderate</td>
+        </tr>
+        <tr>
+          <td>Frigid/Xeric bordering on Aridic</td>
+          <td>Cool/moist bordering on dry</td>
+          <td>Mountain big sagebrush</td>
+          <td>Moderate</td>
+        </tr>
+
+		<tr>
+          <td>Frigid/Aridic-Typic</td>
+          <td>Cool/dry</td>
+          <td>Mountain/Wyoming big sagebrush, low sagebrush</td>
+          <td>Moderate</td>
+        </tr>
+
+		<tr>
+          <td>Frigid/Aridic bordering on Xeric</td>
+          <td>Cool/dry bordering on moist</td>
+          <td>Mountain/Wyoming big sagebrush, low sagebrush</td>
+          <td>Moderate</td>
+        </tr>
+		<tr>
+          <td>Mesic/Xeric-Typic</td>
+          <td>Warm/moist</td>
+          <td>Wyoming big sagebrush, basin big sagebrush</td>
+          <td>Moderate</td>
+        </tr>
+		<tr>
+          <td>Mesic/Xeric bordering on Aridic</td>
+          <td>Warm/moist bordering on dry</td>
+          <td>Wyoming big sagebrush, black sagebrush</td>
+          <td>Low</td>
+        </tr>
+		<tr>
+          <td>Mesic/Aridic bordering on Xeric</td>
+          <td>Warm/dry bordering on moist</td>
+          <td>Wyoming big sagebrush, basin big sagebrush</td>
+          <td>Low</td>
+        </tr>
+		<tr>
+          <td>Mesic/Aridic-Typic</td>
+          <td>Warm/dry</td>
+          <td>Salt desert shrub</td>
+          <td>Low</td>
+        </tr>
 	
-	<div id="sagegrouse-pac-i" style="width: 500px; display: none;">This is more detailed content on Sage Grouse PAC. </div>
+
+      </tbody>
+    </table>
+    <p>Maestas et al. 2016. Tapping Soil Survey Information for Rapid Assessment of Sagebrush Ecosystem Resilience and Resistance. Rangelands.</p>
+
+<p>Chambers et al. 2014. Using resistance and resilience concepts to reduce impacts of annual grasses and altered fire regimes on the sagebrush ecosystem and sage-grouse– A strategic multi-scale approach. Fort Collins, CO, USA: U.S. Department of Agriculture, Forest Service, RMRS-GTR-326. <a href="http://www.fs.fed.us/rm/pubs/rmrs_gtr326.html" target="_blank">http://www.fs.fed.us/rm/pubs/rmrs_gtr326.html</a></p>
+
+<p>Maestas, J. D., and S. B. Campbell. 2014. Mapping Potential Ecosystem Resilience and Resistance across Sage-Grouse Range using Soil Temperature and Moisture Regimes. Fact Sheet. Sage Grouse Initiative. <a href="http://www.sagegrouseinitiative.com/wp-content/uploads/2013/07/Soil-Temp-Moist-Data-Fact-Sheet-HIGH-RES-012215.pdf">http://www.sagegrouseinitiative.com/wp-content/uploads/2013/07/Soil-Temp-Moist-Data-Fact-Sheet-HIGH-RES-012215.pdf</a></p>
+
+ </div>
 	
-	<div id="sagegrouse-mgmt-i" style="width: 500px; display: none;">This is more detailed content on Sage Grouse MGMT ZONES. </div>
+	<div id="sagegrouse-pac-i" class="popup" style="display: none;">This is more detailed content on Sage Grouse PAC. </div>
+	
+	<div id="sagegrouse-mgmt-i" class="popup" style="display: none;">This is more detailed content on Sage Grouse MGMT ZONES. </div>
 	 
 	 <!--END FancyBox content ---->
     <!--
@@ -270,6 +423,8 @@
     });
   });
 </script>
+
+
    
   </body>
 </html>
