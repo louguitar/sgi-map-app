@@ -237,6 +237,7 @@ a:focus, a:hover {
     font-weight: 500;
     letter-spacing: -0.025rem;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .ecosystem-headline {
@@ -245,6 +246,7 @@ a:focus, a:hover {
     font-weight: 500;
     letter-spacing: -0.025rem;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .reference-headline {
@@ -253,6 +255,7 @@ a:focus, a:hover {
     font-weight: 500;
     letter-spacing: -0.025rem;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .dataBox-copy {
@@ -272,9 +275,11 @@ a:focus, a:hover {
 	background-color: #edf8e9;
 }
 
+/*
 #ecosystem-collapse {
 	padding-bottom: 20px;	
 }
+*/
 
 #ecosystem-collapse a {
 	font-size: 15px; 
@@ -285,16 +290,18 @@ a:focus, a:hover {
 	/* color: #666; */
 }
 
+/*
 #reference-collapse {
 	padding-bottom: 20px;	
 }
+*/
 
 #reference-collapse a {
 	font-size: 15px; 
 	/* color: #ea8b42; */
 	margin-left: 35px;
 	position: relative;
-	top: -10px;
+	
 }
 
 #reference-collapse a:hover { 
@@ -372,8 +379,22 @@ a:focus, a:hover {
 	 position: relative;
 	 top: 5px;
 	 cursor: pointer;
+	 font-size: 18px;
  }  
+ 
+.shapefile-dl-btn {
+	position: relative;
+	top: -10px;
+}
 
+.panel-group .panel + .panel {
+	margin-top: 0px;
+}
+
+.panel {
+	border: none;
+	box-shadow: none;
+}
 /* === Start Toggle Switches ===  */
 div.tog {
 	background: #cccccc none repeat scroll 0 0;
