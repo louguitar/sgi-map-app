@@ -55,8 +55,10 @@ a:focus, a:hover {
 	height: 40px;
 	position: relative;
 	left: 10%;
-	width: 300px;
+	/*
+width: 300px;
 	max-width: 300px;
+*/
 	float: left;
 	color: #fff;
 	text-transform: uppercase;
@@ -729,6 +731,18 @@ div.tog.on:hover:after{
 	.map-nav {
 		right: 1%;
 	}
+	
+	.tree-cover-btn {
+		padding:0 10px;
+	}
+	
+	.ecosystem-btn {
+		padding:0 10px;
+	}
+	
+	.reference-btn {
+		padding:0 10px;
+	}
 }
 
 @media all and (max-width: 800px) {
@@ -759,24 +773,107 @@ div.tog.on:hover:after{
 		padding: 0 10px;
 	}
 	
+	
+	#dataBox {
+		width: 370px;
+	}
+	
+	.map-tagline {
+		display: none;
+	}
+	
+	
+	.map-logo {
+		float: none;
+		
+	}
+	.map-nav {
+		float: none;
+		top: -10px;
+		left: 1%;
+	}
+	.grouse {
+		width: 35px;
+	}
+	
 }
 
 @media all and (max-width: 725px) {
-	.map-title {
-		font-size: 1.0em;
-	}
-	.map-tagline {
-		font-size: .53em;
-	}
 	
-	.map-logo {
-		width: 300px;
-	}
 	
-	.dataBox {
-		width: 33%;
-	}
-	
-}
+    #dataBox {
+	    width: 300px;
+	    font-size: 14px;
+    }
+    
+    .conifer-headline {
+	    font-size: 12px;
+    }
+    
+    .ecosystem-headline {
+	    font-size: 12px;
+    }
+	.reference-headline {
+	    font-size: 12px;
+    }
+    
+    .dataBox-copy {
+	    display: none;
+    }
+    
+    .data-container {
+	    padding-right: 10px;
+    }
+    
+    .tcc-header {
+	    height: 30px;
+	    
+    }
+    .eco-header {
+	    height: 30px;
+	    
+    }
+    .ref-header {
+	    height: 30px;
+	    
+    }
+    
+    .header-text {
+	    top: 5px;
+    }
+    
+	.icons { 
+		font-size:16px;
+    }
+    
+    .social-icons {
+	    height: 0;
+    }
+    
+    .footer-nav {
+	    bottom: 6px;
+    }
+    
+    }
+    
+    @media all and (max-width: 320px) {
+	    #dataBox {
+		    left: 10px;
+		    right: 0px;
+	    }
+	    
+	    .map-title {
+		    font-size:1.1em;
+	    }
+	    
+	    .map-nav {
+		    font-size: 12px;
+		    top: -5px;
+	    }
+	    .footer-nav {
+		    font-size: 10px;
+	    }
+	    
+    }
 /*----------- END MEDIA QUERIES -----------------*/
 
