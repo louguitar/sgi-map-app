@@ -19,7 +19,7 @@ a:focus, a:hover {
     bottom: 0; /* Sit it on the bottom */
     right: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
     width: 100%; /* As wide as it's allowed */
     background-color: #707e86;
     border-top: solid 2px #cccccc;
@@ -55,7 +55,8 @@ a:focus, a:hover {
 	height: 40px;
 	position: relative;
 	left: 10%;
-	width: 400px;
+	width: 300px;
+	max-width: 300px;
 	float: left;
 	color: #fff;
 	text-transform: uppercase;
@@ -366,7 +367,12 @@ a:focus, a:hover {
 	right: 0;
 	position: absolute;
     }
-    
+ .info {
+	 float: right;
+	 position: relative;
+	 top: 5px;
+	 cursor: pointer;
+ }  
 
 /* === Start Toggle Switches ===  */
 div.tog {
@@ -684,3 +690,72 @@ div.tog.on:hover:after{
 }
 
 /*---- END Toggle Switches ------*/
+
+
+/*----------- MEDIA QUERIES -----------------*/
+@media all and (max-width: 930px) {
+	.social-icons {
+		left: 1%;
+	}
+	
+	.footer-nav {
+		right: 1%;
+	}
+	
+	.map-logo {
+		left: 1%;
+	}
+	.map-nav {
+		right: 1%;
+	}
+}
+
+@media all and (max-width: 800px) {
+	.footer-nav {
+		font-size: 12px;
+		padding-top: 12px;
+	}
+	
+	.social-icons {
+		font-size: 12px;
+	}
+	
+	.footer-btn {
+		padding: 0 10px;
+	}
+	.follow-us {
+		display: none;
+		}
+	.tree-cover-btn {
+		padding: 0 10px;
+	}
+	
+	.ecosystem-btn {
+		padding: 0 10px;
+	}
+	
+	.reference-btn {
+		padding: 0 10px;
+	}
+	
+}
+
+@media all and (max-width: 725px) {
+	.map-title {
+		font-size: 1.0em;
+	}
+	.map-tagline {
+		font-size: .53em;
+	}
+	
+	.map-logo {
+		width: 300px;
+	}
+	
+	.dataBox {
+		width: 33%;
+	}
+	
+}
+/*----------- END MEDIA QUERIES -----------------*/
+
