@@ -7,10 +7,13 @@ function initMap() {
   var opts = {
     streetViewControl: false,
     tilt: 0,
-    center: new google.maps.LatLng(42, -112),
+    center: new google.maps.LatLng(42, -110),
     zoom: 6,
     minZoom: 4,
-    maxZoom: globalMaxZoom
+    maxZoom: globalMaxZoom,
+    zoomControlOptions: {
+        position: google.maps.ControlPosition.LEFT_TOP
+    }
   };
 
   // initialize map
