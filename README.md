@@ -8,4 +8,5 @@ A web map application for the NRCS funded [Sage Grouse Initiative](http://www.sa
 
 ### Contributors
 Brady Allred <allredbw@gmail.com>
+
 Lou Ghaddar <lou.ghaddar@partnerscreative.com>
