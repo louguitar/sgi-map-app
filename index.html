@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SGI interactive map</title>
+    <title>SGI Interactive Map</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -9,23 +9,23 @@
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=IM+Fell+English' rel='stylesheet' type='text/css'>
-    
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!-- End Bootstrap -->
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="fancybox/jquery.fancybox.css" type="text/css" media="screen" />
     <script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" type="image/ico" href="favicon.ico"/>
-    
+
   </head>
 
   <body>
-	<div id="header"> 
+	<div id="header">
 		<a href="http://www.sagegrouseinitiative.com/"><div class="map-logo">
 		<img class="grouse" align="left" alt="" src="images/grouse.png">
 <div class="map-title">Sage Grouse Initiative</div><br>
@@ -37,18 +37,18 @@
 	<div id="wrapper">
     <div id="map"></div>
 	</div>
-	
+
     <div id="dataBox" class="panel-group">
 	  <div id="tree-toggle" class="panel">
       <a data-toggle="collapse" data-parent="#dataBox" href="#conifer-collapse"><div class="tcc-header" ><span class="header-text">TREE CANOPY COVER</span></div></a>
 
       <!-- conifer layer -->
-      
+
 
 
 	<div id="conifer-collapse" class="panel-collapse collapse in">
 		<div class="data-container">
-			
+
 	<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
     <input type="checkbox" id="00" name="coniferTiles" class="dataTiles" checked="checked" />
     <span class="checkbox-switch-inner">
@@ -57,29 +57,29 @@
      	 <span class="checkbox-switch-handle"></span>
 	  </span>
 	</label>
-       
+
       <label for="00" class="conifer-headline">Tree Canopy Cover
 </label><a id="inline" href="#conifer-areas-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
       <div class="dataBox-copy">High-resolution map of tree canopy cover across sage grouse habitat.</div>
-     
-     
-     
-     
-      
-	  
-<ul class="chart">    
-	<li class="bar green1" style="height: 20%;" title="95"><div class="skill">< 1</div></li>    
-	<li class="bar green2" style="height: 25%;" title="90"><div class="skill">1 - 4</div></li>    
-	<li class="bar green3" style="height: 35%;" title="80"><div class="skill">4 - 10</div></li>    
-	<li class="bar green4" style="height: 45%;" title="75"><div class="skill">10 - 20</div></li>    
+
+
+
+
+
+
+<ul class="chart">
+	<li class="bar green1" style="height: 20%;" title="95"><div class="skill">< 1</div></li>
+	<li class="bar green2" style="height: 25%;" title="90"><div class="skill">1 - 4</div></li>
+	<li class="bar green3" style="height: 35%;" title="80"><div class="skill">4 - 10</div></li>
+	<li class="bar green4" style="height: 45%;" title="75"><div class="skill">10 - 20</div></li>
 	<li class="bar green5" style="height: 55%;" title="40"><div class="skill">20 - 50</div></li>
 	<li class="bar green6" style="height: 65%;" title="40"><div class="skill"> > 50</div></li>
 	<div class="graph-text">Canopy cover / acre (%)</div>
 </ul>
 
-	  
-	  
-	  
+
+
+
 	  <label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
     <input type="checkbox" id="20" name="coniferDownload" class="dataDownload" />
     <span class="checkbox-switch-inner">
@@ -89,11 +89,11 @@
 	  </span>
 	</label>
 
-      
+
       <label for="20" class="conifer-headline"> Tree Canopy Data Download</label><!-- <a id="inline" href="#conifer-dl-i" class="fancybox"><i class="fa fa-info-circle info"></i></a> --><br />
 
       <div class="dataBox-copy">Click on a county to download a raster GeoTiff of tree canopy cover.</div><br>
-      
+
      </div>
       		</div>
 	  </div>
@@ -102,7 +102,7 @@
      <a href="#ecosystem-collapse" data-toggle="collapse" data-parent="#dataBox"><div class="eco-header" ><span class="header-text">Ecosystem Resilience & Resistance</span></div></a>
      <div id="ecosystem-collapse" class="panel-collapse collapse">
 	 <div class="data-container">
-		 
+
 	<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
     <input type="checkbox" id="01" name="rrClassTiles" class="dataTiles">
     <span class="checkbox-switch-inner">
@@ -112,20 +112,20 @@
 	  </span>
 	</label>
 
-      
+
       <label for="01" class="ecosystem-headline"> Ecosystem Resilience & Resistance</label><a id="inline" href="#ecosystem-rr-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
-      
+
       <div class="dataBox-copy">Index of relative ecosystem resilience to disturbance and resistance to cheatgrass based on underlying soil temperature and moisture regimes.</div><br>
 
       <!-- green, red, yellow pallete -->
-      
-      
-<ul class="chart eco">    
-	<li class="bar red1" style="height: 25%;" title="95"><div class="skill">Low</div></li>    
-	<li class="bar yellow1" style="height: 40%;" title="90"><div class="skill">Moderate</div></li>    
-	<li class="bar green7" style="height: 55%;" title="80"><div class="skill">High</div></li>    
+
+
+<ul class="chart eco">
+	<li class="bar red1" style="height: 25%;" title="95"><div class="skill">Low</div></li>
+	<li class="bar yellow1" style="height: 40%;" title="90"><div class="skill">Moderate</div></li>
+	<li class="bar green7" style="height: 55%;" title="80"><div class="skill">High</div></li>
 </ul>
-      
+
       <!-- download links for rrClass layer -->
       <span style="font-size: 15px; color: #a17358">&nbsp &nbsp
       <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrClass.zip">
@@ -135,7 +135,7 @@
         <i class="fa fa-download"></i>&nbsp Geodatabase (400 MB)</a></span><br>
 
       <!-- reference layers -->
-     
+
     </div>
     </div>
       </div>
@@ -154,7 +154,7 @@
 	  </span>
 	</label>
 
-      
+
       <label for="40" class="reference-headline">Sage Grouse PAC</label><!-- <a id="inline" href="#sagegrouse-pac-i" class="fancybox"><i class="fa fa-info-circle info"></i></a> --><br />
       <div class="dataBox-copy">&nbsp &nbsp Priority Areas for Conservation (PAC) represent the most important areas needed for maintaining sage grouse representation, redundancy and resilience across the landscape.</div>
             <a class="shapefile-dl-btn" href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrousePAC.zip">
@@ -170,7 +170,7 @@
 	  </span>
 	</label>
 
-      
+
       <label for="41" class="reference-headline">Sage Grouse management zones</label><!-- <a id="inline" href="#sagegrouse-mgmt-i" class="fancybox"><i class="fa fa-info-circle info"> --></i></a><br />
       <div class="dataBox-copy">&nbsp &nbsp Broad floristic provinces encompassing sage grouse populations and habitats.</div>
         <a class="shapefile-dl-btn"href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/refLayers/sageGrouseMgmtZones.zip">
@@ -189,9 +189,9 @@
 		</div>
 		<div class="footer-nav"><a id="inline" href="http://www.sagegrouseinitiative.com/sgi-map-description-and-instructions/#ToviewinArcGIS" target="_blank" class="footer-btn">View Data in GIS</a> | <a href="http://www.sagegrouseinitiative.com/sgi-map-description-and-instructions/" target="_blank" class="footer-btn">About the Map</a> <!-- | <a href="#terms-of-use" class="footer-btn fancybox">Terms of Use</a> --></div>
 	</div>
-	
+
 	<!-- FancyBox content ---->
-	 
+
 	<div id="conifer-areas-i" class="popup" style="display: none;"><h2>Tree Canopy Cover</h2>This product provides a high-resolution estimate of tree canopy cover on a per acre basis. Thematic raster data represents tree canopy cover (% cover per acre) in the following classes:<br>
 	<ul>
 		<li>less than 1% or absent</li>
@@ -245,9 +245,9 @@
     </table>
 <p>Falkowski et al. In Review. Mapping tree canopy cover in support of proactive prairie grouse conservation in western North America></p>
 	</div>
-	
+
 	<div id="conifer-dl-i" class="popup" style="display: none;">This is more detailed content on Conifer Data Downloads. </div>
-	
+
 	<div id="ecosystem-rr-i" class="popup" style="display: none;"><h2>Ecosystem Resistance & Resilience</h2><p>This layer depicts a simplified index of relative ecosystem resilience to disturbance and resistance to cheatgrass (“R&R”), providing a tool for rapid risk assessment across sage-grouse habitats in the western range. Potential ecosystem R&R depends in part on the biophysical conditions an area is capable of supporting and soil temperature and moisture regimes can be used to depict this gradient at large scales (Chambers et al. 2014). Soils data were derived from two primary sources: 1) completed and interim soil surveys available through the Soil Survey Geographic Database (SSURGO), and 2) the State Soils Geographic Database (STATSGO2) to fill gaps where SSURGO data were not available. Using best available information and expert input, each soil temperature and moisture regime/moisture subclass was placed into one of three categories of relative R&R: high, moderate, and low (Table 1; Maestas et al. 2016). Soils with high water tables, wetlands, or frequent ponding that would not typically support sagebrush were not rated.</p>
 <p>This tool is most appropriate for regional and landscape level planning and prioritization. When combined with other data layers, such as the sage-grouse PACs and existing land cover, planners can use this tool to inform where to prioritize strategic actions before, during, and after wildfire to conserve sagebrush habitats and prevent conversion to annual grasslands. At more local scales, depicting the actual soil temperature/moisture subclasses included in the file geodatabase, rather than just the index, provides a more nuanced view of the environmental gradient. Application of this tool is just one step in the planning process and must be followed by more detailed site assessments to verify soils and incorporate additional factors, such as current vegetation condition, that heavily influence R&R.</p>
 
@@ -339,7 +339,7 @@
           <td>Salt desert shrub</td>
           <td>Low</td>
         </tr>
-	
+
 
       </tbody>
     </table>
@@ -350,11 +350,11 @@
 <p>Maestas, J. D., and S. B. Campbell. 2014. Mapping Potential Ecosystem Resilience and Resistance across Sage-Grouse Range using Soil Temperature and Moisture Regimes. Fact Sheet. Sage Grouse Initiative. <a href="http://www.sagegrouseinitiative.com/wp-content/uploads/2013/07/Soil-Temp-Moist-Data-Fact-Sheet-HIGH-RES-012215.pdf">http://www.sagegrouseinitiative.com/wp-content/uploads/2013/07/Soil-Temp-Moist-Data-Fact-Sheet-HIGH-RES-012215.pdf</a></p>
 
  </div>
-	
+
 	<div id="sagegrouse-pac-i" class="popup" style="display: none;">This is more detailed content on Sage Grouse PAC. </div>
-	
+
 	<div id="sagegrouse-mgmt-i" class="popup" style="display: none;">This is more detailed content on Sage Grouse MGMT ZONES. </div>
-	 
+
 	 <!--END FancyBox content ---->
     <!--
 <div id="aboutBox">
@@ -367,10 +367,10 @@
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?callback=initMap">
     </script>
-    
-    
 
-	
+
+
+
 
     <!-- Google analytics -->
     <script>
@@ -382,7 +382,7 @@
       ga('create', 'UA-72521221-1', 'auto');
       ga('send', 'pageview');
     </script>
-    
+
     <script>
 	$(document).ready(function () {
     $("#toggle1").click(function () {
@@ -401,7 +401,7 @@
 
 
 	</script>
-	
+
 <script type="text/javascript">
   $(document).ready(function() {
     $(".fancybox").fancybox({
@@ -414,6 +414,6 @@
 </script>
 
 
-   
+
   </body>
 </html>
