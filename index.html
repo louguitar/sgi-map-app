@@ -198,12 +198,12 @@
 	per acre) in the following classes:<br>
 
   <ul>
-		<li>less than 1% or absent</li>
-		<li>1 - 4%</li>
-		<li>4 - 10%</li>
-		<li>10 - 20%</li>
-		<li>20 - 50%</li>
-		<li>greater than 50%</li>
+		<li>1: less than 1% or absent</li>
+		<li>2: 1 - 4%</li>
+		<li>3: 4 - 10%</li>
+		<li>4: 10 - 20%</li>
+		<li>5: 20 - 50%</li>
+		<li>6: greater than 50%</li>
 	</ul>
 
   <p>Data are in 1m spatial resolution suitable for analysis in a GIS. The
@@ -221,6 +221,12 @@
   where mixed deciduous and conifer tree diversity exists. This map provides an
   estimate of conifer cover on a per-acre basis based on a census of all trees,
   not exclusively encroaching trees.</p>
+
+  <p>County level data are in WGS84 geographic coordinate system (EPSG:4326), 1
+  meter resolution.  Original analyses were performed in their respective UTM
+  zone, relative to the NAIP imagery. As counties may span multiple UTM zones,
+  data were projected to WGS84 and mosaicked at the county level. Reprojection
+  may be necessary for certain analyses.</p>
 
   <p>State level data can be downloaded from the table below or the University
   of Montana <a href="ftp://ftp.cfc.umt.edu/Special/Allred/sgi/conifer/states/"
@@ -269,7 +275,7 @@
     </table>
 
 <p>Falkowski et al. In Review. Mapping tree canopy cover in support of proactive
-prairie grouse conservation in western North America</p>
+prairie grouse conservation in western North America.</p>
 
 	</div>
 
