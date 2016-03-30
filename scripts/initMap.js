@@ -117,6 +117,25 @@ function initMap() {
     url: "http://tiles.allredsgi.org/rrClass/"
   };
 
+  // cultivation risk information
+  dataTiles['cultivationRisk'] = {
+
+    // map bounds of data
+    mapBounds: new google.maps.LatLngBounds(
+      new google.maps.LatLng(35.278552, -117.530362),
+      new google.maps.LatLng(51.474498, -95.072300)),
+
+    // min and max zoom of data
+    mapMinZoom: 4,
+    mapMaxZoom: 12,
+
+    // opacity
+    opacity: parseFloat(document.getElementById('opacitySliderCultivationRisk').value),
+
+    // url of tiles
+    url: "http://tiles.allredsgi.org/cultivationRisk/"
+  };
+
 
 
   imageMapType['coniferTiles'] = new google.maps.ImageMapType({
@@ -136,26 +155,46 @@ function initMap() {
    minZoom: dataTiles['coniferTiles'].mapMinZoom,
    maxZoom: dataTiles['coniferTiles'].mapMaxZoom,
    opacity: dataTiles['coniferTiles'].opacity
- });
+  });
 
- imageMapType['rrClassTiles'] = new google.maps.ImageMapType({
-  getTileUrl: function(coord, zoom) {
-    var proj = map.getProjection();
-    var z2 = Math.pow(2, zoom);
-    var tileXSize = 256 / z2;
-    var tileYSize = 256 / z2;
-    var tileBounds = new google.maps.LatLngBounds(
-      proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
-      proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
-    );
-    if (!dataTiles['rrClassTiles'].mapBounds.intersects(tileBounds) || zoom < dataTiles['rrClassTiles'].mapMinZoom || zoom > dataTiles['rrClassTiles'].mapMaxZoom) return null;
-    return dataTiles['rrClassTiles'].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
-  },
-  tileSize: new google.maps.Size(256, 256),
-  minZoom: dataTiles['rrClassTiles'].mapMinZoom,
-  maxZoom: dataTiles['rrClassTiles'].mapMaxZoom,
-  opacity: dataTiles['rrClassTiles'].opacity
-});
+  imageMapType['rrClassTiles'] = new google.maps.ImageMapType({
+    getTileUrl: function(coord, zoom) {
+      var proj = map.getProjection();
+      var z2 = Math.pow(2, zoom);
+      var tileXSize = 256 / z2;
+      var tileYSize = 256 / z2;
+      var tileBounds = new google.maps.LatLngBounds(
+        proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
+        proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
+      );
+      if (!dataTiles['rrClassTiles'].mapBounds.intersects(tileBounds) || zoom < dataTiles['rrClassTiles'].mapMinZoom || zoom > dataTiles['rrClassTiles'].mapMaxZoom) return null;
+      return dataTiles['rrClassTiles'].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
+    },
+    tileSize: new google.maps.Size(256, 256),
+    minZoom: dataTiles['rrClassTiles'].mapMinZoom,
+    maxZoom: dataTiles['rrClassTiles'].mapMaxZoom,
+    opacity: dataTiles['rrClassTiles'].opacity
+  });
+
+  imageMapType['cultivationRisk'] = new google.maps.ImageMapType({
+    getTileUrl: function(coord, zoom) {
+      var proj = map.getProjection();
+      var z2 = Math.pow(2, zoom);
+      var tileXSize = 256 / z2;
+      var tileYSize = 256 / z2;
+      var tileBounds = new google.maps.LatLngBounds(
+        proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
+        proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
+      );
+      if (!dataTiles['cultivationRisk'].mapBounds.intersects(tileBounds) || zoom < dataTiles['cultivationRisk'].mapMinZoom || zoom > dataTiles['cultivationRisk'].mapMaxZoom) return null;
+      return dataTiles['cultivationRisk'].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
+    },
+    tileSize: new google.maps.Size(256, 256),
+    minZoom: dataTiles['cultivationRisk'].mapMinZoom,
+    maxZoom: dataTiles['cultivationRisk'].mapMaxZoom,
+    opacity: dataTiles['cultivationRisk'].opacity
+  });
+
 
 
 
