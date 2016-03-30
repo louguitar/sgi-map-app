@@ -118,7 +118,7 @@ function initMap() {
   };
 
   // cultivation risk information
-  dataTiles['cultivationRisk'] = {
+  dataTiles['cultivationRiskTiles'] = {
 
     // map bounds of data
     mapBounds: new google.maps.LatLngBounds(
@@ -176,7 +176,7 @@ function initMap() {
     opacity: dataTiles['rrClassTiles'].opacity
   });
 
-  imageMapType['cultivationRisk'] = new google.maps.ImageMapType({
+  imageMapType['cultivationRiskTiles'] = new google.maps.ImageMapType({
     getTileUrl: function(coord, zoom) {
       var proj = map.getProjection();
       var z2 = Math.pow(2, zoom);
@@ -186,13 +186,13 @@ function initMap() {
         proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
         proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
       );
-      if (!dataTiles['cultivationRisk'].mapBounds.intersects(tileBounds) || zoom < dataTiles['cultivationRisk'].mapMinZoom || zoom > dataTiles['cultivationRisk'].mapMaxZoom) return null;
-      return dataTiles['cultivationRisk'].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
+      if (!dataTiles['cultivationRiskTiles'].mapBounds.intersects(tileBounds) || zoom < dataTiles['cultivationRiskTiles'].mapMinZoom || zoom > dataTiles['cultivationRiskTiles'].mapMaxZoom) return null;
+      return dataTiles['cultivationRiskTiles'].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
     },
     tileSize: new google.maps.Size(256, 256),
-    minZoom: dataTiles['cultivationRisk'].mapMinZoom,
-    maxZoom: dataTiles['cultivationRisk'].mapMaxZoom,
-    opacity: dataTiles['cultivationRisk'].opacity
+    minZoom: dataTiles['cultivationRiskTiles'].mapMinZoom,
+    maxZoom: dataTiles['cultivationRiskTiles'].mapMaxZoom,
+    opacity: dataTiles['cultivationRiskTiles'].opacity
   });
 
 
