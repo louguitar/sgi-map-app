@@ -991,7 +991,7 @@ input[type="range"]::-moz-range-track {
     
 }
 
-.blue_track input[type="range"]::-moz-range-progress {
+.blue-slider input[type="range"]::-moz-range-progress {
     background: linear-gradient(to right, #ccc, #337ab7 75%, #23527c);
     height: 15px;
     border-radius: 10px;
@@ -1006,7 +1006,7 @@ input[type="range"]::-ms-fill-lower {
     
 }
 
-.blue_track input[type="range"]::-ms-fill-lower {
+.blue-slider input[type="range"]::-ms-fill-lower {
     background: linear-gradient(to right, #ccc, #337ab7 75%, #23527c);
     border-radius: 10px;
     
