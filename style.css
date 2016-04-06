@@ -201,6 +201,20 @@ width: 300px;
 	/* ...and now override with proper CSS property */
   	transition:color .2s ease-out, background .2s ease-in;
  }
+
+.risk-header {
+	 width: 100%;
+	 height: 40px;
+	 color: #fff;
+	 background-color: #d44d42;
+	 border-radius: 5px 5px 0 0;
+	 -o-transition:color .2s ease-out, background .2s ease-in;
+	-ms-transition:color .2s ease-out, background .2s ease-in;
+	-moz-transition:color .2s ease-out, background .2s ease-in;
+	-webkit-transition:color .2s ease-out, background .2s ease-in;
+	/* ...and now override with proper CSS property */
+  	transition:color .2s ease-out, background .2s ease-in;
+ }
  
    .ref-header {
 	 width: 100%;
@@ -232,6 +246,10 @@ width: 300px;
  
  .eco-header:hover {
 	 background-color: #23527c;
+ }
+
+ .risk-header:hover {
+	 background-color: #D7382B;
  }
  
   .ref-header:hover {
