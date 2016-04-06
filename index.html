@@ -101,7 +101,7 @@
 
       <div class="dataBox-copy">Click on a county to download a raster GeoTiff
       of tree canopy cover. <a id="inline" href="#conifer-areas-i"
-      class="fancybox">State level data</a> are also available.</div><br>
+      class="fancybox">State level data</a> are also available.</div>
 
      </div>
       		</div>
@@ -154,6 +154,55 @@
     </div>
     </div>
       </div>
+         <!-- Risk layer -->
+      <div id="eco-toggle" class="panel">
+     <a href="#ecosystem-collapse" data-toggle="collapse" data-parent="#dataBox"><div class="eco-header" ><span class="header-text">Cultivation Risk</span></div></a>
+     <div id="ecosystem-collapse" class="panel-collapse collapse">
+	 <div class="data-container">
+
+	<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
+    <input type="checkbox" id="01" name="rrClassTiles" class="dataTiles">
+    <span class="checkbox-switch-inner">
+      <span class="checkbox-switch-on"></span>
+      	<span class="checkbox-switch-off"></span>
+     	 <span class="checkbox-switch-handle"></span>
+	  </span>
+	</label>
+
+
+      <label for="01" class="ecosystem-headline"> Ecosystem Resilience & Resistance</label><a id="inline" href="#ecosystem-rr-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
+
+      <div class="dataBox-copy blue_track">Index of relative ecosystem resilience to
+        disturbance and resistance to cheatgrass based on underlying soil
+        temperature and moisture regimes.</div>
+        <div class="blue-slider"><input type="range" id="opacitySliderRRClass" class="blue_track"
+          oninput="changeOpacity(opacitySliderRRClass.value, 'rrClassTiles')"
+          min="0" max="1" step=".01" value="1"></div>
+      <br>
+
+      <!-- green, red, yellow pallete -->
+
+
+<ul class="chart eco">
+	<li class="bar red1" style="height: 25%;" title="95"><div class="skill">Low</div></li>
+	<li class="bar yellow1" style="height: 40%;" title="90"><div class="skill">Moderate</div></li>
+	<li class="bar green7" style="height: 55%;" title="80"><div class="skill">High</div></li>
+</ul>
+
+      <!-- download links for rrClass layer -->
+      <span class="download-link" style="font-size: 15px; color: #a17358">&nbsp &nbsp
+      <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrClass.zip">
+        <i class="fa fa-download"></i>&nbsp Ecosystem R &amp R Classes raster (50 MB)</a></span><br>
+      <span class="download-link" style="font-size: 15px">&nbsp &nbsp
+      <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrGeodatabase.zip">
+        <i class="fa fa-download"></i>&nbsp Geodatabase (400 MB)</a></span><br>
+
+      
+
+    </div>
+    </div>
+      </div>
+        <!-- reference layers -->
       <div id="ref-toggle" class="panel">
       <a href="#reference-collapse" data-toggle="collapse"  data-parent="#dataBox"><div class="ref-header" ><span class="header-text">Reference Layers</span></div></a>
      <div id="reference-collapse" class="panel-collapse collapse">
