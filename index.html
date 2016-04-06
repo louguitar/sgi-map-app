@@ -19,8 +19,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="fancybox/jquery.fancybox.css" type="text/css" media="screen" />
     <script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" type="image/ico" href="favicon.ico"/>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.1.1/rangeslider.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.1.1/rangeslider.css">
 
   </head>
 
@@ -60,8 +63,8 @@
 
       <label for="00" class="conifer-headline">Tree Canopy Cover
 </label><a id="inline" href="#conifer-areas-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
-      <div class="dataBox-copy">High-resolution map of tree canopy cover across sage grouse habitat.
-        <input type="range" id="opacitySliderConifer"
+            <div class="dataBox-copy">High-resolution map of tree canopy cover across sage grouse habitat.</div>
+        <div class="green-slider"><input type="range" id="opacitySliderConifer"
           oninput="changeOpacity(opacitySliderConifer.value, 'coniferTiles')"
           min="0" max="1" step=".01" value="1">
       </div>
@@ -121,13 +124,13 @@
 
       <label for="01" class="ecosystem-headline"> Ecosystem Resilience & Resistance</label><a id="inline" href="#ecosystem-rr-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
 
-      <div class="dataBox-copy">Index of relative ecosystem resilience to
+      <div class="dataBox-copy blue_track">Index of relative ecosystem resilience to
         disturbance and resistance to cheatgrass based on underlying soil
-        temperature and moisture regimes.
-        <input type="range" id="opacitySliderRRClass"
+        temperature and moisture regimes.</div>
+        <div class="blue-slider"><input type="range" id="opacitySliderRRClass" class="blue_track"
           oninput="changeOpacity(opacitySliderRRClass.value, 'rrClassTiles')"
-          min="0" max="1" step=".01" value="1">
-      </div><br>
+          min="0" max="1" step=".01" value="1"></div>
+      <br>
 
       <!-- green, red, yellow pallete -->
 
