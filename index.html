@@ -161,7 +161,7 @@
 	 <div class="data-container">
 
 	<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
-    <input type="checkbox" id="02" name="cultivationRisk" class="dataTiles">
+    <input type="checkbox" id="02" name="cultivationRiskTiles" class="dataTiles">
     <span class="checkbox-switch-inner">
       <span class="checkbox-switch-on"></span>
       	<span class="checkbox-switch-off"></span>
@@ -170,12 +170,10 @@
 	</label>
 
 
-      <label for="01" class="ecosystem-headline"> Cultivation Risk</label><a id="inline" href="#cultivatioin-risk-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
+      <label for="02" class="risk-headline"> Cultivation Risk</label><a id="inline" href="#cultivation-risk-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
 
       <div class="dataBox-copy blue_track">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis scelerisque libero vitae consectetur. Donec commodo lorem eget elit consectetur ultricies.</div>
-        <div class="blue-slider"><input type="range" id="opacitySliderRRClass" class="blue_track"
-          oninput="changeOpacity(opacitySliderRRClass.value, 'rrClassTiles')"
-          min="0" max="1" step=".01" value="1"></div>
+        <div class="red-slider"><input type="range" id="opacitySliderCultivationRisk" oninput="changeOpacity(opacitySliderCultivationRisk.value, 'cultivationRiskTiles')" min="0" max="1" step=".01" value="1"></div>
       <br>
 
       <!-- green, red, yellow pallete -->
