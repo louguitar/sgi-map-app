@@ -176,13 +176,18 @@
         <div class="red-slider"><input type="range" id="opacitySliderCultivationRisk" oninput="changeOpacity(opacitySliderCultivationRisk.value, 'cultivationRiskTiles')" min="0" max="1" step=".01" value="1"></div>
       <br>
 
-      <!-- green, red, yellow pallete -->
+      <!-- Risk Chart -->
 
 
-<ul class="chart eco">
-	<li class="bar red1" style="height: 25%;" title="95"><div class="skill">Low</div></li>
-	<li class="bar yellow1" style="height: 40%;" title="90"><div class="skill">Moderate</div></li>
-	<li class="bar green7" style="height: 55%;" title="80"><div class="skill">High</div></li>
+<ul class="chart risk">
+	<li class="bar green1" style="height: 20%;" title="95"><div class="skill">< 1</div></li>
+	<li class="bar green2" style="height: 25%;" title="90"><div class="skill">1 - 4</div></li>
+	<li class="bar green3" style="height: 35%;" title="80"><div class="skill">4 - 10</div></li>
+	<li class="bar green4" style="height: 45%;" title="75"><div class="skill">10 - 20</div></li>
+	<li class="bar green5" style="height: 55%;" title="40"><div class="skill">20 - 50</div></li>
+	<li class="bar green6" style="height: 65%;" title="40"><div class="skill"> > 50</div></li>
+    <li class="bar green6" style="height: 75%;" title="40"><div class="skill"> > 50</div></li>
+	<div class="graph-text">Canopy cover / acre (%)</div>
 </ul>
 
       <!-- download links for rrClass layer -->
