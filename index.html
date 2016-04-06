@@ -63,8 +63,8 @@
 
       <label for="00" class="conifer-headline">Tree Canopy Cover
 </label><a id="inline" href="#conifer-areas-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
-      <div class="dataBox-copy">High-resolution map of tree canopy cover across sage grouse habitat.
-        <input type="range" id="opacitySliderConifer"
+            <div class="dataBox-copy">High-resolution map of tree canopy cover across sage grouse habitat.</div>
+        <div class="green-slider"><input type="range" id="opacitySliderConifer"
           oninput="changeOpacity(opacitySliderConifer.value, 'coniferTiles')"
           min="0" max="1" step=".01" value="1">
       </div>
@@ -126,11 +126,11 @@
 
       <div class="dataBox-copy blue_track">Index of relative ecosystem resilience to
         disturbance and resistance to cheatgrass based on underlying soil
-        temperature and moisture regimes.
-        <input type="range" id="opacitySliderRRClass" class="blue_track"
+        temperature and moisture regimes.</div>
+        <div class="blue-slider"><input type="range" id="opacitySliderRRClass" class="blue_track"
           oninput="changeOpacity(opacitySliderRRClass.value, 'rrClassTiles')"
-          min="0" max="1" step=".01" value="1">
-      </div><br>
+          min="0" max="1" step=".01" value="1"></div>
+      <br>
 
       <!-- green, red, yellow pallete -->
 
