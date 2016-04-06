@@ -737,6 +737,10 @@ div.tog.on:hover:after{
 	background: #CE691B;
 }
 
+#risk-collapse .checkbox-switch-inner > .checkbox-switch-on {
+	background: #D7382B;
+}
+
 .checkbox-switch-inner > .checkbox-switch-handle {
   background: #eee;
   width: 1em;
