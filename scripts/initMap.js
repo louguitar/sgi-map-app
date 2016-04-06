@@ -1,3 +1,6 @@
+var map;
+var imageMapType = {};
+
 function initMap() {
 
   // define global maxZoom; maxZoom when no layer is displayed
@@ -17,7 +20,7 @@ function initMap() {
   };
 
   // initialize map
-  var map = new google.maps.Map(document.getElementById('map'), opts);
+   map = new google.maps.Map(document.getElementById('map'), opts);
 
   // set ROADMAP styles
   map.set('styles', [
@@ -88,6 +91,9 @@ function initMap() {
     mapMinZoom: 4,
     mapMaxZoom: 17,
 
+    // opacity
+    opacity: parseFloat(document.getElementById('opacitySliderConifer').value),
+
     // url of tiles
     url: "http://tiles.allredsgi.org/conifer/"
   };
@@ -104,9 +110,52 @@ function initMap() {
     mapMinZoom: 4,
     mapMaxZoom: 13,
 
+    // opacity
+    opacity: parseFloat(document.getElementById('opacitySliderRRClass').value),
+
     // url of tiles
     url: "http://tiles.allredsgi.org/rrClass/"
   };
+
+
+
+  imageMapType['coniferTiles'] = new google.maps.ImageMapType({
+   getTileUrl: function(coord, zoom) {
+     var proj = map.getProjection();
+     var z2 = Math.pow(2, zoom);
+     var tileXSize = 256 / z2;
+     var tileYSize = 256 / z2;
+     var tileBounds = new google.maps.LatLngBounds(
+       proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
+       proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
+     );
+     if (!dataTiles['coniferTiles'].mapBounds.intersects(tileBounds) || zoom < dataTiles['coniferTiles'].mapMinZoom || zoom > dataTiles['coniferTiles'].mapMaxZoom) return null;
+     return dataTiles['coniferTiles'].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
+   },
+   tileSize: new google.maps.Size(256, 256),
+   minZoom: dataTiles['coniferTiles'].mapMinZoom,
+   maxZoom: dataTiles['coniferTiles'].mapMaxZoom,
+   opacity: dataTiles['coniferTiles'].opacity
+ });
+
+ imageMapType['rrClassTiles'] = new google.maps.ImageMapType({
+  getTileUrl: function(coord, zoom) {
+    var proj = map.getProjection();
+    var z2 = Math.pow(2, zoom);
+    var tileXSize = 256 / z2;
+    var tileYSize = 256 / z2;
+    var tileBounds = new google.maps.LatLngBounds(
+      proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
+      proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
+    );
+    if (!dataTiles['rrClassTiles'].mapBounds.intersects(tileBounds) || zoom < dataTiles['rrClassTiles'].mapMinZoom || zoom > dataTiles['rrClassTiles'].mapMaxZoom) return null;
+    return dataTiles['rrClassTiles'].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
+  },
+  tileSize: new google.maps.Size(256, 256),
+  minZoom: dataTiles['rrClassTiles'].mapMinZoom,
+  maxZoom: dataTiles['rrClassTiles'].mapMaxZoom,
+  opacity: dataTiles['rrClassTiles'].opacity
+});
 
 
 
@@ -125,30 +174,12 @@ function initMap() {
 
   // if at least one dataTiles checkbox is checked, load it
   if (checkedBoxLanding.length != 0) {
-    // create ImageMapType
-    var imageMapType = new google.maps.ImageMapType({
-      getTileUrl: function(coord, zoom) {
-        var proj = map.getProjection();
-        var z2 = Math.pow(2, zoom);
-        var tileXSize = 256 / z2;
-        var tileYSize = 256 / z2;
-        var tileBounds = new google.maps.LatLngBounds(
-          proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
-          proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
-        );
-        if (!dataTiles[checkedBoxLanding].mapBounds.intersects(tileBounds) || zoom < dataTiles[checkedBoxLanding].mapMinZoom || zoom > dataTiles[checkedBoxLanding].mapMaxZoom) return null;
-        return dataTiles[checkedBoxLanding].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
-      },
-      tileSize: new google.maps.Size(256, 256),
-      minZoom: dataTiles[checkedBoxLanding].mapMinZoom,
-      maxZoom: dataTiles[checkedBoxLanding].mapMaxZoom,
-    });
 
     // set maxZoom
     map.setOptions({maxZoom: dataTiles[checkedBoxLanding].mapMaxZoom});
 
     // push imageMapType
-    map.overlayMapTypes.push(imageMapType);
+    map.overlayMapTypes.push(imageMapType[checkedBoxLanding]);
   }
 
 
@@ -182,30 +213,11 @@ function initMap() {
     // if checkbox is checked, load data
     if ($(this).prop('checked')){
 
-      // create ImageMapType
-      var imageMapType = new google.maps.ImageMapType({
-        getTileUrl: function(coord, zoom) {
-          var proj = map.getProjection();
-          var z2 = Math.pow(2, zoom);
-          var tileXSize = 256 / z2;
-          var tileYSize = 256 / z2;
-          var tileBounds = new google.maps.LatLngBounds(
-            proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
-            proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
-          );
-          if (!dataTiles[checkBoxName].mapBounds.intersects(tileBounds) || zoom < dataTiles[checkBoxName].mapMinZoom || zoom > dataTiles[checkBoxName].mapMaxZoom) return null;
-          return dataTiles[checkBoxName].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
-        },
-        tileSize: new google.maps.Size(256, 256),
-        minZoom: dataTiles[checkBoxName].mapMinZoom,
-        maxZoom: dataTiles[checkBoxName].mapMaxZoom,
-      });
-
       // set maxZoom
       map.setOptions({maxZoom: dataTiles[checkBoxName].mapMaxZoom});
 
       // push imageMapType
-      map.overlayMapTypes.push(imageMapType);
+      map.overlayMapTypes.push(imageMapType[checkBoxName]);
     }
 
     // if checkbox is unchecked, clear all overlays and data
@@ -270,30 +282,11 @@ function initMap() {
         // check box
         document.getElementsByName(checkBoxTiles)[0].checked = true;
 
-        // create ImageMapType
-        var imageMapType = new google.maps.ImageMapType({
-          getTileUrl: function(coord, zoom) {
-            var proj = map.getProjection();
-            var z2 = Math.pow(2, zoom);
-            var tileXSize = 256 / z2;
-            var tileYSize = 256 / z2;
-            var tileBounds = new google.maps.LatLngBounds(
-              proj.fromPointToLatLng(new google.maps.Point(coord.x * tileXSize, (coord.y + 1) * tileYSize)),
-              proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
-            );
-            if (!dataTiles[checkBoxTiles].mapBounds.intersects(tileBounds) || zoom < dataTiles[checkBoxTiles].mapMinZoom || zoom > dataTiles[checkBoxTiles].mapMaxZoom) return null;
-            return dataTiles[checkBoxTiles].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
-          },
-          tileSize: new google.maps.Size(256, 256),
-          minZoom: dataTiles[checkBoxTiles].mapMinZoom,
-          maxZoom: dataTiles[checkBoxTiles].mapMaxZoom,
-        });
-
         // set maxZoom
         map.setOptions({maxZoom: dataTiles[checkBoxTiles].mapMaxZoom});
 
         // push imageMapType
-        map.overlayMapTypes.push(imageMapType);
+        map.overlayMapTypes.push(imageMapType[checkBoxTiles]);
       }
 
       // initialize downloadLayers object to hold data
@@ -422,3 +415,10 @@ function initMap() {
   });
 
 };
+
+
+
+// function to change opacity of ImageMapType
+function changeOpacity(o, dataTilesName) {
+      imageMapType[dataTilesName].setOpacity(parseFloat(o));
+}
