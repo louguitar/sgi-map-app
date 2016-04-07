@@ -34,7 +34,7 @@
 <div class="map-title">Sage Grouse Initiative</div><br>
 <div class="map-tagline">Wildlife Conservation Through Sustainable Ranching.</div>
 		</div></a>
-		<nav class="map-nav"><a id="toggle1" class="tree-cover-btn">Tree Cover</a> | <a id="toggle2" class="ecosystem-btn">Ecosystem R &amp R</a> | <a id="toggle3" class="reference-btn">Reference</a>
+		<nav class="map-nav"><a id="toggle1" class="tree-cover-btn">Tree Cover</a> | <a id="toggle2" class="ecosystem-btn">Ecosystem R &amp R</a> | <a id="toggle3" class="risk-btn">Cultivation Risk</a> | <a id="toggle4" class="reference-btn">Reference</a>
 		</nav>
 	</div>
 	<div id="wrapper">
@@ -178,28 +178,29 @@
 
       <!-- Risk Chart -->
 
-
 <ul class="chart risk">
-	<li class="bar green1" style="height: 20%;" title="95"><div class="skill">< 1</div></li>
-	<li class="bar green2" style="height: 25%;" title="90"><div class="skill">1 - 4</div></li>
-	<li class="bar green3" style="height: 35%;" title="80"><div class="skill">4 - 10</div></li>
-	<li class="bar green4" style="height: 45%;" title="75"><div class="skill">10 - 20</div></li>
-	<li class="bar green5" style="height: 55%;" title="40"><div class="skill">20 - 50</div></li>
-	<li class="bar green6" style="height: 65%;" title="40"><div class="skill"> > 50</div></li>
-    <li class="bar green6" style="height: 75%;" title="40"><div class="skill"> > 50</div></li>
-	<div class="graph-text">Canopy cover / acre (%)</div>
+    <li class="bar riskcolor1" style="height: 20%;" title="95"><div class="skill"><span style="color: #fff;">Low</span></div></li>
+	<li class="bar riskcolor2" style="height: 25%;" title="90"><div class="skill">&nbsp</div></li>
+	<li class="bar riskcolor3" style="height: 35%;" title="80"><div class="skill">&nbsp</div></li>
+	<li class="bar riskcolor4" style="height: 45%;" title="75"><div class="skill">Med</div></li>
+	<li class="bar riskcolor5" style="height: 55%;" title="40"><div class="skill">&nbsp</div></li>
+	<li class="bar riskcolor6" style="height: 65%;" title="40"><div class="skill">&nbsp</div></li>
+    <li class="bar riskcolor7" style="height: 75%;" title="40"><div class="skill"><span style="color: #fff;">High</span></div></li>
+	<div class="graph-text">Chart Label</div>
 </ul>
-
-      <!-- download links for rrClass layer -->
-      <span class="download-link" style="font-size: 15px; color: #a17358">&nbsp &nbsp
-      <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrClass.zip">
-        <i class="fa fa-download"></i>&nbsp Ecosystem R &amp R Classes raster (50 MB)</a></span><br>
-      <span class="download-link" style="font-size: 15px">&nbsp &nbsp
-      <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrGeodatabase.zip">
-        <i class="fa fa-download"></i>&nbsp Geodatabase (400 MB)</a></span><br>
-
+<!--
+<ul class="chart skill">
+	<li class="bar riskcolor1" style="height: 20%;" ><div class="skill"><span style="color: #fff;">Low</span></div></li>
+	<li class="bar riskcolor2" style="height: 25%;" ><div class="skill"></div></li>
+	<li class="bar riskcolor3" style="height: 35%;" ><div class="skill"></div></li>
+	<li class="bar riskcolor4" style="height: 45%;" ><div class="skill">Med</div></li>
+	<li class="bar riskcolor5" style="height: 55%;" ><div class="skill"></div></li>
+	<li class="bar riskcolor6" style="height: 65%;" ><div class="skill"></div></li>
+    <li class="bar riskcolor7" style="height: 75%;" ><div class="skill"><span style="color: #fff;">High</span></div></li>
+	<div class="graph-text">Chart Label</div>
+</ul>
+-->
       
-
     </div>
     </div>
       </div>
@@ -551,6 +552,10 @@
         $("#eco-toggle").toggleClass("hidden unhidden");
     });
     $("#toggle3").click(function () {
+	    $(this).toggleClass('clicked');
+        $("#risk-toggle").toggleClass("hidden unhidden");
+    });
+    $("#toggle4").click(function () {
 	    $(this).toggleClass('clicked');
         $("#ref-toggle").toggleClass("hidden unhidden");
     });
