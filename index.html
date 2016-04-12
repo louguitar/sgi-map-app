@@ -172,8 +172,10 @@
 
       <label for="02" class="risk-headline"> Cultivation Risk</label><a id="inline" href="#cultivation-risk-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
 
-      <div class="dataBox-copy blue_track">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis scelerisque libero vitae consectetur. Donec commodo lorem eget elit consectetur ultricies.</div>
-        <div class="red-slider"><input type="range" id="opacitySliderCultivationRisk" oninput="changeOpacity(opacitySliderCultivationRisk.value, 'cultivationRiskTiles')" min="0" max="1" step=".01" value="1"></div>
+      <div class="dataBox-copy blue_track">Suitability for cropping based on
+      climate, soils, and topography to assess potential risk of cultivation to
+      sage-grouse habitat.</div>
+      <div class="red-slider"><input type="range" id="opacitySliderCultivationRisk" oninput="changeOpacity(opacitySliderCultivationRisk.value, 'cultivationRiskTiles')" min="0" max="1" step=".01" value="1"></div>
       <br>
 
       <!-- Risk Chart -->
@@ -186,8 +188,12 @@
 	<li class="bar riskcolor5" style="height: 55%;" title="40"><div class="skill">&nbsp</div></li>
 	<li class="bar riskcolor6" style="height: 65%;" title="40"><div class="skill">&nbsp</div></li>
     <li class="bar riskcolor7" style="height: 75%;" title="40"><div class="skill"><span style="color: #fff;">High</span></div></li>
-	<div class="graph-text">Chart Label</div>
+	<div class="graph-text">Cultivation Risk</div>
 </ul>
+
+<span class="download-link" style="font-size: 15px; color: #a17358">&nbsp &nbsp
+<a id="inline" class="fancybox" href="#cultivation-risk-i">
+  <i class="fa fa-download"></i>&nbsp Download state level data</a></span><br>
 <!--
 <ul class="chart skill">
 	<li class="bar riskcolor1" style="height: 20%;" ><div class="skill"><span style="color: #fff;">Low</span></div></li>
@@ -200,7 +206,7 @@
 	<div class="graph-text">Chart Label</div>
 </ul>
 -->
-      
+
     </div>
     </div>
       </div>
@@ -512,24 +518,39 @@
 <div id="cultivation-risk-i" class="popup" style="display: none;">
 
     <h2>Cultivation Risk</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet molestie massa. Sed vel elementum ipsum, non sodales turpis. Duis porttitor mollis nunc eget sagittis. </p>
+
+    <p>This product represents the probability of cultivation relative to
+    climate (30 year normalization of mean annual precipitation, mean annual
+    temperature, number of degree days greater than five degrees C, and duration
+    of frost free period); soils (water holding capacity and other hydrological
+    characteristics); and topography (compound topographic index, neighborhood
+    roughness, slope, and surface relief). Various dataets were used, including
+    regional climate data, USDA NRCS SSURGO, and USDA NASS Cropland Data Layer
+    (CDL). Independent models were produced for each county; county level
+    predicitons were merged for state coverage.</p>
+
+    <p>Data are available by state:</p>
 
     <ul>
-  		<li>Item 1</li>
-  		<li>Item 2</li>
-  		<li>Item 3</li>
-  		<li>Item 4</li>
-  		<li>Item 5</li>
-  		<li>Item 6</li>
-        <li>Item 7</li>
+  		<li><a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/cultivationRisk/colorado.zip">Colorado</a></li>
+  		<li><a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/cultivationRisk/montana.zip">Montana</a></li>
+  		<li><a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/cultivationRisk/northDakota.zip">North Dakota</a></li>
+  		<li><a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/cultivationRisk/southDakota.zip">South Dakota</a></li>
+  		<li><a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/cultivationRisk/wyoming.zip">Wyoming</a></li>
   	</ul>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet molestie massa. Sed vel elementum ipsum, non sodales turpis. Duis porttitor mollis nunc eget sagittis. Nullam laoreet enim libero, eget auctor nisi mattis id. Vestibulum tellus risus, rhoncus eu suscipit eu, dictum non nibh. Duis varius mi tortor, non laoreet metus ornare nec. Sed dui neque, imperdiet nec lobortis a, pulvinar vel est. </p>
+    <p>Produced by Jeffrey S. Evans, The Nature Conservancy</p>
 
-    <p>Nullam interdum justo vel dictum pellentesque. In turpis ipsum, convallis non sollicitudin ac, tincidunt ut libero. Maecenas at vestibulum ipsum, sit amet bibendum arcu. Nam non turpis eu nunc imperdiet ullamcorper. Etiam laoreet diam ligula, non euismod mi convallis vitae. Suspendisse at erat at felis finibus condimentum dapibus vel nisi. Mauris non egestas nulla. Nullam sit amet dignissim ante. Aliquam urna libero, venenatis eu pharetra in, vestibulum vitae metus. Sed et tellus ipsum. Nulla fermentum arcu et aliquam efficitur. Nunc lectus tellus, aliquet ut mattis sed, consequat at quam. </p>
+    <p>Lipsey, M.K., K.E. Doherty, D.E. Naugle, S. Fields, J.S. Evans, S.K.
+    Davis and N. Koper (2015) One step ahead of the plow: Using cropland
+    conversion risk to guide grassland songbird conservation. Biological
+    Conservation. 191:739–749 <a
+    href="http://dx.doi.org/10.1016/j.biocon.2015.08.030"
+    target="_blank">http://dx.doi.org/10.1016/j.biocon.2015.08.030</a></p>
 
-    
-
+    <p>Smith, J.T., J.S. Evans, B.H. Martin, S. Baruch-Mordo, J.M. Kiesecker,
+    and D.E. Naugle. In review. Reducing cropland conversion risk to sage-grouse
+    through strategic conservation of working rangelands.</p>
 
 	</div>
 
