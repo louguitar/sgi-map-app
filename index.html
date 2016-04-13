@@ -34,7 +34,7 @@
 <div class="map-title">Sage Grouse Initiative</div><br>
 <div class="map-tagline">Wildlife Conservation Through Sustainable Ranching.</div>
 		</div></a>
-		<nav class="map-nav"><a id="toggle1" class="tree-cover-btn">Tree Cover</a> | <a id="toggle2" class="ecosystem-btn">Ecosystem R &amp R</a> | <a id="toggle3" class="reference-btn">Reference</a>
+		<nav class="map-nav"><a id="toggle1" class="tree-cover-btn">Tree Cover</a> | <a id="toggle2" class="ecosystem-btn">Ecosystem R &amp R</a> | <a id="toggle3" class="risk-btn">Cultivation Risk</a> | <a id="toggle4" class="reference-btn">Reference</a>
 		</nav>
 	</div>
 	<div id="wrapper">
@@ -101,7 +101,7 @@
 
       <div class="dataBox-copy">Click on a county to download a raster GeoTiff
       of tree canopy cover. <a id="inline" href="#conifer-areas-i"
-      class="fancybox">State level data</a> are also available.</div><br>
+      class="fancybox">State level data</a> are also available.</div>
 
      </div>
       		</div>
@@ -154,6 +154,63 @@
     </div>
     </div>
       </div>
+         <!-- Risk layer -->
+      <div id="risk-toggle" class="panel">
+     <a href="#risk-collapse" data-toggle="collapse" data-parent="#dataBox"><div class="risk-header" ><span class="header-text">Cultivation Risk</span></div></a>
+     <div id="risk-collapse" class="panel-collapse collapse">
+	 <div class="data-container">
+
+	<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
+    <input type="checkbox" id="02" name="cultivationRiskTiles" class="dataTiles">
+    <span class="checkbox-switch-inner">
+      <span class="checkbox-switch-on"></span>
+      	<span class="checkbox-switch-off"></span>
+     	 <span class="checkbox-switch-handle"></span>
+	  </span>
+	</label>
+
+
+      <label for="02" class="risk-headline"> Cultivation Risk</label><a id="inline" href="#cultivation-risk-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
+
+      <div class="dataBox-copy blue_track">Suitability for cropping based on
+      climate, soils, and topography to assess potential risk of cultivation to
+      sage-grouse habitat.</div>
+      <div class="red-slider"><input type="range" id="opacitySliderCultivationRisk" oninput="changeOpacity(opacitySliderCultivationRisk.value, 'cultivationRiskTiles')" min="0" max="1" step=".01" value="1"></div>
+      <br>
+
+      <!-- Risk Chart -->
+
+<ul class="chart risk">
+    <li class="bar riskcolor1" style="height: 20%;" title="95"><div class="skill"><span style="color: #fff;">Low</span></div></li>
+	<li class="bar riskcolor2" style="height: 25%;" title="90"><div class="skill">&nbsp</div></li>
+	<li class="bar riskcolor3" style="height: 35%;" title="80"><div class="skill">&nbsp</div></li>
+	<li class="bar riskcolor4" style="height: 45%;" title="75"><div class="skill">Med</div></li>
+	<li class="bar riskcolor5" style="height: 55%;" title="40"><div class="skill">&nbsp</div></li>
+	<li class="bar riskcolor6" style="height: 65%;" title="40"><div class="skill">&nbsp</div></li>
+    <li class="bar riskcolor7" style="height: 75%;" title="40"><div class="skill"><span style="color: #fff;">High</span></div></li>
+	<div class="graph-text">Cultivation Risk</div>
+</ul>
+
+<span class="download-link" style="font-size: 15px; color: #a17358">&nbsp &nbsp
+<a id="inline" class="fancybox" href="#cultivation-risk-i">
+  <i class="fa fa-download"></i>&nbsp Download state level data</a></span><br>
+<!--
+<ul class="chart skill">
+	<li class="bar riskcolor1" style="height: 20%;" ><div class="skill"><span style="color: #fff;">Low</span></div></li>
+	<li class="bar riskcolor2" style="height: 25%;" ><div class="skill"></div></li>
+	<li class="bar riskcolor3" style="height: 35%;" ><div class="skill"></div></li>
+	<li class="bar riskcolor4" style="height: 45%;" ><div class="skill">Med</div></li>
+	<li class="bar riskcolor5" style="height: 55%;" ><div class="skill"></div></li>
+	<li class="bar riskcolor6" style="height: 65%;" ><div class="skill"></div></li>
+    <li class="bar riskcolor7" style="height: 75%;" ><div class="skill"><span style="color: #fff;">High</span></div></li>
+	<div class="graph-text">Chart Label</div>
+</ul>
+-->
+
+    </div>
+    </div>
+      </div>
+        <!-- reference layers -->
       <div id="ref-toggle" class="panel">
       <a href="#reference-collapse" data-toggle="collapse"  data-parent="#dataBox"><div class="ref-header" ><span class="header-text">Reference Layers</span></div></a>
      <div id="reference-collapse" class="panel-collapse collapse">
@@ -458,6 +515,45 @@
 
   </div>
 
+<div id="cultivation-risk-i" class="popup" style="display: none;">
+
+    <h2>Cultivation Risk</h2>
+
+    <p>This product represents the probability of cultivation relative to
+    climate (30 year normalization of mean annual precipitation, mean annual
+    temperature, number of degree days greater than five degrees C, and duration
+    of frost free period); soils (water holding capacity and other hydrological
+    characteristics); and topography (compound topographic index, neighborhood
+    roughness, slope, and surface relief). Various dataets were used, including
+    regional climate data, USDA NRCS SSURGO, and USDA NASS Cropland Data Layer
+    (CDL). Independent models were produced for each county; county level
+    predicitons were merged for state coverage.</p>
+
+    <p>Data are available by state:</p>
+
+    <ul>
+  		<li><a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/cultivationRisk/colorado.zip">Colorado</a></li>
+  		<li><a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/cultivationRisk/montana.zip">Montana</a></li>
+  		<li><a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/cultivationRisk/northDakota.zip">North Dakota</a></li>
+  		<li><a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/cultivationRisk/southDakota.zip">South Dakota</a></li>
+  		<li><a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/cultivationRisk/wyoming.zip">Wyoming</a></li>
+  	</ul>
+
+    <p>Produced by Jeffrey S. Evans, The Nature Conservancy</p>
+
+    <p>Lipsey, M.K., K.E. Doherty, D.E. Naugle, S. Fields, J.S. Evans, S.K.
+    Davis and N. Koper (2015) One step ahead of the plow: Using cropland
+    conversion risk to guide grassland songbird conservation. Biological
+    Conservation. 191:739–749 <a
+    href="http://dx.doi.org/10.1016/j.biocon.2015.08.030"
+    target="_blank">http://dx.doi.org/10.1016/j.biocon.2015.08.030</a></p>
+
+    <p>Smith, J.T., J.S. Evans, B.H. Martin, S. Baruch-Mordo, J.M. Kiesecker,
+    and D.E. Naugle. In review. Reducing cropland conversion risk to sage-grouse
+    through strategic conservation of working rangelands.</p>
+
+	</div>
+
 	<div id="sagegrouse-pac-i" class="popup" style="display: none;">This is more detailed content on Sage Grouse PAC. </div>
 
 	<div id="sagegrouse-mgmt-i" class="popup" style="display: none;">This is more detailed content on Sage Grouse MGMT ZONES. </div>
@@ -501,6 +597,10 @@
         $("#eco-toggle").toggleClass("hidden unhidden");
     });
     $("#toggle3").click(function () {
+	    $(this).toggleClass('clicked');
+        $("#risk-toggle").toggleClass("hidden unhidden");
+    });
+    $("#toggle4").click(function () {
 	    $(this).toggleClass('clicked');
         $("#ref-toggle").toggleClass("hidden unhidden");
     });
