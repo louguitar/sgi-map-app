@@ -1,10 +1,30 @@
+// define map
 var map;
+
+// object to hold image map type information
 var imageMapType = {};
 
-function initMap() {
+// object to hold tile information
+var dataTiles = {};
 
-  // define global maxZoom; maxZoom when no layer is displayed
-  var globalMaxZoom = 20;
+// object for holding downloadLayers
+var downloadLayers = {};
+
+// object for holding downloadLayers styles
+var downloadLayersStyles = {};
+
+// define object for holding refLayers
+var refLayers = {};
+
+// define object for holding refLayers styles
+var refLayersStyles = {};
+
+// define global maxZoom; maxZoom when no layer is displayed
+var globalMaxZoom = 20;
+
+
+
+function initMap() {
 
   // base google maps api options
   var opts = {
@@ -74,10 +94,226 @@ function initMap() {
     new google.maps.LatLng(36.889596, -121.724515),
     new google.maps.LatLng(46.887497, -105.554831));
 
+  // populate dataTiles
+  populateDataTiles();
+  // populate imageMapType
+  populateImageMapType();
+  // populate downloadLayersStyles
+  populateDownloadLayersStyles();
+  // populate refLayersStyles
+  populateRefLayersStyles();
+
+  // uncheck data download boxes
+  $(".dataDownload").prop('checked', false);
+
+  // uncheck reference layer boxes
+  $(".refLayers").prop('checked', false);
+
+  // which checkbox is checked upon landing
+  var checkedBoxLanding = $('input:checkbox:checked').map(function() {
+    return this.name;
+  }).get();
+
+  // if at least one dataTiles checkbox is checked, load it
+  if (checkedBoxLanding.length != 0) {
+
+    // set maxZoom
+    map.setOptions({maxZoom: dataTiles[checkedBoxLanding].mapMaxZoom});
+
+    // push imageMapType
+    map.overlayMapTypes.push(imageMapType[checkedBoxLanding]);
+  }
+
+  // listen for clicks on dataTiles layer
+  $('.dataTiles').click(dataTilesClick);
+  // listen for clicks on dataDownload layer
+  $('.dataDownload').click(dataDownloadClick);
+  // listen for clicks on refLayers
+  $('.refLayers').click(refLayersClick);
+};
 
 
-  // create empty object to hold tile information
-  var dataTiles = {};
+
+// function to change opacity of ImageMapType
+function changeOpacity(o, dataTilesName) {
+      imageMapType[dataTilesName].setOpacity(parseFloat(o));
+}
+
+
+
+// function to change map tiles when clicked/toggled
+function dataTilesClick() {
+
+  // clear overlay
+  map.overlayMapTypes.clear();
+
+  // uncheck other dataTiles boxes
+  $('.dataTiles').not(this).prop('checked', false);
+
+  // clear downloadLayers
+  for (var property in downloadLayers) {
+    if (downloadLayers.hasOwnProperty(property)) {
+      downloadLayers[property].forEach(function(feature) {
+      downloadLayers[property].remove(feature)
+    });
+    }
+  }
+
+  // uncheck data download boxes
+  $(".dataDownload").prop('checked', false);
+
+  // get checkbox name
+  var checkBoxName = $(this).attr('name');
+  // parse checkbox name to data download name
+  var checkBoxDownload = checkBoxName.split("Tiles")[0] + "Download";
+
+  // if checkbox is checked, load data
+  if ($(this).prop('checked')){
+
+    // set maxZoom
+    map.setOptions({maxZoom: dataTiles[checkBoxName].mapMaxZoom});
+
+    // push imageMapType
+    map.overlayMapTypes.push(imageMapType[checkBoxName]);
+  }
+
+  // if checkbox is unchecked, clear all overlays and data
+  else {
+
+    // clear overlay
+    map.overlayMapTypes.clear();
+
+    // set maxZoom to globalMaxZoom
+    map.setOptions({maxZoom: globalMaxZoom});
+
+    // if downloadLayers is not undefined, iterate over each feature and
+    // remove
+    if (typeof downloadLayers[checkBoxDownload] != 'undefined') {
+      $('.dataDownload').prop('checked', false);
+      downloadLayers[checkBoxDownload].forEach(function(feature) {
+      downloadLayers[checkBoxDownload].remove(feature);
+     });
+    }
+  }
+}
+
+
+
+// function to change data download layers when clicked
+function dataDownloadClick() {
+
+  // get checkbox name
+  var checkBoxName = $(this).attr('name');
+  // parse checkbox name to tiles names
+  var checkBoxTiles = checkBoxName.split("Download")[0] + "Tiles";
+
+  // if checkbox is checked, load data and tiles
+  if ($(this).prop('checked')){
+
+    // load tile layer
+    if (document.getElementsByName(checkBoxTiles)[0].checked) {
+      // do nothing
+    }
+    else {
+      // uncheck other dataTiles boxes
+      $('.dataTiles').not(this).prop('checked', false);
+
+      // clear overlay
+      map.overlayMapTypes.clear();
+
+      // check box
+      document.getElementsByName(checkBoxTiles)[0].checked = true;
+
+      // set maxZoom
+      map.setOptions({maxZoom: dataTiles[checkBoxTiles].mapMaxZoom});
+
+      // push imageMapType
+      map.overlayMapTypes.push(imageMapType[checkBoxTiles]);
+    }
+
+    // initialize downloadLayers object to hold data
+    downloadLayers[checkBoxName] = new google.maps.Data();
+
+    // load topojson; use clientside topojson api to convert to geojson
+    $.getJSON('data/' + checkBoxName + 'Topo.json', function(data){
+          geoJsonObject = topojson.feature(data, eval("data.objects." +
+            checkBoxName))
+          downloadLayers[checkBoxName].addGeoJson(geoJsonObject);
+        });
+
+    // set style
+    downloadLayers[checkBoxName].setStyle( {
+      fillColor: downloadLayersStyles[checkBoxName].fillColor,
+      strokeColor: downloadLayersStyles[checkBoxName].strokeColor,
+      strokeWeight: downloadLayersStyles[checkBoxName].strokeWeight
+    });
+
+    // open download when user clicks on county
+    downloadLayers[checkBoxName].addListener('click', function(event) {
+      window.open(event.feature.getProperty('s3Link'),"_self")
+    });
+
+    // bold when user hovers
+    downloadLayers[checkBoxName].addListener('mouseover', function(event) {
+      downloadLayers[checkBoxName].revertStyle();
+      downloadLayers[checkBoxName].overrideStyle(event.feature, {strokeWeight: 8});
+    });
+
+    downloadLayers[checkBoxName].addListener('mouseout', function(event) {
+      downloadLayers[checkBoxName].revertStyle();
+    });
+
+    // set layer to map
+    downloadLayers[checkBoxName].setMap(map);
+  }
+  // if checkbox is not checked, clear data
+  else {
+    // iterate over each feature and remove
+    downloadLayers[checkBoxName].forEach(function(feature) {
+    downloadLayers[checkBoxName].remove(feature);
+   });
+  }
+}
+
+
+
+// function to change refLayers when clicked
+function refLayersClick() {
+  // get checkbox name
+  var checkBoxName = $(this).attr('name');
+
+  // if checkbox is checked, load data and tiles
+  if ($(this).prop('checked')){
+
+    // initialize refLayers object to hold data
+    refLayers[checkBoxName] = new google.maps.Data();
+
+    // load topojson; use clientside topojson api to convert to geojson
+    $.getJSON('data/' + checkBoxName + 'Topo.json', function(data){
+          geoJsonObject = topojson.feature(data, eval("data.objects." +
+            checkBoxName))
+          refLayers[checkBoxName].addGeoJson(geoJsonObject);
+        });
+
+    // set style
+    refLayers[checkBoxName].setStyle(refLayersStyles[checkBoxName]);
+
+    // set layer to map
+    refLayers[checkBoxName].setMap(map);
+  }
+  // if checkbox is not checked, clear data
+  else {
+    // iterate over each feature and remove
+    refLayers[checkBoxName].forEach(function(feature) {
+      refLayers[checkBoxName].remove(feature);
+    });
+ }
+}
+
+
+
+// populate dataTiles info
+function populateDataTiles() {
 
   // conifer data information
   dataTiles['coniferTiles'] = {
@@ -135,9 +371,14 @@ function initMap() {
     // url of tiles
     url: "http://tiles.allredsgi.org/cultivationRisk/"
   };
+}
 
 
 
+// populate imageMapType information
+function populateImageMapType() {
+
+  // coniferTiles
   imageMapType['coniferTiles'] = new google.maps.ImageMapType({
    getTileUrl: function(coord, zoom) {
      var proj = map.getProjection();
@@ -157,6 +398,7 @@ function initMap() {
    opacity: dataTiles['coniferTiles'].opacity
   });
 
+  // rrClassTiles
   imageMapType['rrClassTiles'] = new google.maps.ImageMapType({
     getTileUrl: function(coord, zoom) {
       var proj = map.getProjection();
@@ -176,6 +418,7 @@ function initMap() {
     opacity: dataTiles['rrClassTiles'].opacity
   });
 
+  // cultivationRiskTiles
   imageMapType['cultivationRiskTiles'] = new google.maps.ImageMapType({
     getTileUrl: function(coord, zoom) {
       var proj = map.getProjection();
@@ -194,193 +437,25 @@ function initMap() {
     maxZoom: dataTiles['cultivationRiskTiles'].mapMaxZoom,
     opacity: dataTiles['cultivationRiskTiles'].opacity
   });
+}
 
 
 
+// populate downloadLayersStyles object
+function populateDownloadLayersStyles() {
 
-  // uncheck data download boxes
-  $(".dataDownload").prop('checked', false);
-
-  // uncheck reference layer boxes
-  $(".refLayers").prop('checked', false);
-
-
-
-  // which checkbox is checked upon landing
-  var checkedBoxLanding = $('input:checkbox:checked').map(function() {
-    return this.name;
-  }).get();
-
-  // if at least one dataTiles checkbox is checked, load it
-  if (checkedBoxLanding.length != 0) {
-
-    // set maxZoom
-    map.setOptions({maxZoom: dataTiles[checkedBoxLanding].mapMaxZoom});
-
-    // push imageMapType
-    map.overlayMapTypes.push(imageMapType[checkedBoxLanding]);
-  }
-
-
-
-    // listen for clicks on dataTiles layer
-  $('.dataTiles').click(function () {
-
-    // clear overlay
-    map.overlayMapTypes.clear();
-
-    // uncheck other dataTiles boxes
-    $('.dataTiles').not(this).prop('checked', false);
-
-    // clear downloadLayers
-    for (var property in downloadLayers) {
-      if (downloadLayers.hasOwnProperty(property)) {
-        downloadLayers[property].forEach(function(feature) {
-        downloadLayers[property].remove(feature)
-      });
-      }
-    }
-
-    // uncheck data download boxes
-    $(".dataDownload").prop('checked', false);
-
-    // get checkbox name
-    var checkBoxName = $(this).attr('name');
-    // parse checkbox name to data download name
-    var checkBoxDownload = checkBoxName.split("Tiles")[0] + "Download";
-
-    // if checkbox is checked, load data
-    if ($(this).prop('checked')){
-
-      // set maxZoom
-      map.setOptions({maxZoom: dataTiles[checkBoxName].mapMaxZoom});
-
-      // push imageMapType
-      map.overlayMapTypes.push(imageMapType[checkBoxName]);
-    }
-
-    // if checkbox is unchecked, clear all overlays and data
-    else {
-
-      // clear overlay
-      map.overlayMapTypes.clear();
-
-      // set maxZoom to globalMaxZoom
-      map.setOptions({maxZoom: globalMaxZoom});
-
-      // if downloadLayers is not undefined, iterate over each feature and
-      // remove
-      if (typeof downloadLayers[checkBoxDownload] != 'undefined') {
-        $('.dataDownload').prop('checked', false);
-        downloadLayers[checkBoxDownload].forEach(function(feature) {
-        downloadLayers[checkBoxDownload].remove(feature);
-       });
-      }
-    }
-  });
-
-
-
-  // define object for holding downloadLayers
-  var downloadLayers = {};
-
-  // define object for holding refLayers styles
-  var downloadLayersStyles = {};
-
-  // populate styles
+  // coniferDownload
   downloadLayersStyles['coniferDownload'] = {
     fillColor: '#1b9e77',
     strokeColor: '#1b9e77',
     strokeWeight: 2
   };
+}
 
 
 
-  // listen for clicks on dataDownload layer
-  $('.dataDownload').click(function () {
-
-    // get checkbox name
-    var checkBoxName = $(this).attr('name');
-    // parse checkbox name to tiles names
-    var checkBoxTiles = checkBoxName.split("Download")[0] + "Tiles";
-
-    // if checkbox is checked, load data and tiles
-    if ($(this).prop('checked')){
-
-      // load tile layer
-      if (document.getElementsByName(checkBoxTiles)[0].checked) {
-        // do nothing
-      }
-      else {
-        // uncheck other dataTiles boxes
-        $('.dataTiles').not(this).prop('checked', false);
-
-        // clear overlay
-        map.overlayMapTypes.clear();
-
-        // check box
-        document.getElementsByName(checkBoxTiles)[0].checked = true;
-
-        // set maxZoom
-        map.setOptions({maxZoom: dataTiles[checkBoxTiles].mapMaxZoom});
-
-        // push imageMapType
-        map.overlayMapTypes.push(imageMapType[checkBoxTiles]);
-      }
-
-      // initialize downloadLayers object to hold data
-      downloadLayers[checkBoxName] = new google.maps.Data();
-
-      // load topojson; use clientside topojson api to convert to geojson
-      $.getJSON('data/' + checkBoxName + 'Topo.json', function(data){
-            geoJsonObject = topojson.feature(data, eval("data.objects." +
-              checkBoxName))
-            downloadLayers[checkBoxName].addGeoJson(geoJsonObject);
-          });
-
-      // set style
-      downloadLayers[checkBoxName].setStyle( {
-        fillColor: downloadLayersStyles[checkBoxName].fillColor,
-        strokeColor: downloadLayersStyles[checkBoxName].strokeColor,
-        strokeWeight: downloadLayersStyles[checkBoxName].strokeWeight
-      });
-
-      // open download when user clicks on county
-      downloadLayers[checkBoxName].addListener('click', function(event) {
-        window.open(event.feature.getProperty('s3Link'),"_self")
-      });
-
-      // bold when user hovers
-      downloadLayers[checkBoxName].addListener('mouseover', function(event) {
-        downloadLayers[checkBoxName].revertStyle();
-        downloadLayers[checkBoxName].overrideStyle(event.feature, {strokeWeight: 8});
-      });
-
-      downloadLayers[checkBoxName].addListener('mouseout', function(event) {
-        downloadLayers[checkBoxName].revertStyle();
-      });
-
-      // set layer to map
-      downloadLayers[checkBoxName].setMap(map);
-    }
-    // if checkbox is not checked, clear data
-    else {
-      // iterate over each feature and remove
-      downloadLayers[checkBoxName].forEach(function(feature) {
-      downloadLayers[checkBoxName].remove(feature);
-     });
-    }
-  });
-
-
-
-  // define object for holding refLayers
-  var refLayers = {};
-
-  // define object for holding refLayers styles
-  var refLayersStyles = {};
-
-  // populate styles
+// populate refLayersStyles
+function populateRefLayersStyles() {
   // mgmtZonesRefLayer
   refLayersStyles['mgmtZonesRefLayer'] = {
     fillColor: '#d95f02',
@@ -394,48 +469,4 @@ function initMap() {
     strokeColor: '#7570b3',
     strokeWeight: 2
   };
-
-
-
-
-  // listen for clicks on refLayers
-  $('.refLayers').click(function () {
-    // get checkbox name
-    var checkBoxName = $(this).attr('name');
-
-    // if checkbox is checked, load data and tiles
-    if ($(this).prop('checked')){
-
-      // initialize refLayers object to hold data
-      refLayers[checkBoxName] = new google.maps.Data();
-
-      // load topojson; use clientside topojson api to convert to geojson
-      $.getJSON('data/' + checkBoxName + 'Topo.json', function(data){
-            geoJsonObject = topojson.feature(data, eval("data.objects." +
-              checkBoxName))
-            refLayers[checkBoxName].addGeoJson(geoJsonObject);
-          });
-
-      // set style
-      refLayers[checkBoxName].setStyle(refLayersStyles[checkBoxName]);
-
-      // set layer to map
-      refLayers[checkBoxName].setMap(map);
-    }
-    // if checkbox is not checked, clear data
-    else {
-      // iterate over each feature and remove
-      refLayers[checkBoxName].forEach(function(feature) {
-        refLayers[checkBoxName].remove(feature);
-      });
-   }
-  });
-
-};
-
-
-
-// function to change opacity of ImageMapType
-function changeOpacity(o, dataTilesName) {
-      imageMapType[dataTilesName].setOpacity(parseFloat(o));
 }
