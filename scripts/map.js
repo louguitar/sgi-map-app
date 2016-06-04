@@ -84,7 +84,7 @@ function initMap() {
       { "saturation": -25 }
     ]
   }
-]);
+  ]);
 
   // set ROADMAP as the default basemap
   map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
@@ -130,6 +130,14 @@ function initMap() {
   $('.dataDownload').click(dataDownloadClick);
   // listen for clicks on refLayers
   $('.refLayers').click(refLayersClick);
+  // listen for clicks on fenceCollision
+  $('.fenceCollision').click(fenceCollisionClick);
+  // listen for clicks on calculateButton
+  $('.calculateButton').click(calculateFenceLayer);
+  // listen for clicks on resetButton
+  $('.resetButton').click(resetFenceLayer);
+  // listen for clicks on downloadButton
+  $('.downloadButton').click(downloadFenceLayer);
 };
 
 
@@ -149,6 +157,9 @@ function dataTilesClick() {
 
   // uncheck other dataTiles boxes
   $('.dataTiles').not(this).prop('checked', false);
+
+  // uncheck fenceCollision boxes
+  $('.fenceCollision').prop('checked', false);
 
   // clear downloadLayers
   for (var property in downloadLayers) {
@@ -217,6 +228,9 @@ function dataDownloadClick() {
     else {
       // uncheck other dataTiles boxes
       $('.dataTiles').not(this).prop('checked', false);
+
+      // uncheck fenceCollision boxes
+      $('.fenceCollision').prop('checked', false);
 
       // clear overlay
       map.overlayMapTypes.clear();
