@@ -108,6 +108,23 @@
       of tree canopy cover. <a id="inline" href="#conifer-areas-i"
       class="fancybox">State level data</a> are also available.</div>
 
+      <!-- Fence collision placeholder -->
+      <p>Fence Collision placeholder</p>
+      <input type="checkbox" id="00" name="fenceCollision"
+        class="fenceCollision">
+      <input type="file" id="shapefile" class="shapefile hidden"
+        onchange="processFile(this.files)"
+        accept=".zip, application/zip, application/octet-stream"
+        style="background-color: rgba(255, 255, 255, 1)">
+      <button class="calculateButton hidden">Calculate layer</button>
+      <button class="resetButton hidden">Reset layer</button>
+      <input type="email" id="emailAddress" class="emailAddress hidden"
+        style="background-color: rgba(255, 255, 255, 1)"
+        placeholder="Enter email address">
+      <button class="downloadButton hidden">Download layer</button>
+      <div class="tiles-loading"></div>
+      <div class="downloadConfirmed"></div>
+
      </div>
       		</div>
 	  </div>
