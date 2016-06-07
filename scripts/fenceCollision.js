@@ -6,8 +6,8 @@ var leksGeojson = {};
 // declare leksData; used for google.maps.Data()
 var leksData = {};
 
-// declare fenceOverlay; used for earth engine overlays;
-var fenceOverlay = {};
+// declare downloadSubmitted to track if download has been submitted
+var downloadSubmitted = false;
 
 
 function fenceCollisionClick() {
@@ -32,10 +32,20 @@ function fenceCollisionClick() {
     leksData = map.data;
 
     // if previous layer exists, push it
-    if (!($.isEmptyObject(fenceOverlay))) {
+    if (!($.isEmptyObject(eeOverlays['fenceCollision']))) {
       // clear overlay
       map.overlayMapTypes.clear();
-      map.overlayMapTypes.push(fenceOverlay);
+      map.overlayMapTypes.push(eeOverlays['fenceCollision']);
+
+      // show appropriate buttons
+      if (downloadSubmitted) {
+        fenceCollisionButtons(calculate='add', reset='remove', download='add');
+      }
+      else {
+        fenceCollisionButtons(calculate='add', reset='remove',
+          download='remove');
+        fenceCollisionInputs(shapefile='add', emailAddress='remove');
+      }
     }
 
     else {
@@ -45,6 +55,7 @@ function fenceCollisionClick() {
       // set data controls
       leksData.setMap(map);
       leksData.setControls(['Point', 'Polygon']);
+      map.data.setDrawingMode('Point');
       leksData.setStyle({
         editable: true,
         draggable: true
@@ -73,6 +84,22 @@ function fenceCollisionClick() {
       downloadLayers[checkBoxDownload].remove(feature);
      });
     }
+
+    // remove features and leks
+    leksData.forEach(function(feature) {
+      leksData.remove(feature);
+    });
+
+    // disable controls and remove markers
+    // use setMap(null) is quicker
+    leksData.setMap(null);
+    leksData.setControls(null);
+    leksData.setDrawingMode(null);
+
+    // manipulate buttons and inputs
+    fenceCollisionButtons(calculate='add', reset='add', download='add');
+    fenceCollisionInputs(shapefile='add', emailAddress='add');
+
   }
 }
 
@@ -189,11 +216,11 @@ function calculateFenceLayer() {
   // onDone for ajax post
   var onDone = (function(data) {
     // Create the layer.
-    fenceOverlay = new ee.MapLayerOverlay('https://earthengine.googleapis.com/map',
+    eeOverlays['fenceCollision'] = new ee.MapLayerOverlay('https://earthengine.googleapis.com/map',
       data.mapid, data.token, {});
 
     // callback for tile load
-    fenceOverlay.addTileCallback(function(event) {
+    eeOverlays['fenceCollision'].addTileCallback(function(event) {
       $('.tiles-loading').text(' Loading... ');
       if (event.count === 0) {
         $('.tiles-loading').empty();
@@ -203,8 +230,8 @@ function calculateFenceLayer() {
     // clear any layers
     map.overlayMapTypes.clear();
 
-    // push fenceOverlay
-    map.overlayMapTypes.push(fenceOverlay);
+    // push eeOverays['fenceCollision']
+    map.overlayMapTypes.push(eeOverlays['fenceCollision']);
   });
 
 
@@ -242,8 +269,8 @@ function resetFenceLayer() {
   // clear overlay
   map.overlayMapTypes.clear();
 
-  // clear fenceOverlay
-  fenceOverlay = {};
+  // clear eeOverlays['fenceCollision']
+  eeOverlays['fenceCollision'] = {};
 
   // remove features and leks
   leksData.forEach(function(feature) {
@@ -289,6 +316,9 @@ function downloadFenceLayer() {
     // manipulate buttons and inputs
     fenceCollisionButtons(calculate='add', reset='remove', download='add');
     fenceCollisionInputs(shapefile='add', emailAddress='add');
+
+    // change downloadSubmitted to true
+    downloadSubmitted = true;
 
     // display text of download confirmation
     $('.downloadConfirmed').text('Download request submitted (task: '

@@ -19,6 +19,9 @@ var refLayers = {};
 // define object for holding refLayers styles
 var refLayersStyles = {};
 
+// declare eeOverlays; used for earth engine overlays;
+var eeOverlays = {};
+
 // define global maxZoom; maxZoom when no layer is displayed
 var globalMaxZoom = 20;
 
@@ -108,6 +111,10 @@ function initMap() {
 
   // uncheck reference layer boxes
   $(".refLayers").prop('checked', false);
+
+  // uncheck fenceCollision boxes
+  $('.fenceCollision').prop('checked', false);
+
 
   // which checkbox is checked upon landing
   var checkedBoxLanding = $('input:checkbox:checked').map(function() {
