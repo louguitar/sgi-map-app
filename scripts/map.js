@@ -29,6 +29,7 @@ function initMap() {
   // base google maps api options
   var opts = {
     streetViewControl: false,
+    scaleControl: true,
     tilt: 0,
     center: new google.maps.LatLng(42, -110),
     zoom: 6,
