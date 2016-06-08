@@ -10,7 +10,7 @@
     <script src="scripts/ee_api_js.js"></script>
     <script src="scripts/map.js"></script>
     <script src="scripts/fenceCollision.js"></script>
-
+    <!-- <script src="scripts/custom-file-input.js"></script> -->
 
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -40,7 +40,7 @@
 <div class="map-title">Sage Grouse Initiative</div><br>
 <div class="map-tagline">Wildlife Conservation Through Sustainable Ranching.</div>
 		</div></a>
-		<nav class="map-nav"><a id="toggle1" class="tree-cover-btn">Tree Cover</a> | <a id="toggle2" class="ecosystem-btn">Ecosystem R &amp R</a> | <a id="toggle3" class="risk-btn">Cultivation Risk</a> | <a id="toggle4" class="reference-btn">Reference</a>
+		<nav class="map-nav"><a id="toggle1" class="tree-cover-btn">Tree Cover</a> | <a id="toggle2" class="ecosystem-btn">Ecosystem R &amp R</a> | <a id="toggle3" class="fence-btn">Fence Collision</a> | <a id="toggle4" class="risk-btn">Cultivation Risk</a> | <a id="toggle5" class="reference-btn">Reference</a>
 		</nav>
 	</div>
 	<div id="wrapper">
@@ -111,30 +111,14 @@
       of tree canopy cover. <a id="inline" href="#conifer-areas-i"
       class="fancybox">State level data</a> are also available.</div>
 
-      <!-- Fence collision placeholder -->
-      <p>Fence Collision placeholder</p>
-      <input type="checkbox" id="00" name="fenceCollision"
-        class="fenceCollision">
-      <input type="file" id="shapefile" class="shapefile hidden"
-        onchange="processFile(this.files)"
-        accept=".zip, application/zip, application/octet-stream"
-        style="background-color: rgba(255, 255, 255, 1)">
-      <button class="calculateButton hidden">Calculate layer</button>
-      <button class="resetButton hidden">Reset layer</button>
-      <input type="email" id="emailAddress" class="emailAddress hidden"
-        style="background-color: rgba(255, 255, 255, 1)"
-        placeholder="Enter email address">
-      <button class="downloadButton hidden">Download layer</button>
-      <div class="tiles-loading"></div>
-      <div class="downloadConfirmed"></div>
-
+      
      </div>
       		</div>
 	  </div>
 	  
 	  <!-- END Tree Cover panel -->
 	  
-      <!-- Ecosystem RR panel -->
+	  <!-- Ecosystem RR panel -->
       <div id="eco-toggle" class="panel">
      <a href="#ecosystem-collapse" data-toggle="collapse" data-parent="#dataBox"><div class="eco-header" ><span class="header-text">Ecosystem Resilience & Resistance</span></div></a>
      <div id="ecosystem-collapse" class="panel-collapse collapse">
@@ -183,6 +167,70 @@
     </div>
       </div>
       <!-- END Ecosystem RR panel -->
+
+      <!-- Fence Collision panel -->
+      <div id="fence-toggle" class="panel">
+     <a href="#fence-collapse" data-toggle="collapse" data-parent="#dataBox"><div class="fence-header" ><span class="header-text">Fence Collision</span></div></a>
+     <div id="fence-collapse" class="panel-collapse collapse">
+	 <div class="data-container">
+
+	<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
+    <input type="checkbox" id="00" name="fenceCollision" class="fenceCollision">
+    <span class="checkbox-switch-inner">
+      <span class="checkbox-switch-on"></span>
+      	<span class="checkbox-switch-off"></span>
+     	 <span class="checkbox-switch-handle"></span>
+	  </span>
+	</label>
+
+
+      <label for="00" class="fence-headline"> Fence Collision</label><a id="inline" href="#fence-collapse" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
+
+      <div class="dataBox-copy blue_track">Index of relative ecosystem resilience to
+        disturbance and resistance to cheatgrass based on underlying soil
+        temperature and moisture regimes.</div>
+        
+        <!-- Fence collision placeholder -->
+      
+      <input type="file" id="shapefile" class="shapefile hidden" onchange="processFile(this.files)" accept=".zip, application/zip, application/octet-stream" style="background-color: rgba(255, 255, 255, 1)">
+       <!-- <label for="shapefile"><i class="fa fa-upload" aria-hidden="true"></i>  &nbsp;Choose a file</label> -->
+      <button class="calculateButton hidden">Calculate layer</button>
+      <button class="resetButton hidden">Reset layer</button>
+      <input type="email" id="emailAddress" class="emailAddress hidden"
+        style="background-color: rgba(255, 255, 255, 1)"
+        placeholder="Enter email address">
+      <button class="downloadButton hidden">Download layer</button>
+      <div class="tiles-loading"></div>
+      <div class="downloadConfirmed"></div>
+
+        <div class="purple-slider"><input type="range" id="opacitySliderFenceCollision" class="purple_track"
+          oninput="</* changeOpacity(opacitySliderFenceCollision.value, */ 'fenceCollision')"
+          min="0" max="1" step=".01" value="1"></div>
+      <br>
+
+      <!-- green, red, yellow pallete -->
+
+
+<ul class="chart eco">
+	<li class="bar red1" style="height: 25%;" title="95"><div class="skill">Low</div></li>
+	<li class="bar yellow1" style="height: 40%;" title="90"><div class="skill">Moderate</div></li>
+	<li class="bar green7" style="height: 55%;" title="80"><div class="skill">High</div></li>
+</ul>
+
+      <!-- download links for Ecosystem RR panel -->
+      <span class="download-link" style="font-size: 15px; color: #a17358">&nbsp &nbsp
+      <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrClass.zip">
+        <i class="fa fa-download"></i>&nbsp Ecosystem R &amp R Classes raster (50 MB)</a></span><br>
+      <span class="download-link" style="font-size: 15px">&nbsp &nbsp
+      <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrGeodatabase.zip">
+        <i class="fa fa-download"></i>&nbsp Geodatabase (400 MB)</a></span><br>
+
+  
+
+    </div>
+    </div>
+      </div>
+      <!-- END Fence Collision panel -->
          <!-- Risk panel -->
       <div id="risk-toggle" class="panel">
      <a href="#risk-collapse" data-toggle="collapse" data-parent="#dataBox"><div class="risk-header" ><span class="header-text">Cultivation Risk</span></div></a>
@@ -633,9 +681,13 @@
     });
     $("#toggle3").click(function () {
 	    $(this).toggleClass('clicked');
-        $("#risk-toggle").toggleClass("hidden unhidden");
+        $("#fence-toggle").toggleClass("hidden unhidden");
     });
     $("#toggle4").click(function () {
+	    $(this).toggleClass('clicked');
+        $("#risk-toggle").toggleClass("hidden unhidden");
+    });
+    $("#toggle5").click(function () {
 	    $(this).toggleClass('clicked');
         $("#ref-toggle").toggleClass("hidden unhidden");
     });

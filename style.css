@@ -201,6 +201,20 @@ width: 300px;
 	/* ...and now override with proper CSS property */
   	transition:color .2s ease-out, background .2s ease-in;
  }
+ 
+   .fence-header {
+	 width: 100%;
+	 height: 40px;
+	 color: #fff;
+	 background-color: #7A1EA1;
+	 border-radius: 5px 5px 0 0;
+	 -o-transition:color .2s ease-out, background .2s ease-in;
+	-ms-transition:color .2s ease-out, background .2s ease-in;
+	-moz-transition:color .2s ease-out, background .2s ease-in;
+	-webkit-transition:color .2s ease-out, background .2s ease-in;
+	/* ...and now override with proper CSS property */
+  	transition:color .2s ease-out, background .2s ease-in;
+ }
 
 .risk-header {
 	 width: 100%;
@@ -247,6 +261,10 @@ width: 300px;
  .eco-header:hover {
 	 background-color: #23527c;
  }
+ 
+ .fence-header:hover {
+	 background-color: #691A99;
+ }
 
  .risk-header:hover {
 	 background-color: #D7382B;
@@ -273,6 +291,15 @@ width: 300px;
 
 .ecosystem-headline {
     color: #337ab7;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.025rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.fence-headline {
+    color: #7A1EA1;
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.025rem;
@@ -385,6 +412,25 @@ width: 300px;
 
 .ecosystem-btn:hover, .tree-cover-btn:active, .tree-cover-btn:focus  {
 	color: #23527c;
+}
+
+.fence-btn {
+	color: #9B26AF;
+	cursor: pointer;
+	padding: 0 20px;
+	-o-transition:color .2s ease-out, background .2s ease-in;
+	-ms-transition:color .2s ease-out, background .2s ease-in;
+	-moz-transition:color .2s ease-out, background .2s ease-in;
+	-webkit-transition:color .2s ease-out, background .2s ease-in;
+	/* ...and now override with proper CSS property */
+  	transition:color .2s ease-out, background .2s ease-in;
+}
+.fence-btn.clicked {
+	color: #fff !important;	
+}
+
+.fence-btn:hover, .tree-cover-btn:active, .tree-cover-btn:focus  {
+	color: #7A1EA1;
 }
 
 .risk-btn {
@@ -978,11 +1024,64 @@ h1 {
 	padding: 0 20px;
 }
 
+
+/*-------------- Buttons ----------------*/
+
+/*
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+
+
+.inputfile + label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #691A99;
+    background-color: transparent;
+    display: inline-block;
+    border: 1px solid #691A99;
+    padding: 2px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+    
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #7A1EA1;
+    color: #fff;
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label * {
+    /* pointer-events: none; */
+    /* in case of FastClick lib use */
+}
+*/
+
+
+/*------------ END Buttons ----------------*/
 /*-----------Opactiy Slider------------------*/
 
 input[type=range] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  width: 90%; /* Specific width is required for Firefox. */
+  	width: 90%; /* Specific width is required for Firefox. */
     border-radius: 10px;
     
 margin: 7px auto;
@@ -1073,6 +1172,17 @@ input[type="range"]::-webkit-slider-runnable-track {
     
 }
 
+.purple-slider input[type="range"]::-webkit-slider-runnable-track {
+/*  background-color: #74c476; */
+
+    background: linear-gradient(to right, #fff, #7A1EA1 75%, #691A99);
+    height: 15px;
+    border-radius: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    
+}
+
 .red-slider input[type="range"]::-webkit-slider-runnable-track {
 /*  background-color: #74c476; */
 
@@ -1115,6 +1225,13 @@ input[type="range"]::-moz-range-track {
     
 }
 
+.purple-slider input[type="range"]::-moz-range-progress {
+    background: linear-gradient(to right, #ccc, #7A1EA1 75%, #691A99);
+    height: 15px;
+    border-radius: 10px;
+    
+}
+
 .red-slider input[type="range"]::-moz-range-progress {
     background: linear-gradient(to right, #fff, #d44d42 75%, #D7382B);
     height: 15px;
@@ -1132,6 +1249,12 @@ input[type="range"]::-ms-fill-lower {
 
 .blue-slider input[type="range"]::-ms-fill-lower {
     background: linear-gradient(to right, #ccc, #337ab7 75%, #23527c);
+    border-radius: 10px;
+    
+}
+
+.purple-slider input[type="range"]::-ms-fill-lower {
+    background: linear-gradient(to right, #ccc, #7A1EA1 75%, #691A99);
     border-radius: 10px;
     
 }
@@ -1236,6 +1359,9 @@ input[type=range]:focus {
 	}
 	
 	.ecosystem-headline {
+		font-size: 14px;
+	}
+	.fence-headline {
 		font-size: 14px;
 	}
 	
