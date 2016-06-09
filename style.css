@@ -709,11 +709,13 @@ div.tog.on:hover:after{
 
 }
 
+
 .chart .red1 {
 	background: #E60000;
 	border: 1px solid #a8a8a8;
 	background-size: 100%;
 }
+
 
 .chart .yellow1 {
 	background: #FFFF00;
@@ -861,6 +863,10 @@ div.tog.on:hover:after{
 
 #ecosystem-collapse .checkbox-switch-inner > .checkbox-switch-on {
 	background: #23527C;
+}
+
+#fence-collapse .checkbox-switch-inner > .checkbox-switch-on {
+	background: #691A99;
 }
 
 #reference-collapse .checkbox-switch-inner > .checkbox-switch-on {
@@ -1028,6 +1034,7 @@ h1 {
 /*-------------- Buttons ----------------*/
 
 /*
+/*
 .inputfile {
 	width: 0.1px;
 	height: 0.1px;
@@ -1074,8 +1081,28 @@ h1 {
     /* in case of FastClick lib use */
 }
 */
+.calculateButton, .resetButton, .downloadButton {
+	font-size: 14px;
+    font-weight: 700;
+    color: #691A99;
+    background-color: transparent;
+    display: inline-block;
+    border: 1px solid #691A99;
+    padding: 2px 10px;
+    border-radius: 20px;
+    cursor: pointer;
 
+}
 
+.calculateButton:hover, .resetButton:hover, .downloadButton:hover { 
+	background-color: #7A1EA1 !important;
+    color: #fff !important;
+}
+
+.btn-container {
+	margin-left: 35px;
+	margin-top: 0px;
+}
 /*------------ END Buttons ----------------*/
 /*-----------Opactiy Slider------------------*/
 
@@ -1178,7 +1205,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     background: linear-gradient(to right, #fff, #7A1EA1 75%, #691A99);
     height: 15px;
     border-radius: 10px;
-    margin-top: 5px;
+    margin-top: 0px;
     border: 1px solid #ccc;
     
 }

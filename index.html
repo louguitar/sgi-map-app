@@ -10,7 +10,8 @@
     <script src="scripts/ee_api_js.js"></script>
     <script src="scripts/map.js"></script>
     <script src="scripts/fenceCollision.js"></script>
-    <!-- <script src="scripts/custom-file-input.js"></script> -->
+   <!--  <script src="scripts/custom-file-input.js"></script> -->
+   <script src="scripts/bootstrap-filestyle.min.js"></script>
 
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -65,7 +66,7 @@
     <span class="checkbox-switch-inner">
       <span class="checkbox-switch-on"></span>
       	<span class="checkbox-switch-off"></span>
-     	 <span class="checkbox-switch-handle"></span>
+     	<span class="checkbox-switch-handle"></span>
 	  </span>
 	</label>
 
@@ -184,24 +185,58 @@
 	</label>
 
 
-      <label for="00" class="fence-headline"> Fence Collision</label><a id="inline" href="#fence-collapse" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
+      <label for="00" class="fence-headline"> Fence Collision</label><a id="inline" href="#fence-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
 
-      <div class="dataBox-copy blue_track">Index of relative ecosystem resilience to
-        disturbance and resistance to cheatgrass based on underlying soil
-        temperature and moisture regimes.</div>
+      <div class="dataBox-copy blue_track">Lorem instructions dolor sit amet, consectetur adipiscing elit. Phasellus est justo, venenatis ut scelerisque eget, lobortis quis ante. </div>
         
         <!-- Fence collision placeholder -->
-      
-      <input type="file" id="shapefile" class="shapefile hidden" onchange="processFile(this.files)" accept=".zip, application/zip, application/octet-stream" style="background-color: rgba(255, 255, 255, 1)">
-       <!-- <label for="shapefile"><i class="fa fa-upload" aria-hidden="true"></i>  &nbsp;Choose a file</label> -->
-      <button class="calculateButton hidden">Calculate layer</button>
-      <button class="resetButton hidden">Reset layer</button>
+      <div class="btn-container">
+      <input type="file" id="shapefile" class="shapefile hidden" data-size="sm" data-placeholder="No file selected" onchange="processFile(this.files)" accept=".zip, application/zip, application/octet-stream" style="background-color: rgba(255, 255, 255, 1); font-size: 12px !important;
+	color: #7A1EA1 !important; margin-bottom: -20px">
+      <!-- <label for="shapefile"><i class="fa fa-upload" aria-hidden="false"></i>  &nbsp;Choose a file</label> -->
+      <button class="calculateButton hidden" style="font-size: 14px;
+    font-weight: 500;
+    color: #691A99;
+    background-color: transparent;
+    display: inline-block;
+    border: 1px solid #691A99;
+    padding: 0px 10px 2px 10px;
+    border-radius: 20px;
+    cursor: pointer;">Calculate layer</button>
+      <button class="resetButton hidden" style="font-size: 14px;
+    font-weight: 500;
+    color: #691A99;
+    background-color: transparent;
+    display: inline-block;
+    border: 1px solid #691A99;
+    padding: 0px 10px 2px 10px;
+    border-radius: 15px;
+    cursor: pointer;">Reset layer</button>
+  <br>
       <input type="email" id="emailAddress" class="emailAddress hidden"
-        style="background-color: rgba(255, 255, 255, 1)"
-        placeholder="Enter email address">
-      <button class="downloadButton hidden">Download layer</button>
+        style="
+        font-size: 14px;
+		font-weight: 500;
+		background-color: transparent;
+		display: inline-block;
+		border: 1px solid #691A99;
+		padding-left:5px;
+		border-radius: 5px;
+		cursor: pointer;
+		width:200px;"
+        placeholder="Enter email address *">
+      <button class="downloadButton hidden" style="font-size: 14px;
+    font-weight: 500;
+    color: #691A99;
+    background-color: transparent;
+    display: inline-block;
+    border: 1px solid #691A99;
+    padding: 0px 10px 2px 10px;
+    border-radius: 15px;
+    cursor: pointer;">Download layer</button>
       <div class="tiles-loading"></div>
       <div class="downloadConfirmed"></div>
+</div>
 
         <div class="purple-slider"><input type="range" id="opacitySliderFenceCollision" class="purple_track"
           oninput="</* changeOpacity(opacitySliderFenceCollision.value, */ 'fenceCollision')"
@@ -217,15 +252,7 @@
 	<li class="bar green7" style="height: 55%;" title="80"><div class="skill">High</div></li>
 </ul>
 
-      <!-- download links for Ecosystem RR panel -->
-      <span class="download-link" style="font-size: 15px; color: #a17358">&nbsp &nbsp
-      <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrClass.zip">
-        <i class="fa fa-download"></i>&nbsp Ecosystem R &amp R Classes raster (50 MB)</a></span><br>
-      <span class="download-link" style="font-size: 15px">&nbsp &nbsp
-      <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrGeodatabase.zip">
-        <i class="fa fa-download"></i>&nbsp Geodatabase (400 MB)</a></span><br>
-
-  
+      
 
     </div>
     </div>
@@ -634,6 +661,16 @@
     <p>Smith, J.T., J.S. Evans, B.H. Martin, S. Baruch-Mordo, J.M. Kiesecker,
     and D.E. Naugle. In review. Reducing cropland conversion risk to sage-grouse
     through strategic conservation of working rangelands.</p>
+
+	</div>
+	
+	<div id="fence-i" class="popup" style="display: none;">
+
+    <h2>Fence Collision</h2>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus est justo, venenatis ut scelerisque eget, lobortis quis ante. Suspendisse gravida volutpat leo, sed pretium metus molestie sit amet. Morbi non magna quis nisi tristique blandit id congue ante. Aliquam sed diam ex. Donec varius porta lacus at suscipit. Donec non eros sed nunc gravida maximus tincidunt eu tortor. Donec facilisis eros at neque hendrerit, eget pharetra justo porta. Maecenas sed congue libero. Duis in blandit lectus. Vivamus luctus ut turpis sed varius. Donec nec eros iaculis, facilisis felis non, consequat lorem. </p>
+
+    
 
 	</div>
 
