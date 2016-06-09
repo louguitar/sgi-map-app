@@ -266,6 +266,9 @@ function calculateFenceLayer() {
 // function to reset layer
 function resetFenceLayer() {
 
+  // clear shapefile input
+  document.getElementById('shapefile').value = "";
+
   // clear overlay
   map.overlayMapTypes.clear();
 
