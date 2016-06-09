@@ -1300,7 +1300,7 @@ input[type=range]:focus {
 
 /*----------- MEDIA QUERIES -----------------*/
 
-@media all and (max-width: 1150px) {
+@media all and (max-width: 1330px) {
     .map-logo {
 		left: 1%;
 	}
@@ -1309,7 +1309,7 @@ input[type=range]:focus {
 	}
 }
 
-@media all and (Max-width: 999px) {
+@media all and (Max-width: 1160px) {
     .map-logo {
 		float: none;
 		
@@ -1347,6 +1347,9 @@ input[type=range]:focus {
 	.ecosystem-btn {
 		padding:0 10px;
 	}
+	.fence-btn {
+		padding:0 10px;
+	}
 	
 	.reference-btn {
 		padding:0 10px;
@@ -1374,6 +1377,10 @@ input[type=range]:focus {
 	}
 	
 	.ecosystem-btn {
+		padding: 0 10px;
+	}
+	
+	.fence-btn {
 		padding: 0 10px;
 	}
     
@@ -1442,6 +1449,10 @@ input[type=range]:focus {
 	    font-size: 12px;
     }
     
+    .fence-headline {
+	    font-size: 12px;
+    }
+    
     .dataBox-copy {
 	    display: none;
     }
@@ -1455,6 +1466,11 @@ input[type=range]:focus {
 	    
     }
     .eco-header {
+	    height: 30px;
+	    
+    }
+    
+    .fence-header {
 	    height: 30px;
 	    
     }
@@ -1497,6 +1513,10 @@ input[type=range]:focus {
 	    .popup {
 	width: 500px;
 }
+
+		.map-nav {
+			font-size: 12px;
+		}
     }
     
         @media all and (max-width: 555px) {
