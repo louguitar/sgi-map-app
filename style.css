@@ -147,6 +147,14 @@ width: 300px;
 	 font-family:"Lato",sans-serif;
 }
 
+.beta_lrg {
+	font-size: 12px;
+}
+
+.beta_sml {
+	font-size: 9px;
+}
+
 #dataBox {
     position: absolute;
     top: 70px;
