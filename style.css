@@ -114,7 +114,7 @@ width: 300px;
 .partners-logo {
 	position: absolute;
 	bottom: 5px;
-	left: 50%;
+	left: 47%;
 	
 	
 }
@@ -1383,6 +1383,12 @@ input[type=range]:focus {
     .map-tagline {
 		display: none;
 	}
+	
+	.partners-logo {
+	
+	left: 45%;
+	
+	}
 }
 
 @media all and (max-width: 930px) {
@@ -1409,6 +1415,12 @@ input[type=range]:focus {
 	
 	.reference-btn {
 		padding:0 10px;
+	}
+	
+	.partners-logo {
+	
+	left: 40%;
+	
 	}
 }
 
@@ -1560,6 +1572,12 @@ input[type=range]:focus {
     .download-link {
 	   display: none;
 }
+
+.partners-logo {
+	
+	left: 35%;
+	
+	}
     
     
     
@@ -1583,6 +1601,11 @@ input[type=range]:focus {
 	    .map-nav-mobile {
 		    display: block ;
 	    }
+	    .partners-logo {
+	
+	display: none;
+	
+	}
 	    
 	    }
     
