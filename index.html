@@ -51,7 +51,7 @@
 	</div>
 
     <div id="dataBox" class="panel-group">
-	    
+
 	    <!-- Tree Cover panel -->
 	  <div id="tree-toggle" class="panel">
       <a data-toggle="collapse" data-parent="#dataBox" href="#conifer-collapse"><div class="tcc-header" ><span class="header-text">TREE CANOPY COVER</span></div></a>
@@ -114,13 +114,13 @@
       of tree canopy cover. <a id="inline" href="#conifer-areas-i"
       class="fancybox">State level data</a> are also available.</div>
 
-      
+
      </div>
       		</div>
 	  </div>
-	  
+
 	  <!-- END Tree Cover panel -->
-	  
+
 	  <!-- Ecosystem RR panel -->
       <div id="eco-toggle" class="panel">
      <a href="#ecosystem-collapse" data-toggle="collapse" data-parent="#dataBox"><div class="eco-header" ><span class="header-text">Ecosystem Resilience & Resistance</span></div></a>
@@ -164,7 +164,7 @@
       <a href="https://s3-us-west-2.amazonaws.com/sgi-web-app-data/rrClass/rrGeodatabase.zip">
         <i class="fa fa-download"></i>&nbsp Geodatabase (400 MB)</a></span><br>
 
-  
+
 
     </div>
     </div>
@@ -191,7 +191,7 @@
       <label for="00" class="fence-headline"> Fence Collision <sup class="beta_sml"><i>BETA</i></sup></label><a id="inline" href="#fence-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
 
       <div class="dataBox-copy blue_track">Lorem instructions dolor sit amet, consectetur adipiscing elit. Phasellus est justo, venenatis ut scelerisque eget, lobortis quis ante. </div>
-        
+
         <!-- Fence collision placeholder -->
       <div class="btn-container">
       <input type="file" id="shapefile" class="shapefile hidden" data-size="sm" data-placeholder="No file selected" onchange="processFile(this.files)" accept=".zip, application/zip, application/octet-stream" style="background-color: rgba(255, 255, 255, 1); font-size: 12px !important;
@@ -242,7 +242,7 @@
 </div>
 
         <div class="purple-slider"><input type="range" id="opacitySliderFenceCollision" class="purple_track"
-          oninput="</* changeOpacity(opacitySliderFenceCollision.value, */ 'fenceCollision')"
+          oninput="changeOpacityEEOverlays(opacitySliderFenceCollision.value, 'fenceCollision')"
           min="0" max="1" step=".01" value="1"></div>
       <br>
 
@@ -255,13 +255,13 @@
 	<li class="bar red1" style="height: 55%;" title="80"><div class="skill">High</div></li>
 </ul>
 <br>
-      
+
 
     </div>
     </div>
       </div>
       <!-- END Fence Collision panel -->
-      
+
 
 
          <!-- Risk panel -->
@@ -321,7 +321,7 @@
     </div>
       </div>
       <!-- END Risk panel -->
-           
+
         <!-- Reference panel -->
       <div id="ref-toggle" class="panel">
       <a href="#reference-collapse" data-toggle="collapse"  data-parent="#dataBox"><div class="ref-header" ><span class="header-text">Reference Layers</span></div></a>
@@ -671,14 +671,14 @@
     through strategic conservation of working rangelands.</p>
 
 	</div>
-	
+
 	<div id="fence-i" class="popup" style="display: none;">
 
     <h2>Fence Collision</h2>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus est justo, venenatis ut scelerisque eget, lobortis quis ante. Suspendisse gravida volutpat leo, sed pretium metus molestie sit amet. Morbi non magna quis nisi tristique blandit id congue ante. Aliquam sed diam ex. Donec varius porta lacus at suscipit. Donec non eros sed nunc gravida maximus tincidunt eu tortor. Donec facilisis eros at neque hendrerit, eget pharetra justo porta. Maecenas sed congue libero. Duis in blandit lectus. Vivamus luctus ut turpis sed varius. Donec nec eros iaculis, facilisis felis non, consequat lorem. </p>
 
-    
+
 
 	</div>
 
@@ -723,7 +723,7 @@
     $("#toggle2").click(function () {
 	    $(this).toggleClass('clicked');
         $("#eco-toggle").toggleClass("hidden unhidden");
-    });   
+    });
     $("#toggle3").click(function () {
 	    $(this).toggleClass('clicked');
         $("#fence-toggle").toggleClass("hidden unhidden");
@@ -743,7 +743,7 @@
     $("#toggle7").click(function () {
 	    $(this).toggleClass('clicked');
         $("#eco-toggle").toggleClass("hidden unhidden");
-    });   
+    });
     $("#toggle8").click(function () {
 	    $(this).toggleClass('clicked');
         $("#fence-toggle").toggleClass("hidden unhidden");

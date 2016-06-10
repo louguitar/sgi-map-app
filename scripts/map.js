@@ -154,6 +154,10 @@ function changeOpacity(o, dataTilesName) {
       imageMapType[dataTilesName].setOpacity(parseFloat(o));
 }
 
+// function to change opacity of eeOverlays
+function changeOpacityEEOverlays(o, dataTilesName) {
+      eeOverlays[dataTilesName].setOpacity(parseFloat(o));
+}
 
 
 // function to change map tiles when clicked/toggled
