@@ -172,6 +172,11 @@ function dataTilesClick() {
   // uncheck fenceCollision boxes
   $('.fenceCollision').prop('checked', false);
 
+  // hide fence collision buttons and inputs
+  fenceCollisionButtons(calculate='add', reset='add', download='add');
+  fenceCollisionInputs(shapefile='add', emailAddress='add');
+
+
   // clear downloadLayers
   for (var property in downloadLayers) {
     if (downloadLayers.hasOwnProperty(property)) {
@@ -242,6 +247,10 @@ function dataDownloadClick() {
 
       // uncheck fenceCollision boxes
       $('.fenceCollision').prop('checked', false);
+
+      // hide fence collision buttons and inputs
+      fenceCollisionButtons(calculate='add', reset='add', download='add');
+      fenceCollisionInputs(shapefile='add', emailAddress='add');
 
       // clear overlay
       map.overlayMapTypes.clear();
