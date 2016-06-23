@@ -684,25 +684,55 @@
 
     <h2>Fence Collision</h2>
 
-    <p>
+    <p>The fence collision tool visualizes and exports sage grouse fence
+    collision risk relative to lek locations or other areas of high bird
+    concentration. It is based on models described in Stevens et al. (2013).
+    This service is in Beta and is not guaranteed.</p>
 
-      The fence collision tool visualizes and exports (GeoTiff) sage grouse
-      fence collision risk relative to lek locations or other areas of high bird
-      concentration.
+    <p>After toggling the layer on, use the drawing tools <img alt=""
+    src="images/drawingTools.png" width="75"> in the upper left hand corner to
+    place points or draw polygons. Points represent lek locations; fence
+    collision risk is calculated relative to distance from the lek, up to a
+    maximum three km. Polygons represent areas of bird concentration, e.g.,
+    wintering grounds. Fence collision risk is calculated the same as points,
+    except that distance is removed; everything within the polygon is treated as
+    a distance of zero.</p>
 
-    </p>
+    <p>Alternatively, a zipped shapefile of points or polygons can be uploaded.
+    The zipped file must contain the .shp, .prj, and .shx files of the
+    shapefile, and must only contain 2D geometries. Commonly used coordinate
+    reference systems and projections are supported. Attributes are ignored. An
+    <a href="data/lekExample.zip">example of a zipped shapefile</a> is
+    available. Once submitted, the points or polygons of the shapefile will be
+    displayed on the map; additional points or polygons can be added using the
+    drawing tools. Please note that there may be a lag while processing the
+    shapefile; processing was optimized for individual states. Follow <a
+    href="http://support.esri.com/technical-article/000008433"
+    target="_blank">these instructions</a> to convert 3D shapefiles to 2D
+    shapefiles within ESRI ArcMap.</p>
 
-    <p>
+    <p>Click 'Calculate layer' to visualize fence collision risk. Click 'Reset
+    layer' to reset point and polygon features. The visualization is scale
+    dependent. For more accurate results it is necessary to zoom to an
+    appropriate level. When fence collision risk is visualized, the data may be
+    exported as a raster GeoTiff. This allows the data to be brought into GIS
+    software and used for planning purposes within other projects. Enter your
+    email address in the box and click 'Download layer'. A confirmation will
+    appear and the recipient will be notified via email when the layer is ready.
+    Downloads are available for five days. Large areas will be exported as
+    multiple files and may be subsequently merged into one file within GIS
+    software.</p>
 
-      Stevens, B. S., D. E. Naugle, B. Dennis, J. W. Connelly, T. Griffiths, and
-      K. P. Reese. 2013. Mapping sage-grouse fence-collision risk: Spatially
-      explicit models for targeting conservation implementation. Wildlife
-      Society bulletin 37:409–415. <a
-      href="http://dx.doi.org/10.1002/wsb.273"
-      target="_blank">http://dx.doi.org/10.1002/wsb.273</a>
+    <p>Lek information is temporarily cached for processing; it is automatically
+    deleted after one day. Lek information is not archived or permanently
+    stored. All lek information is transported securely.</p>
 
-
-    </p>
+    <br><br>
+    <p>Stevens, B. S., D. E. Naugle, B. Dennis, J. W. Connelly, T. Griffiths,
+    and K. P. Reese. 2013. Mapping sage-grouse fence-collision risk: Spatially
+    explicit models for targeting conservation implementation. Wildlife Society
+    bulletin 37:409–415. <a href="http://dx.doi.org/10.1002/wsb.273"
+    target="_blank">http://dx.doi.org/10.1002/wsb.273</a></p>
 
 
 
