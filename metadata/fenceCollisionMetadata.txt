@@ -31,5 +31,5 @@ distance of zero.
 
 Stevens, B. S., D. E. Naugle, B. Dennis, J. W. Connelly, T. Griffiths, and K. P.
 Reese. 2013. Mapping sage-grouse fence-collision risk: Spatially explicit models
-for targeting conservation implementation. Wildlife Society bulletin 37:409–415.
+for targeting conservation implementation. Wildlife Society bulletin 37:409-415.
 http://dx.doi.org/10.1002/wsb.273
