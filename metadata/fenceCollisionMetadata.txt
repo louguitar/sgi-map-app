@@ -1,0 +1,35 @@
+SGI fence collision risk metadata
+
+Raster values
+-------------
+Numerical values from 0 to 3, representing fence collision risk. Values can be
+categorized as follows:
+
+0 to 0.49: low risk
+0.50 to 0.99: moderate risk
+1.0+: high risk
+
+Coordinate reference system
+---------------------------
+Fence collision risk data have a WGS 84 geographic coordinate reference system.
+Pixel resolution is approximately 30 m.
+
+Data description
+----------------
+The fence collision risk data is produced by the Sage Grouse Initiative (SGI)
+fence collision risk tool of the SGI interactive web application
+(http://map.sagegrouseinitiative.com/). It is dependent upon user provided data
+and produces a raster GeoTiff representing sage grouse fence collision risk
+relative to lek locations or other areas of high bird concentration. Risk is
+calculated as described in Stevens et al. (2013). User provided points represent
+lek locations; fence collision risk is calculated relative to distance from the
+lek, up to a maximum three km. Polygons represent areas of bird concentration,
+e.g., wintering grounds. Fence collision risk is calculated the same as points,
+except that distance is removed; everything within the polygon is treated as a
+distance of zero.
+
+
+Stevens, B. S., D. E. Naugle, B. Dennis, J. W. Connelly, T. Griffiths, and K. P.
+Reese. 2013. Mapping sage-grouse fence-collision risk: Spatially explicit models
+for targeting conservation implementation. Wildlife Society bulletin 37:409–415.
+http://dx.doi.org/10.1002/wsb.273

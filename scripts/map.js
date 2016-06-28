@@ -19,6 +19,9 @@ var refLayers = {};
 // define object for holding refLayers styles
 var refLayersStyles = {};
 
+// declare eeOverlays; used for earth engine overlays;
+var eeOverlays = {};
+
 // define global maxZoom; maxZoom when no layer is displayed
 var globalMaxZoom = 20;
 
@@ -85,7 +88,7 @@ function initMap() {
       { "saturation": -25 }
     ]
   }
-]);
+  ]);
 
   // set ROADMAP as the default basemap
   map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
@@ -110,6 +113,10 @@ function initMap() {
   // uncheck reference layer boxes
   $(".refLayers").prop('checked', false);
 
+  // uncheck fenceCollision boxes
+  $('.fenceCollision').prop('checked', false);
+
+
   // which checkbox is checked upon landing
   var checkedBoxLanding = $('input:checkbox:checked').map(function() {
     return this.name;
@@ -131,6 +138,14 @@ function initMap() {
   $('.dataDownload').click(dataDownloadClick);
   // listen for clicks on refLayers
   $('.refLayers').click(refLayersClick);
+  // listen for clicks on fenceCollision
+  $('.fenceCollision').click(fenceCollisionClick);
+  // listen for clicks on calculateButton
+  $('.calculateButton').click(calculateFenceLayer);
+  // listen for clicks on resetButton
+  $('.resetButton').click(resetFenceLayer);
+  // listen for clicks on downloadButton
+  $('.downloadButton').click(downloadFenceLayer);
 };
 
 
@@ -140,6 +155,10 @@ function changeOpacity(o, dataTilesName) {
       imageMapType[dataTilesName].setOpacity(parseFloat(o));
 }
 
+// function to change opacity of eeOverlays
+function changeOpacityEEOverlays(o, dataTilesName) {
+      eeOverlays[dataTilesName].setOpacity(parseFloat(o));
+}
 
 
 // function to change map tiles when clicked/toggled
@@ -150,6 +169,14 @@ function dataTilesClick() {
 
   // uncheck other dataTiles boxes
   $('.dataTiles').not(this).prop('checked', false);
+
+  // uncheck fenceCollision boxes
+  $('.fenceCollision').prop('checked', false);
+
+  // hide fence collision buttons and inputs
+  fenceCollisionButtons(calculate='add', reset='add', download='add');
+  fenceCollisionInputs(shapefile='add', emailAddress='add');
+
 
   // clear downloadLayers
   for (var property in downloadLayers) {
@@ -218,6 +245,13 @@ function dataDownloadClick() {
     else {
       // uncheck other dataTiles boxes
       $('.dataTiles').not(this).prop('checked', false);
+
+      // uncheck fenceCollision boxes
+      $('.fenceCollision').prop('checked', false);
+
+      // hide fence collision buttons and inputs
+      fenceCollisionButtons(calculate='add', reset='add', download='add');
+      fenceCollisionInputs(shapefile='add', emailAddress='add');
 
       // clear overlay
       map.overlayMapTypes.clear();
