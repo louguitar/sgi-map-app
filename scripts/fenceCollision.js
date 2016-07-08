@@ -35,6 +35,11 @@ function fenceCollisionClick() {
     if (!($.isEmptyObject(eeOverlays['fenceCollision']))) {
       // clear overlay
       map.overlayMapTypes.clear();
+
+      // set maxZoom to 13 for most accurate visualization
+      map.setOptions({maxZoom: 13});
+
+      // push previous calculated layer
       map.overlayMapTypes.push(eeOverlays['fenceCollision']);
 
       // show appropriate buttons
@@ -60,6 +65,9 @@ function fenceCollisionClick() {
         editable: true,
         draggable: true
       });
+
+      // set maxZoom to 13 for most accurate visualization
+      map.setOptions({maxZoom: 13});
 
       // add feature listener to leksData
       addFeatureListener(leksData);
