@@ -374,8 +374,8 @@ function populateDataTiles() {
 
     // map bounds of data
     mapBounds: new google.maps.LatLngBounds(
-      new google.maps.LatLng(36.491475, -123.462836),
-      new google.maps.LatLng(48.963203, -109.089701)),
+      new google.maps.LatLng(35.53078004937417, -125.23546602314953),
+      new google.maps.LatLng(49.81345728589722, -108.47836877873412)),
 
     // min and max zoom of data
     mapMinZoom: 4,
@@ -385,7 +385,7 @@ function populateDataTiles() {
     opacity: parseFloat(document.getElementById('opacitySliderRRClass').value),
 
     // url of tiles
-    url: "http://tiles.allredsgi.org/rrClass/"
+    url: "https://storage.googleapis.com/sgi-tiles-rr-public/rr/"
   };
 
   // cultivation risk information
