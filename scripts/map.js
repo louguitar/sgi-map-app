@@ -393,18 +393,18 @@ function populateDataTiles() {
 
     // map bounds of data
     mapBounds: new google.maps.LatLngBounds(
-      new google.maps.LatLng(35.278552, -117.530362),
-      new google.maps.LatLng(51.474498, -95.072300)),
+      new google.maps.LatLng(36.445781903810214, -116.28572909212242),
+      new google.maps.LatLng(50.00996879293587, -96.43150811991941)),
 
     // min and max zoom of data
     mapMinZoom: 4,
-    mapMaxZoom: 12,
+    mapMaxZoom: 13,
 
     // opacity
     opacity: parseFloat(document.getElementById('opacitySliderCultivationRisk').value),
 
     // url of tiles
-    url: "http://tiles.allredsgi.org/cultivationRisk/"
+    url: "https://storage.googleapis.com/sgi-tiles-cultivation-public/cultivation/"
   };
 }
 
