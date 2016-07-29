@@ -366,7 +366,7 @@ function populateDataTiles() {
     opacity: parseFloat(document.getElementById('opacitySliderConifer').value),
 
     // url of tiles
-    url: "http://tiles.allredsgi.org/conifer/"
+    url: "https://storage.googleapis.com/sgi-tiles-conifer-public/conifer/"
   };
 
   // rrClass information
