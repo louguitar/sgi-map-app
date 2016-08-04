@@ -285,7 +285,7 @@ function dataDownloadClick() {
 
     // open download when user clicks on county
     downloadLayers[checkBoxName].addListener('click', function(event) {
-      window.open(event.feature.getProperty('s3Link'),"_self")
+      window.open(event.feature.getProperty('gsLink'),"_self")
     });
 
     // bold when user hovers
