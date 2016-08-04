@@ -66,7 +66,7 @@
       <TileMatrixSetLink>
         <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
       </TileMatrixSetLink>
-      <ResourceURL format="image/png" resourceType="tile" template="https://storage.googleapis.com/sgi-tiles-conifer-public/conifer/{TileMatrix}/{TileCol}/{TileRow}.png"/>
+      <ResourceURL format="image/png" resourceType="tile" template="https://storage.googleapis.com/sgi-tiles-conifer-public/conifer/{TileMatrix}/{TileCol}/{TileRow}"/>
     </Layer>
       <Layer>
       <ows:Title>Cultivation Risk</ows:Title>
