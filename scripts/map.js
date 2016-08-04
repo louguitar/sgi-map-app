@@ -355,8 +355,8 @@ function populateDataTiles() {
 
     // map bounds of data
     mapBounds: new google.maps.LatLngBounds(
-      new google.maps.LatLng(36.889596, -121.724515),
-      new google.maps.LatLng(46.887497, -105.554831)),
+      new google.maps.LatLng(37.080811971218324, -121.48486346426932),
+      new google.maps.LatLng(46.66783578261317,  -105.5363872355259)),
 
     // min and max zoom of data
     mapMinZoom: 4,
@@ -425,7 +425,7 @@ function populateImageMapType() {
        proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * tileXSize, coord.y * tileYSize))
      );
      if (!dataTiles['coniferTiles'].mapBounds.intersects(tileBounds) || zoom < dataTiles['coniferTiles'].mapMinZoom || zoom > dataTiles['coniferTiles'].mapMaxZoom) return null;
-     return dataTiles['coniferTiles'].url + "{z}/{x}/{y}.png".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
+     return dataTiles['coniferTiles'].url + "{z}/{x}/{y}".replace('{z}',zoom).replace('{x}',coord.x).replace('{y}',coord.y);
    },
    tileSize: new google.maps.Size(256, 256),
    minZoom: dataTiles['coniferTiles'].mapMinZoom,
