@@ -379,7 +379,7 @@ function populateDataTiles() {
 
     // min and max zoom of data
     mapMinZoom: 4,
-    mapMaxZoom: 13,
+    mapMaxZoom: 14,
 
     // opacity
     opacity: parseFloat(document.getElementById('opacitySliderRRClass').value),
