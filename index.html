@@ -153,16 +153,16 @@
 <ul class="chart eco">
 	<li class="bar red1" style="height: 25%;" title="95"><div class="skill">Low</div></li>
 	<li class="bar yellow1" style="height: 40%;" title="90"><div class="skill">Moderate</div></li>
-	<li class="bar green7" style="height: 55%;" title="80"><div class="skill">High</div></li>
+	<li class="bar blue1" style="height: 55%;" title="80"><div class="skill">High</div></li>
 </ul>
 
       <!-- download links for Ecosystem RR panel -->
       <span class="download-link" style="font-size: 15px; color: #a17358">&nbsp &nbsp
       <a href="https://storage.googleapis.com/sgi-data/rr/rrClass.zip">
-        <i class="fa fa-download"></i>&nbsp Ecosystem R &amp R Classes raster (50 MB)</a></span><br>
+        <i class="fa fa-download"></i>&nbsp Ecosystem R &amp R Classes raster (136 MB)</a></span><br>
       <span class="download-link" style="font-size: 15px">&nbsp &nbsp
       <a href="https://storage.googleapis.com/sgi-data/rr/rrGeodatabase.zip">
-        <i class="fa fa-download"></i>&nbsp Geodatabase (400 MB)</a></span><br>
+        <i class="fa fa-download"></i>&nbsp Geodatabase (924 MB)</a></span><br>
 
 
 
@@ -497,31 +497,33 @@
     <h2>Ecosystem Resilience & Resistance</h2>
 
     <p>This layer depicts a simplified index of relative ecosystem resilience to
-    disturbance and resistance to cheatgrass (“R&R”), providing a tool for rapid
-    risk assessment across sage-grouse habitats in the western range. Potential
-    ecosystem R&R depends in part on the biophysical conditions an area is
-    capable of supporting and soil temperature and moisture regimes can be used
-    to depict this gradient at large scales (Chambers et al. 2014). Soils data
-    were derived from two primary sources: 1) completed and interim soil surveys
-    available through the Soil Survey Geographic Database (SSURGO), and 2) the
-    State Soils Geographic Database (STATSGO2) to fill gaps where SSURGO data
-    were not available (Fig. 1). Using best available information and expert input, each
-    soil temperature and moisture regime/moisture subclass was placed into one
-    of three categories of relative R&R: high, moderate, and low (Table 1;
+    disturbance and resistance to cheatgrass ("R&R"), providing a tool for rapid
+    risk assessment across the range of sage-grouse. Potential  ecosystem R&R
+    depends in part on the biophysical conditions an area is capable of
+    supporting and soil  temperature and moisture regimes can be used to depict
+    this gradient at large scales (Chambers et al.  2014, 2016; Maestas et al.
+    2016). Soils data were derived from two primary sources: 1) completed and
+    interim soil surveys available through the Soil Survey Geographic Database
+    (SSURGO), and 2) the State  Soils Geographic Database (STATSGO2) to fill
+    gaps where SSURGO data were not available (Fig. 1). Using  best available
+    information and expert input, each soil temperature and moisture
+    regime/moisture  subclass was placed into one of three categories of
+    relative R&R: high, moderate, and low (Table 1;  Chambers et al. 2014, 2016;
     Maestas et al. 2016). Soils with high water tables, wetlands, or frequent
     ponding that would not typically support sagebrush were not rated.</p>
 
-    <p>This tool is most appropriate for regional and landscape level planning and
-    prioritization. When combined with other data layers, such as the sage-grouse
-    PACs and existing land cover, planners can use this tool to inform where to
-    prioritize strategic actions before, during, and after wildfire to conserve
-    sagebrush habitats and prevent conversion to annual grasslands. At more local
-    scales, depicting the actual soil temperature/moisture subclasses included in
-    the file geodatabase, rather than just the index, provides a more nuanced view
-    of the environmental gradient. Application of this tool is just one step in the
-    planning process and must be followed by more detailed site assessments to
-    verify soils and incorporate additional factors, such as current vegetation
-    condition, that heavily influence R&R.</p>
+    <p>This tool is most appropriate for regional and landscape level planning
+    and prioritization. When combined with other data layers, such as the
+    sage-grouse PACs and existing land cover, planners can use this tool to
+    inform where to prioritize strategic actions before, during, and after
+    wildfire to conserve sagebrush habitats and prevent conversion to annual
+    grasslands. At more local scales, depicting the actual soil
+    temperature/moisture subclasses included in the file geodatabase, rather
+    than just the index, provides a more nuanced view of the environmental
+    gradient. Application of this tool is just one step in the planning process
+    and must be followed by more detailed site assessments to verify soils and
+    incorporate additional factors, such as current vegetation condition, that
+    heavily influence R&R.</p>
 
     <p>Thematic raster data represent resilience and resistance in the following
     classes:</p>
@@ -542,103 +544,118 @@
 
     <img class="popup" alt="" src="images/rrFig01.jpg"><br><br><br>
 
-    <p>Table 1. Rating of relative resilience and resistance across predominant
-    rangeland ecosystems in the western sage-grouse range. From Maestas et al.
-    2016.</p>
+    <p>Table 1. Rating of relative resilience and resistance by soil taxonomic
+    temperature and moisture regimes (subclasses) across predominant sagebrush
+    ecosystems within the range of sage-grouse. </p>
 
     <table class="heavyTable">
           <thead>
             <tr>
-              <th>Soil temperature and moisture regime; moisture subclass</th>
+              <th>Soil taxonomic name</th>
               <th>Common name</th>
-              <th>Typical shrub type</th>
               <th>R&R rating</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td>Cryic/Udic-Typic</td>
+              <td>Cold/moist</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Cryic/Ustic-Typic</td>
+              <td>Cold/summer moist</td>
+              <td>High</td>
+            </tr>
+            <tr>
               <td>Cryic/Xeric-Typic</td>
               <td>Cold/moist</td>
-              <td>Mountain big sagebrush, mountain brush</td>
               <td>High</td>
             </tr>
             <tr>
               <td>Cryic/Xeric bordering on Aridic</td>
               <td>Cold/moist bordering on dry</td>
-              <td>Mountain big sagebrush</td>
-              <td>High</td>
-            </tr>
-            <tr>
-              <td>Frigid/Xeric-Typic</td>
-              <td>Cool/moist</td>
-              <td>Mountain big sagebrush, mountain brush</td>
               <td>High</td>
             </tr>
             <tr>
               <td>Cryic/Aridic bordering on Xeric</td>
               <td>Cold/dry bordering on moist</td>
-              <td>Mountain big sagebrush, low sagebrush</td>
-              <td>High</td>
+              <td>Moderate</td>
             </tr>
             <tr>
               <td>Cryic/Aridic-Typic</td>
               <td>Cold/dry</td>
-              <td>Low sagebrush</td>
+              <td>Moderate</td>
+            </tr>
+            <tr>
+              <td>Frigid/Ustic-Typic</td>
+              <td>Cool/summer moist</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Frigid/Xeric-Typic</td>
+              <td>Cool/moist</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Frigid/Ustic bordering on Aridic</td>
+              <td>Cool/summer moist bordering on dry</td>
               <td>Moderate</td>
             </tr>
             <tr>
               <td>Frigid/Xeric bordering on Aridic</td>
               <td>Cool/moist bordering on dry</td>
-              <td>Mountain big sagebrush</td>
               <td>Moderate</td>
             </tr>
-
-    		<tr>
+            <tr>
+              <td>Frigid/Aridic bordering on Ustic</td>
+              <td>Cool/dry bordering on summer moist</td>
+              <td>Moderate</td>
+            </tr>
+    		    <tr>
               <td>Frigid/Aridic-Typic</td>
               <td>Cool/dry</td>
-              <td>Mountain/Wyoming big sagebrush, low sagebrush</td>
               <td>Moderate</td>
             </tr>
-
-    		<tr>
+            <tr>
               <td>Frigid/Aridic bordering on Xeric</td>
               <td>Cool/dry bordering on moist</td>
-              <td>Mountain/Wyoming big sagebrush, low sagebrush</td>
               <td>Moderate</td>
             </tr>
-    		<tr>
+            <tr>
+              <td>Mesic/Ustic-Typic</td>
+              <td>Warm/summer moist</td>
+              <td>Moderate</td>
+            </tr>
+    		    <tr>
               <td>Mesic/Xeric-Typic</td>
               <td>Warm/moist</td>
-              <td>Wyoming big sagebrush, basin big sagebrush</td>
               <td>Moderate</td>
             </tr>
-    		<tr>
-              <td>Mesic/Xeric bordering on Aridic</td>
-              <td>Warm/moist bordering on dry</td>
-              <td>Wyoming big sagebrush, black sagebrush</td>
-              <td>Low</td>
+            <tr>
+              <td>Mesic/Ustic bordering on Aridic</td>
+              <td>Warm/summer moist bordering on dry</td>
+              <td>Moderate (Prairies)<br>Low (Cold Deserts)</td>
             </tr>
-    		<tr>
+            <tr>
+              <td>Mesic/Aridic bordering on Ustic</td>
+              <td>Warm/dry bordering on summer moist</td>
+              <td>Moderate (Prairies)<br>Low (Cold Deserts)</td>
+            </tr>
+    		    <tr>
               <td>Mesic/Aridic bordering on Xeric</td>
               <td>Warm/dry bordering on moist</td>
-              <td>Wyoming big sagebrush, basin big sagebrush</td>
               <td>Low</td>
             </tr>
-    		<tr>
+    		    <tr>
               <td>Mesic/Aridic-Typic</td>
               <td>Warm/dry</td>
-              <td>Salt desert shrub</td>
               <td>Low</td>
             </tr>
 
 
           </tbody>
     </table>
-
-    <p>Maestas et al. 2016. Tapping Soil Survey Information for Rapid Assessment
-    of Sagebrush Ecosystem Resilience and Resistance. Rangelands. <a
-    href="http://dx.doi.org/10.1016/j.rala.2016.02.002" target="_blank">
-    http://dx.doi.org/10.1016/j.rala.2016.02.002</a></p>
 
     <p>Chambers et al. 2014. Using resistance and resilience concepts to reduce
     impacts of annual grasses and altered fire regimes on the sagebrush
@@ -647,12 +664,23 @@
     href="http://www.fs.fed.us/rm/pubs/rmrs_gtr326.html"
     target="_blank">http://www.fs.fed.us/rm/pubs/rmrs_gtr326.html</a></p>
 
+    <p>Chambers et al. 2016. Using resilience and resistance concepts to manage
+    threats to sagebrush ecosystems, Gunnison sage-grouse, and greater
+    sage-grouse in their eastern range: a strategic multi-scale approach. Gen.
+    Tech. Rep. RMRS-GTR-XXX. Fort Collins, CO: U.S. Department of Agriculture,
+    Forest Service, Rocky Mountain Research Station. </p>
+
     <p>Maestas, J. D., and S. B. Campbell. 2014. Mapping Potential Ecosystem
     Resilience and Resistance across Sage-Grouse Range using Soil Temperature
     and Moisture Regimes. Fact Sheet. Sage Grouse Initiative. <a
     href="http://www.sagegrouseinitiative.com/wp-content/uploads/2013/07/Soil-Temp-Moist-Data-Fact-Sheet-HIGH-RES-012215.pdf"
     target="_blank">
     http://www.sagegrouseinitiative.com/wp-content/uploads/2013/07/Soil-Temp-Moist-Data-Fact-Sheet-HIGH-RES-012215.pdf</a></p>
+
+    <p>Maestas et al. 2016. Tapping Soil Survey Information for Rapid Assessment
+    of Sagebrush Ecosystem Resilience and Resistance. Rangelands 38:120-128. <a
+    href="http://dx.doi.org/10.1016/j.rala.2016.02.002" target="_blank">
+    http://dx.doi.org/10.1016/j.rala.2016.02.002</a></p>
 
   </div>
 

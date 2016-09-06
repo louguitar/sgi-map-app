@@ -24,7 +24,7 @@
     <ows:Operation name="GetTile">
       <ows:DCP>
         <ows:HTTP>
-          <ows:Get xlink:href="http://tiles.allredsgi.org/">
+          <ows:Get xlink:href="http://storage.googleapis.com/">
             <ows:Constraint name="GetEncoding">
               <ows:AllowedValues>
                 <ows:Value>RESTful</ows:Value>
@@ -40,8 +40,8 @@
       <ows:Title>Ecosystem RR Class</ows:Title>
       <ows:Identifier>rrClass</ows:Identifier>
       <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
-        <ows:LowerCorner>-123.462836 36.491475</ows:LowerCorner>
-        <ows:UpperCorner>-109.089701 48.963203</ows:UpperCorner>
+        <ows:LowerCorner>-127.9936902490509 33.92018755581908</ows:LowerCorner>
+        <ows:UpperCorner>-101.56942709957356 51.43280397622856</ows:UpperCorner>
       </ows:WGS84BoundingBox>
       <Style isDefault="true">
         <ows:Identifier>default</ows:Identifier>
@@ -50,14 +50,14 @@
       <TileMatrixSetLink>
         <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
       </TileMatrixSetLink>
-      <ResourceURL format="image/png" resourceType="tile" template="http://tiles.allredsgi.org/rrClass/{TileMatrix}/{TileCol}/{TileRow}.png"/>
+      <ResourceURL format="image/png" resourceType="tile" template="https://storage.googleapis.com/sgi-tiles-rr/rr/{TileMatrix}/{TileCol}/{TileRow}.png"/>
     </Layer>
       <Layer>
       <ows:Title>Tree Canopy Cover</ows:Title>
       <ows:Identifier>treeCanopyCover</ows:Identifier>
       <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
-        <ows:LowerCorner>-121.725 36.8896</ows:LowerCorner>
-        <ows:UpperCorner>-105.555 46.8875</ows:UpperCorner>
+        <ows:LowerCorner>-121.48486346426932 37.080811971218324</ows:LowerCorner>
+        <ows:UpperCorner>-105.5363872355259 46.66783578261317</ows:UpperCorner>
       </ows:WGS84BoundingBox>
       <Style isDefault="true">
         <ows:Identifier>default</ows:Identifier>
@@ -66,14 +66,14 @@
       <TileMatrixSetLink>
         <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
       </TileMatrixSetLink>
-      <ResourceURL format="image/png" resourceType="tile" template="https://storage.googleapis.com/sgi-tiles-conifer-public/conifer/{TileMatrix}/{TileCol}/{TileRow}"/>
+      <ResourceURL format="image/png" resourceType="tile" template="https://storage.googleapis.com/sgi-tiles-conifer/conifer/{TileMatrix}/{TileCol}/{TileRow}.png"/>
     </Layer>
       <Layer>
       <ows:Title>Cultivation Risk</ows:Title>
       <ows:Identifier>cultivationRisk</ows:Identifier>
       <ows:WGS84BoundingBox crs="urn:ogc:def:crs:OGC:2:84">
-        <ows:LowerCorner>-117.530362 35.278552</ows:LowerCorner>
-        <ows:UpperCorner>-95.0723 51.474498</ows:UpperCorner>
+        <ows:LowerCorner>-116.28572909212242 36.445781903810214</ows:LowerCorner>
+        <ows:UpperCorner>-96.43150811991941 50.00996879293587</ows:UpperCorner>
       </ows:WGS84BoundingBox>
       <Style isDefault="true">
         <ows:Identifier>default</ows:Identifier>
@@ -82,7 +82,7 @@
       <TileMatrixSetLink>
         <TileMatrixSet>GoogleMapsCompatible</TileMatrixSet>
       </TileMatrixSetLink>
-      <ResourceURL format="image/png" resourceType="tile" template="http://tiles.allredsgi.org/cultivationRisk/{TileMatrix}/{TileCol}/{TileRow}.png"/>
+      <ResourceURL format="image/png" resourceType="tile" template="https://storage.googleapis.com/sgi-tiles-cultivation/cultivation/{TileMatrix}/{TileCol}/{TileRow}.png"/>
     </Layer><TileMatrixSet>
       <ows:Title>GoogleMapsCompatible</ows:Title>
       <ows:Abstract>GoogleMapsCompatible EPSG:3857</ows:Abstract>
