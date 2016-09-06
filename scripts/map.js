@@ -494,6 +494,7 @@ function populateRefLayersStyles() {
   // mgmtZonesRefLayer
   refLayersStyles['mgmtZonesRefLayer'] = {
     fillColor: '#d95f02',
+    fillOpacity: 0,
     strokeColor: '#d95f02',
     strokeWeight: 2
   };
@@ -501,6 +502,7 @@ function populateRefLayersStyles() {
   // pacRefLayer
   refLayersStyles['pacRefLayer'] = {
     fillColor: '#7570b3',
+    fillOpacity: 0,
     strokeColor: '#7570b3',
     strokeWeight: 2
   };
