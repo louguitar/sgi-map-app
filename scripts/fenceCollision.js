@@ -154,6 +154,16 @@ function processFile(files) {
   var reader = new FileReader();
   reader.onload = function(e) {
     shp(e.target.result).then(function(geojson) {
+
+      // if shapefile is polygon, reverse vertice order for counter clockwise
+      // polygon
+      if (geojson.features[0].geometry.type === 'Polygon' ||
+        geojson.features[0].geometry.type === 'MultiPolygon') {
+        geojson.features.forEach(function(feature) {
+          feature.geometry.coordinates[0].reverse();
+        });
+      }
+
       loadGeoJsonString(geojson);
     });
   };
