@@ -154,6 +154,16 @@ function processFile(files) {
   var reader = new FileReader();
   reader.onload = function(e) {
     shp(e.target.result).then(function(geojson) {
+
+      // if shapefile is polygon, reverse vertice order for counter clockwise
+      // polygon
+      if (geojson.features[0].geometry.type === 'Polygon' ||
+        geojson.features[0].geometry.type === 'MultiPolygon') {
+        geojson.features.forEach(function(feature) {
+          feature.geometry.coordinates[0].reverse();
+        });
+      }
+
       loadGeoJsonString(geojson);
     });
   };
@@ -195,12 +205,10 @@ function processPoints(geometry, callback, thisArg) {
 }
 
 // function to filter a geojson by geometry type
-function filterShape(geometryTypeOne, geometryTypeTwo, geometryTypeThree,
-  geometryTypeFour) {
+function filterShape(geometryTypeOne, geometryTypeTwo) {
    return function(el) {
-      var r = el.Feature = el.geometry;
-      return r.type == geometryTypeOne || r.type == geometryTypeTwo ||
-        r.type == geometryTypeThree || r.type == geometryTypeFour;
+      var r = el.geometry;
+      return r.type == geometryTypeOne || r.type == geometryTypeTwo;
    }
 }
 
@@ -246,10 +254,11 @@ function calculateFenceLayer() {
 
   // filter points and lines
   // only do points for now
-  var pointsLines = leksGeojson.features.filter(filterShape('MultiPoint', 'Point',
-    'MultiPoint', 'Point'));
+  var pointsLines = leksGeojson.features.filter(filterShape('MultiPoint',
+    'Point'));
   // filter polygons
-  var polygons = leksGeojson.features.filter(filterShape('MultiPolygon', 'Polygon'));
+  var polygons = leksGeojson.features.filter(filterShape('MultiPolygon',
+    'Polygon'));
 
   // object for both polygons and points
   var pointsPolygons = {};
@@ -340,7 +349,7 @@ function downloadFenceLayer() {
   // filter points and lines
   // only do points for now
   var pointsLines = leksGeojson.features.filter(filterShape('MultiPoint',
-    'Point', 'MultiPoint', 'Point'));
+    'Point'));
   // filter polygons
   var polygons = leksGeojson.features.filter(filterShape('MultiPolygon',
     'Polygon'));
