@@ -232,8 +232,9 @@ function calculateFenceLayer() {
   // onDone for ajax post
   var onDone = (function(data) {
     // Create the layer.
-    eeOverlays['fenceCollision'] = new ee.MapLayerOverlay('https://earthengine.googleapis.com/map',
-      data.mapid, data.token, {});
+    eeOverlays['fenceCollision'] = new ee.layers.ImageOverlay(
+      new ee.layers.EarthEngineTileSource('https://earthengine.googleapis.com/map',
+        data.mapid, data.token));
 
     // callback for tile load
     eeOverlays['fenceCollision'].addTileCallback(function(event) {
