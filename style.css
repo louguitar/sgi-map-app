@@ -17,6 +17,21 @@ a:focus, a:hover {
     display: block;
 }
 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .green-slider {
+    display: none;
+  }
+  .blue-slider {
+    display: none;
+  }
+  .purple-slider {
+    display: none;
+  }
+  .red-slider {
+    display: none;
+  }
+}
+
 #header {
 	height: 62px;
 	background-image: url(images/header_bg.jpg);
