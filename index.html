@@ -75,7 +75,11 @@
 
       <label for="00" class="conifer-headline">Tree Canopy Cover
 </label><a id="inline" href="#conifer-areas-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
-            <div class="dataBox-copy">High-resolution map of tree canopy cover across sage grouse habitat.</div>
+
+        <div class="dataBox-copy">High-resolution map of tree canopy cover
+        across sage grouse habitat. <a id="inline" href="#conifer-areas-i"
+        class="fancybox">Detailed information.</a></div>
+
         <div class="green-slider"><input type="range" id="opacitySliderConifer"
           oninput="changeOpacity(opacitySliderConifer.value, 'coniferTiles')"
           min="0" max="1" step=".01" value="1">
@@ -111,8 +115,8 @@
 
       <label for="20" class="conifer-headline"> Tree Canopy Data Download</label><!-- <a id="inline" href="#conifer-dl-i" class="fancybox"><i class="fa fa-info-circle info"></i></a> --><br />
 
-      <div class="dataBox-copy">Click on a county to download a raster GeoTiff
-      of tree canopy cover. <a id="inline" href="#conifer-areas-i"
+      <div class="dataBox-copy">Click on a county to download gridded data
+      (GeoTiff) of tree canopy cover. <a id="inline" href="#conifer-areas-i"
       class="fancybox">State level data</a> are also available.</div>
 
 
@@ -140,15 +144,18 @@
 
       <label for="01" class="ecosystem-headline"> Ecosystem Resilience & Resistance</label><a id="inline" href="#ecosystem-rr-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
 
-      <div class="dataBox-copy blue_track">Index of relative ecosystem resilience to
-        disturbance and resistance to cheatgrass based on underlying soil
-        temperature and moisture regimes.</div>
+      <div class="dataBox-copy blue_track">Index of relative ecosystem
+      resilience to disturbance and resistance to cheatgrass based on underlying
+      soil temperature and moisture regimes. <a id="inline" style="font-size:
+      13px" href="#ecosystem-rr-i" class="fancybox">Detailed
+      information.</a></div>
+
         <div class="blue-slider"><input type="range" id="opacitySliderRRClass" class="blue_track"
           oninput="changeOpacity(opacitySliderRRClass.value, 'rrClassTiles')"
           min="0" max="1" step=".01" value="1"></div>
       <br>
 
-      <!-- green, red, yellow pallete -->
+      <!-- blue, yellow, red pallete -->
 
 
 <ul class="chart eco">
@@ -160,10 +167,10 @@
       <!-- download links for Ecosystem RR panel -->
       <span class="download-link" style="font-size: 15px; color: #a17358">&nbsp &nbsp
       <a href="https://storage.googleapis.com/sgi-data/rr/rrClass.zip">
-        <i class="fa fa-download"></i>&nbsp Ecosystem R &amp R Classes raster (136 MB)</a></span><br>
+        <i class="fa fa-download"></i>&nbsp Ecosystem R &amp R Classes gridded data (136 MB)</a></span><br>
       <span class="download-link" style="font-size: 15px">&nbsp &nbsp
       <a href="https://storage.googleapis.com/sgi-data/rr/rrGeodatabase.zip">
-        <i class="fa fa-download"></i>&nbsp Geodatabase (924 MB)</a></span><br>
+        <i class="fa fa-download"></i>&nbsp Ecosystem R &amp R Geodatabase (924 MB)</a></span><br>
 
 
 
@@ -179,27 +186,37 @@
      <div id="fence-collapse" class="panel-collapse collapse">
 	 <div class="data-container">
 
-	<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
-    <input type="checkbox" id="00" name="fenceCollision" class="fenceCollision">
-    <span class="checkbox-switch-inner">
-      <span class="checkbox-switch-on"></span>
-      	<span class="checkbox-switch-off"></span>
-     	 <span class="checkbox-switch-handle"></span>
-	  </span>
-	</label>
+  <div class="fence-collision-ie">
+    <label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
+        <input type="checkbox" id="03" name="fenceCollision" class="fenceCollision">
 
+        <span class="checkbox-switch-inner">
+          <span class="checkbox-switch-on"></span>
+        	 <span class="checkbox-switch-off"></span>
+       	   <span class="checkbox-switch-handle"></span>
+        </span>
+  	</label>
 
-      <label for="00" class="fence-headline"> Fence Collision <sup class="beta_sml"><i>BETA</i></sup></label><a id="inline" href="#fence-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
+    <label for="03" class="fence-headline"> Fence Collision <sup class="beta_sml"><i>BETA</i></sup></label><a id="inline" href="#fence-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br/>
 
+  </div>
       <div class="dataBox-copy blue_track">
+          <div class="fence-collision-ie">
 
-        Visualizes and exports sage grouse fence collision risk relative to lek
-        locations or other areas of high bird concentration. Upload a zipped
-        shapefile or add points manually using the drawing tools. Visualizations
-        are scale dependent; zoom in for greater accuracy.  <a id="inline"
-        href="#fence-i" class="fancybox">Detailed instructions</a>.
+            Visualizes and exports sage grouse fence collision risk relative to
+            lek locations or other areas of high bird concentration. Upload a
+            zipped shapefile or add points manually using the drawing tools.
+            Visualizations are scale dependent; zoom in for greater accuracy.
+            <a id="inline" href="#fence-i" class="fancybox">Detailed
+            instructions</a>.
 
-        <br><br>TIP: Draw polygons counter-clockwise for correct exports.
+            <br><br>TIP: Draw polygons counter-clockwise for correct exports.
+
+          </div>
+
+        <br>Microsoft Internet Explorer and Edge are not supported. Please
+        use Chrome, Firefox, or Safari.
+
       </div>
 
         <!-- Fence collision placeholder -->
@@ -258,12 +275,13 @@
 
       <!-- green, red, yellow pallete -->
 
-
-<ul class="chart eco">
-	<li class="bar green7" style="height: 25%;" title="95"><div class="skill">Low</div></li>
-	<li class="bar yellow1" style="height: 40%;" title="90"><div class="skill">Moderate</div></li>
-	<li class="bar red1" style="height: 55%;" title="80"><div class="skill">High</div></li>
-</ul>
+<div class="fence-collision-ie">
+  <ul class="chart eco">
+  	<li class="bar green7" style="height: 25%;" title="95"><div class="skill">Low</div></li>
+  	<li class="bar yellow1" style="height: 40%;" title="90"><div class="skill">Moderate</div></li>
+  	<li class="bar red1" style="height: 55%;" title="80"><div class="skill">High</div></li>
+  </ul>
+</div>
 <br>
 
 
@@ -294,7 +312,9 @@
 
       <div class="dataBox-copy blue_track">Suitability for cropping based on
       climate, soils, and topography to assess potential risk of cultivation to
-      sage grouse habitat.</div>
+      sage grouse habitat. <a id="inline" href="#cultivation-risk-i"
+      class="fancybox">Detailed information.</a></div>
+
       <div class="red-slider"><input type="range" id="opacitySliderCultivationRisk" oninput="changeOpacity(opacitySliderCultivationRisk.value, 'cultivationRiskTiles')" min="0" max="1" step=".01" value="1"></div>
       <br>
 
@@ -313,7 +333,7 @@
 
 <span class="download-link" style="font-size: 15px; color: #a17358">&nbsp &nbsp
 <a id="inline" class="fancybox" href="#cultivation-risk-i">
-  <i class="fa fa-download"></i>&nbsp Download state level data</a></span><br>
+  <i class="fa fa-download"></i>&nbsp Cultivation risk gridded data</a></span><br>
 <!--
 <ul class="chart skill">
 	<li class="bar riskcolor1" style="height: 20%;" ><div class="skill"><span style="color: #fff;">Low</span></div></li>
@@ -352,7 +372,7 @@
       <label for="40" class="reference-headline">Sage Grouse PAC</label><!-- <a id="inline" href="#sagegrouse-pac-i" class="fancybox"><i class="fa fa-info-circle info"></i></a> --><br />
       <div class="dataBox-copy">&nbsp &nbsp Priority Areas for Conservation (PAC) represent the most important areas needed for maintaining sage grouse representation, redundancy and resilience across the landscape.</div>
             <span class="download-link"><a class="shapefile-dl-btn" href="https://storage.googleapis.com/sgi-data/reference/sageGrousePAC.zip">
-        <i class="fa fa-download"></i>&nbsp shapefile</a></span><br>
+        <i class="fa fa-download"></i>&nbsp PAC shapefile</a></span><br>
 
 
 <label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
@@ -368,7 +388,7 @@
       <label for="41" class="reference-headline">Sage Grouse management zones</label><!-- <a id="inline" href="#sagegrouse-mgmt-i" class="fancybox"><i class="fa fa-info-circle info"> --></i></a><br />
       <div class="dataBox-copy">&nbsp &nbsp Broad floristic provinces encompassing sage grouse populations and habitats.</div>
         <span class="download-link"><a class="shapefile-dl-btn"href="https://storage.googleapis.com/sgi-data/reference/sageGrouseMgmtZones.zip">
-        <i class="fa fa-download"></i>&nbsp shapefile</a></span><br>
+        <i class="fa fa-download"></i>&nbsp Management zones shapefile</a></span><br>
         </div>
       </div>
     </div>
@@ -777,6 +797,9 @@
     <p>Lek information is temporarily cached for processing; it is automatically
     deleted after one day. Lek information is not archived or permanently
     stored. All lek information is transported securely.</p>
+
+    <p>Please contact <a href="mailto:allredbw@gmail.com">Brady Allred</a> to
+    report errors.</p>
 
     <br><br>
     <p>Stevens, B. S., D. E. Naugle, B. Dennis, J. W. Connelly, T. Griffiths,
