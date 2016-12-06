@@ -30,6 +30,9 @@ a:focus, a:hover {
   .red-slider {
     display: none;
   }
+  .fence-collision-ie {
+    display: none;
+  }
 }
 
 #header {

@@ -186,30 +186,37 @@
      <div id="fence-collapse" class="panel-collapse collapse">
 	 <div class="data-container">
 
-	<label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
-    <input type="checkbox" id="00" name="fenceCollision" class="fenceCollision">
-    <span class="checkbox-switch-inner">
-      <span class="checkbox-switch-on"></span>
-      	<span class="checkbox-switch-off"></span>
-     	 <span class="checkbox-switch-handle"></span>
-	  </span>
-	</label>
+  <div class="fence-collision-ie">
+    <label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
+        <input type="checkbox" id="00" name="fenceCollision" class="fenceCollision">
 
+        <span class="checkbox-switch-inner">
+          <span class="checkbox-switch-on"></span>
+        	 <span class="checkbox-switch-off"></span>
+       	   <span class="checkbox-switch-handle"></span>
+        </span>
+  	</label>
 
-      <label for="00" class="fence-headline"> Fence Collision <sup class="beta_sml"><i>BETA</i></sup></label><a id="inline" href="#fence-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
+    <label for="00" class="fence-headline"> Fence Collision <sup class="beta_sml"><i>BETA</i></sup></label><a id="inline" href="#fence-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br/>
 
+  </div>
       <div class="dataBox-copy blue_track">
+          <div class="fence-collision-ie">
 
-        Visualizes and exports sage grouse fence collision risk relative to lek
-        locations or other areas of high bird concentration. Upload a zipped
-        shapefile or add points manually using the drawing tools. Visualizations
-        are scale dependent; zoom in for greater accuracy.  <a id="inline"
-        href="#fence-i" class="fancybox">Detailed instructions</a>.
+            Visualizes and exports sage grouse fence collision risk relative to
+            lek locations or other areas of high bird concentration. Upload a
+            zipped shapefile or add points manually using the drawing tools.
+            Visualizations are scale dependent; zoom in for greater accuracy.
+            <a id="inline" href="#fence-i" class="fancybox">Detailed
+            instructions</a>.
 
-        <br><br>The Internet Explorer browser is not supported. Please use
-        Chrome, Firefox, Safari, or Edge.
+            <br><br>TIP: Draw polygons counter-clockwise for correct exports.
 
-        <br><br>TIP: Draw polygons counter-clockwise for correct exports.
+          </div>
+
+        <br>Microsoft Internet Explorer and Edge are not supported. Please
+        use Chrome, Firefox, or Safari.
+
       </div>
 
         <!-- Fence collision placeholder -->
@@ -268,12 +275,13 @@
 
       <!-- green, red, yellow pallete -->
 
-
-<ul class="chart eco">
-	<li class="bar green7" style="height: 25%;" title="95"><div class="skill">Low</div></li>
-	<li class="bar yellow1" style="height: 40%;" title="90"><div class="skill">Moderate</div></li>
-	<li class="bar red1" style="height: 55%;" title="80"><div class="skill">High</div></li>
-</ul>
+<div class="fence-collision-ie">
+  <ul class="chart eco">
+  	<li class="bar green7" style="height: 25%;" title="95"><div class="skill">Low</div></li>
+  	<li class="bar yellow1" style="height: 40%;" title="90"><div class="skill">Moderate</div></li>
+  	<li class="bar red1" style="height: 55%;" title="80"><div class="skill">High</div></li>
+  </ul>
+</div>
 <br>
 
 
