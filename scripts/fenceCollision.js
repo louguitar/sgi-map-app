@@ -157,16 +157,13 @@ function processFile(files) {
 
       // if shapefile is polygon, reverse vertice order for counter clockwise
       // polygon
-      if (geojson.features[0].geometry.type === 'Polygon' ||
-        geojson.features[0].geometry.type === 'MultiPolygon') {
-        geojson.features.forEach(function(feature) {
-          feature.geometry.coordinates[0].reverse();
-        });
-      }
-
+      if (geojson.features[0].geometry.type === 'Point' ||
+        geojson.features[0].geometry.type === 'MultiPoint') {
       loadGeoJsonString(geojson);
+      }
     });
   };
+  
   reader.onerror = function(e) {
     console.error('reading failed');
   };
@@ -257,8 +254,9 @@ function calculateFenceLayer() {
   var pointsLines = leksGeojson.features.filter(filterShape('MultiPoint',
     'Point'));
   // filter polygons
-  var polygons = leksGeojson.features.filter(filterShape('MultiPolygon',
-    'Polygon'));
+  // var polygons = leksGeojson.features.filter(filterShape('MultiPolygon',
+  //   'Polygon'));
+  var polygons = [];
 
   // object for both polygons and points
   var pointsPolygons = {};
@@ -351,8 +349,9 @@ function downloadFenceLayer() {
   var pointsLines = leksGeojson.features.filter(filterShape('MultiPoint',
     'Point'));
   // filter polygons
-  var polygons = leksGeojson.features.filter(filterShape('MultiPolygon',
-    'Polygon'));
+  // var polygons = leksGeojson.features.filter(filterShape('MultiPolygon',
+  //   'Polygon'));
+  var polygons = [];
 
   // object for both polygons and points
   var pointsPolygons = {};
