@@ -210,7 +210,7 @@
             <a id="inline" href="#fence-i" class="fancybox">Detailed
             instructions</a>.
 
-            <br><br>TIP: Draw polygons counter-clockwise for correct exports.
+            <br><br>UPDATE: Polygon functionality removed.
 
           </div>
 
@@ -751,29 +751,25 @@
 
     <h2>Fence Collision</h2>
 
+    <p>UPDATE 2016-12-20: Calculating fence collision risk for polygons has been
+    removed.</p>
+
     <p>The fence collision tool visualizes and exports sage grouse fence
-    collision risk relative to lek locations or other areas of high bird
-    concentration. It is based on models described in Stevens et al. (2013).
-    This service is in Beta and is not guaranteed. If visualization fails,
-    export will likely continue to function.</p>
+    collision risk relative to lek locations. It is based on models described in
+    Stevens et al. (2013). This service is in Beta and is not guaranteed. If
+    visualization fails, export will likely continue to function.</p>
 
     <p>After toggling the layer on, use the drawing tools <img alt=""
-    src="images/drawingTools.png" width="75"> in the upper left hand corner to
-    place points or draw polygons. Points represent lek locations; fence
+    src="images/drawingTools.png" width="50"> in the upper left hand corner to
+    place points. Points represent lek locations; fence
     collision risk is calculated relative to distance from the lek, up to a
-    maximum three km. Polygons represent areas of bird concentration, e.g.,
-    wintering grounds. Fence collision risk is calculated the same as points,
-    except that distance is removed; everything within the polygon is treated as
-    a distance of zero. Polygons need to be drawn counter-clockwise for correct
-    exports.</p>
-
-    <p>Alternatively, a zipped shapefile of points or polygons can be uploaded.
+    maximum three km. Alternatively, a zipped shapefile of points can be uploaded.
     The zipped file must contain the .shp, .prj, and .shx files of the
     shapefile, and must only contain 2D geometries. Commonly used coordinate
     reference systems and projections are supported. Attributes are ignored. An
     <a href="data/lekExample.zip">example of a zipped shapefile</a> is
-    available. Once submitted, the points or polygons of the shapefile will be
-    displayed on the map; additional points or polygons can be added using the
+    available. Once submitted, the points of the shapefile will be
+    displayed on the map; additional points can be added using the
     drawing tools. Please note that there may be a lag while processing the
     shapefile; processing was optimized for individual states. If necessary,
     follow <a href="http://support.esri.com/technical-article/000008433"
@@ -781,7 +777,7 @@
     shapefiles using ESRI ArcMap.</p>
 
     <p>Click 'Calculate layer' to visualize fence collision risk. Click 'Reset
-    layer' to reset point and polygon features. The visualization is scale
+    layer' to reset point features. The visualization is scale
     dependent. For more accurate results it is necessary to zoom to an
     appropriate level. When fence collision risk is visualized, the data may be
     exported as a raster GeoTiff. This allows the data to be brought into GIS
