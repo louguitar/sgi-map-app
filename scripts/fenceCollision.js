@@ -59,7 +59,7 @@ function fenceCollisionClick() {
 
       // set data controls
       leksData.setMap(map);
-      leksData.setControls(['Point', 'Polygon']);
+      leksData.setControls(['Point']);
       map.data.setDrawingMode('Point');
       leksData.setStyle({
         editable: true,
@@ -311,7 +311,7 @@ function resetFenceLayer() {
   $('.downloadConfirmed').empty();
 
   // put controls back
-  leksData.setControls(['Point', 'Polygon']);
+  leksData.setControls(['Point']);
   map.data.setDrawingMode('Point');
   leksData.setMap(map);
   leksData.setStyle({
