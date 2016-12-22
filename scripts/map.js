@@ -7,12 +7,6 @@ var imageMapType = {};
 // object to hold tile information
 var dataTiles = {};
 
-// object for holding downloadLayers
-var downloadLayers = {};
-
-// object for holding downloadLayers styles
-var downloadLayersStyles = {};
-
 // define object for holding refLayers
 var refLayers = {};
 
@@ -102,13 +96,8 @@ function initMap() {
   populateDataTiles();
   // populate imageMapType
   populateImageMapType();
-  // populate downloadLayersStyles
-  populateDownloadLayersStyles();
   // populate refLayersStyles
   populateRefLayersStyles();
-
-  // uncheck data download boxes
-  $(".dataDownload").prop('checked', false);
 
   // uncheck reference layer boxes
   $(".refLayers").prop('checked', false);
@@ -134,8 +123,6 @@ function initMap() {
 
   // listen for clicks on dataTiles layer
   $('.dataTiles').click(dataTilesClick);
-  // listen for clicks on dataDownload layer
-  $('.dataDownload').click(dataDownloadClick);
   // listen for clicks on refLayers
   $('.refLayers').click(refLayersClick);
   // listen for clicks on fenceCollision
@@ -178,17 +165,6 @@ function dataTilesClick() {
   fenceCollisionInputs(shapefile='add', emailAddress='add');
 
 
-  // clear downloadLayers
-  for (var property in downloadLayers) {
-    if (downloadLayers.hasOwnProperty(property)) {
-      downloadLayers[property].forEach(function(feature) {
-      downloadLayers[property].remove(feature)
-    });
-    }
-  }
-
-  // uncheck data download boxes
-  $(".dataDownload").prop('checked', false);
 
   // get checkbox name
   var checkBoxName = $(this).attr('name');
@@ -214,14 +190,6 @@ function dataTilesClick() {
     // set maxZoom to globalMaxZoom
     map.setOptions({maxZoom: globalMaxZoom});
 
-    // if downloadLayers is not undefined, iterate over each feature and
-    // remove
-    if (typeof downloadLayers[checkBoxDownload] != 'undefined') {
-      $('.dataDownload').prop('checked', false);
-      downloadLayers[checkBoxDownload].forEach(function(feature) {
-      downloadLayers[checkBoxDownload].remove(feature);
-     });
-    }
   }
 }
 
@@ -266,47 +234,6 @@ function dataDownloadClick() {
       map.overlayMapTypes.push(imageMapType[checkBoxTiles]);
     }
 
-    // initialize downloadLayers object to hold data
-    downloadLayers[checkBoxName] = new google.maps.Data();
-
-    // load topojson; use clientside topojson api to convert to geojson
-    $.getJSON('data/' + checkBoxName + 'Topo.json', function(data){
-          geoJsonObject = topojson.feature(data, eval("data.objects." +
-            checkBoxName))
-          downloadLayers[checkBoxName].addGeoJson(geoJsonObject);
-        });
-
-    // set style
-    downloadLayers[checkBoxName].setStyle( {
-      fillColor: downloadLayersStyles[checkBoxName].fillColor,
-      strokeColor: downloadLayersStyles[checkBoxName].strokeColor,
-      strokeWeight: downloadLayersStyles[checkBoxName].strokeWeight
-    });
-
-    // open download when user clicks on county
-    downloadLayers[checkBoxName].addListener('click', function(event) {
-      window.open(event.feature.getProperty('gsLink'),"_self")
-    });
-
-    // bold when user hovers
-    downloadLayers[checkBoxName].addListener('mouseover', function(event) {
-      downloadLayers[checkBoxName].revertStyle();
-      downloadLayers[checkBoxName].overrideStyle(event.feature, {strokeWeight: 8});
-    });
-
-    downloadLayers[checkBoxName].addListener('mouseout', function(event) {
-      downloadLayers[checkBoxName].revertStyle();
-    });
-
-    // set layer to map
-    downloadLayers[checkBoxName].setMap(map);
-  }
-  // if checkbox is not checked, clear data
-  else {
-    // iterate over each feature and remove
-    downloadLayers[checkBoxName].forEach(function(feature) {
-    downloadLayers[checkBoxName].remove(feature);
-   });
   }
 }
 
@@ -476,16 +403,6 @@ function populateImageMapType() {
 
 
 
-// populate downloadLayersStyles object
-function populateDownloadLayersStyles() {
-
-  // coniferDownload
-  downloadLayersStyles['coniferDownload'] = {
-    fillColor: '#1b9e77',
-    strokeColor: '#1b9e77',
-    strokeWeight: 2
-  };
-}
 
 
 
