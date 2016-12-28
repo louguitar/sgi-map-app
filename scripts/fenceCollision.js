@@ -15,18 +15,6 @@ function fenceCollisionClick() {
   // uncheck all dataTiles boxes
   $('.dataTiles').prop('checked', false);
 
-  // remove any download layers
-  for (var property in downloadLayers) {
-    if (downloadLayers.hasOwnProperty(property)) {
-      downloadLayers[property].forEach(function(feature) {
-      downloadLayers[property].remove(feature)
-      });
-    }
-  }
-
-  // uncheck all dataDownload boxes
-  $('.dataDownload').prop('checked', false);
-
   if ($(this).prop('checked')) {
     // google maps data layer for lek data
     leksData = map.data;
@@ -82,16 +70,6 @@ function fenceCollisionClick() {
 
     // set maxZoom to globalMaxZoom
     map.setOptions({maxZoom: globalMaxZoom});
-
-    // if downloadLayers is not undefined, iterate over each feature and
-    // remove
-    if ((typeof checkBoxDownload != 'undefined') &&
-        (typeof downloadLayers[checkBoxDownload] != 'undefined')) {
-      $('.dataDownload').prop('checked', false);
-      downloadLayers[checkBoxDownload].forEach(function(feature) {
-      downloadLayers[checkBoxDownload].remove(feature);
-     });
-    }
 
     // remove features and leks
     leksData.forEach(function(feature) {
