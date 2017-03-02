@@ -141,7 +141,7 @@ function processFile(files) {
       }
     });
   };
-  
+
   reader.onerror = function(e) {
     console.error('reading failed');
   };
@@ -231,6 +231,10 @@ function calculateFenceLayer() {
   // only do points for now
   var pointsLines = leksGeojson.features.filter(filterShape('MultiPoint',
     'Point'));
+
+  // delete properties
+  pointsLines.forEach(function(feature){delete feature.properties})
+
   // filter polygons
   // var polygons = leksGeojson.features.filter(filterShape('MultiPolygon',
   //   'Polygon'));
@@ -326,6 +330,11 @@ function downloadFenceLayer() {
   // only do points for now
   var pointsLines = leksGeojson.features.filter(filterShape('MultiPoint',
     'Point'));
+
+  // delete properties
+  pointsLines.forEach(function(feature){delete feature.properties})
+
+
   // filter polygons
   // var polygons = leksGeojson.features.filter(filterShape('MultiPolygon',
   //   'Polygon'));
