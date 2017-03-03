@@ -3,36 +3,54 @@ html, body, #map {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden !important; }
+  overflow-x: hidden !important;
+}
 
-a:focus, a:hover {
-  text-decoration: none; }
+a {
+  &:focus, &:hover {
+    text-decoration: none;
+  }
+}
 
 .hidden {
-  display: none; }
+  display: none;
+}
 
 .unhidden {
-  display: block; }
+  display: block;
+}
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .green-slider, .blue-slider, .purple-slider, .red-slider, .fence-collision-ie {
-    display: none; } }
-i.fa-angle-down {
-  position: absolute;
-  color: black;
+    display: none;
+  }
+}
+
+
+i.fa-angle-down { position:absolute;
+    color: black;
   right: 20px;
-  top: 14px;
-  -webkit-transition: all 300ms ease-in 0s;
-  transition: all 300ms ease-in 0s; }
+  top:14px;
+    -webkit-transition:all 300ms ease-in 0s;
+    -moz-transition: all 300ms ease-in 0s;
+    -o-transition: all 300ms ease-in 0s;
+  transition: all 300ms ease-in 0s;}
 
 .ui-state-active i.fa-angle-dow {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg); }
+    
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
 
 #header {
   height: 62px;
   background-image: url(images/header_bg.jpg);
-  width: 100%; }
+  width: 100%;
+}
 
 #footer {
   bottom: 0;
@@ -45,25 +63,33 @@ i.fa-angle-down {
   background-color: #707e86;
   border-top: solid 2px #cccccc;
   color: #999;
-  height: 40px; }
+  height: 40px;
+}
 
 .footer-nav {
   float: right;
   padding-top: 8px;
   position: relative;
-  right: 5%; }
+  right: 5%;
+}
 
 .footer-btn {
   color: #fff;
   padding: 0 30px;
+  -o-transition: color .2s ease-out, background .2s ease-in;
+  -ms-transition: color .2s ease-out, background .2s ease-in;
+  -moz-transition: color .2s ease-out, background .2s ease-in;
   -webkit-transition: color .2s ease-out, background .2s ease-in;
   /* ...and now override with proper CSS property */
-  transition: color .2s ease-out, background .2s ease-in; }
-  .footer-btn:hover, .footer-btn:active {
-    color: #333; }
+  transition: color .2s ease-out, background .2s ease-in;
+  &:hover, &:active {
+    color: #333;
+  }
+}
 
 footer-btn:focus {
-  color: #333; }
+  color: #333;
+}
 
 .social-icons {
   height: 40px;
@@ -76,53 +102,67 @@ footer-btn:focus {
   float: left;
   color: #fff;
   text-transform: uppercase;
-  font-family: 'Lato', serif; }
+  font-family: 'Lato', serif;
+}
 
 .follow-us {
   position: relative;
   bottom: 3px;
-  font-size: 14px; }
+  font-size: 14px;
+}
 
 .icons {
   font-size: 26px;
   padding: 0 10px;
-  color: #fff; }
-  .icons a {
+  color: #fff;
+  a {
     color: #fff;
+    -o-transition: color .2s ease-out, background .2s ease-in;
+    -ms-transition: color .2s ease-out, background .2s ease-in;
+    -moz-transition: color .2s ease-out, background .2s ease-in;
     -webkit-transition: color .2s ease-out, background .2s ease-in;
     /* ...and now override with proper CSS property */
-    transition: color .2s ease-out, background .2s ease-in; }
-    .icons a:hover, .icons a:active {
-      color: #333; }
+    transition: color .2s ease-out, background .2s ease-in;
+    &:hover, &:active {
+      color: #333;
+    }
+  }
+}
 
 icons a:focus {
-  color: #333; }
+  color: #333;
+}
 
 .ee_logo {
   position: absolute;
   right: 20px;
-  bottom: 55px; }
+  bottom: 55px;
+}
 
 .partners-logo {
   position: absolute;
   bottom: 5px;
-  left: 47%; }
+  left: 47%;
+}
 
 .ui-by {
   position: relative;
   top: 5px;
   color: #fff;
-  font-size: 8px; }
+  font-size: 8px;
+}
 
 .parlogo {
   width: 150px;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 .map-logo {
   position: relative;
   left: 10%;
   width: 400px;
-  float: left; }
+  float: left;
+}
 
 .map-title {
   font-family: 'IM Fell English', serif;
@@ -133,7 +173,8 @@ icons a:focus {
   text-transform: uppercase;
   position: relative;
   top: 11px;
-  left: 10px; }
+  left: 10px;
+}
 
 .map-tagline {
   position: relative;
@@ -143,7 +184,8 @@ icons a:focus {
   letter-spacing: 0.1em;
   line-height: 1em;
   color: #f9e0c9;
-  font-family: "Lato",sans-serif; }
+  font-family: "Lato",sans-serif;
+}
 
 .map-nav {
   position: relative;
@@ -153,7 +195,8 @@ icons a:focus {
   color: #909090;
   text-transform: uppercase;
   letter-spacing: 1.1;
-  font-family: "Lato",sans-serif; }
+  font-family: "Lato",sans-serif;
+}
 
 .map-nav-mobile {
   position: relative;
@@ -164,13 +207,16 @@ icons a:focus {
   text-transform: uppercase;
   letter-spacing: 1.1;
   font-family: "Lato",sans-serif;
-  display: none; }
+  display: none;
+}
 
 .beta_lrg {
-  font-size: 12px; }
+  font-size: 12px;
+}
 
 .beta_sml {
-  font-size: 9px; }
+  font-size: 9px;
+}
 
 #dataBox {
   position: absolute;
@@ -185,7 +231,8 @@ icons a:focus {
   box-shadow: 2px 2px 10px rgba(75, 75, 75, 0.5);
   width: 415px;
   min-width: 285px;
-  z-index: 1; }
+  z-index: 1;
+}
 
 #aboutBox {
   position: absolute;
@@ -195,7 +242,8 @@ icons a:focus {
   font-size: 18px;
   background-color: white;
   border: 1px solid gray;
-  padding: 5px 10px; }
+  padding: 5px 10px;
+}
 
 .tcc-header {
   width: 100%;
@@ -203,9 +251,13 @@ icons a:focus {
   color: #74c476;
   border-bottom: 1px solid #74c476;
   border-radius: 5px 5px 0 0;
+  -o-transition: color .2s ease-out, background .2s ease-in;
+  -ms-transition: color .2s ease-out, background .2s ease-in;
+  -moz-transition: color .2s ease-out, background .2s ease-in;
   -webkit-transition: color .2s ease-out, background .2s ease-in;
   /* ...and now override with proper CSS property */
-  transition: color .2s ease-out, background .2s ease-in; }
+  transition: color .2s ease-out, background .2s ease-in;
+}
 
 .eco-header {
   width: 100%;
@@ -213,9 +265,13 @@ icons a:focus {
   color: #337ab7;
   border-bottom: 1px solid #337ab7;
   border-radius: 5px 5px 0 0;
+  -o-transition: color .2s ease-out, background .2s ease-in;
+  -ms-transition: color .2s ease-out, background .2s ease-in;
+  -moz-transition: color .2s ease-out, background .2s ease-in;
   -webkit-transition: color .2s ease-out, background .2s ease-in;
   /* ...and now override with proper CSS property */
-  transition: color .2s ease-out, background .2s ease-in; }
+  transition: color .2s ease-out, background .2s ease-in;
+}
 
 .fence-header {
   width: 100%;
@@ -223,9 +279,13 @@ icons a:focus {
   color: #7A1EA1;
   border-bottom: 1px solid #7A1EA1;
   border-radius: 5px 5px 0 0;
+  -o-transition: color .2s ease-out, background .2s ease-in;
+  -ms-transition: color .2s ease-out, background .2s ease-in;
+  -moz-transition: color .2s ease-out, background .2s ease-in;
   -webkit-transition: color .2s ease-out, background .2s ease-in;
   /* ...and now override with proper CSS property */
-  transition: color .2s ease-out, background .2s ease-in; }
+  transition: color .2s ease-out, background .2s ease-in;
+}
 
 .risk-header {
   width: 100%;
@@ -233,9 +293,13 @@ icons a:focus {
   color: #d44d42;
   border-bottom: 1px solid #d44d42;
   border-radius: 5px 5px 0 0;
+  -o-transition: color .2s ease-out, background .2s ease-in;
+  -ms-transition: color .2s ease-out, background .2s ease-in;
+  -moz-transition: color .2s ease-out, background .2s ease-in;
   -webkit-transition: color .2s ease-out, background .2s ease-in;
   /* ...and now override with proper CSS property */
-  transition: color .2s ease-out, background .2s ease-in; }
+  transition: color .2s ease-out, background .2s ease-in;
+}
 
 .ref-header {
   width: 100%;
@@ -243,42 +307,54 @@ icons a:focus {
   color: #ea8b42;
   border-bottom: 1px solid #ea8b42;
   border-radius: 5px 5px 0 0;
+  -o-transition: color .2s ease-out, background .2s ease-in;
+  -ms-transition: color .2s ease-out, background .2s ease-in;
+  -moz-transition: color .2s ease-out, background .2s ease-in;
   -webkit-transition: color .2s ease-out, background .2s ease-in;
   /* ...and now override with proper CSS property */
   transition: color .2s ease-out, background .2s ease-in;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .header-text {
   margin: 20px;
   position: relative;
   top: 10px;
   font-family: 'Lato', sans-serif;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 .tcc-header:hover {
   background-color: #31A354;
-  color: #fff; }
+    color:#fff;
+ 
+}
 
 .eco-header:hover {
   background-color: #23527c;
-  color: #fff; }
+  color: #fff;
+}
 
 .fence-header:hover {
   background-color: #691A99;
-  color: #fff; }
+    color: #fff;
+}
 
 .risk-header:hover {
   background-color: #D7382B;
-  color: #fff; }
+    color: #fff;
+}
 
 .ref-header:hover {
   background-color: #ce691b;
-  color: #fff; }
+    color: #fff;
+}
 
 .data-container {
   padding-left: 20px;
   padding-right: 20px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
 
 .conifer-headline {
   color: #74c476;
@@ -286,7 +362,8 @@ icons a:focus {
   font-weight: 500;
   letter-spacing: -0.025rem;
   text-transform: uppercase;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .ecosystem-headline {
   color: #337ab7;
@@ -294,7 +371,8 @@ icons a:focus {
   font-weight: 500;
   letter-spacing: -0.025rem;
   text-transform: uppercase;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .fence-headline {
   color: #7A1EA1;
@@ -302,7 +380,8 @@ icons a:focus {
   font-weight: 500;
   letter-spacing: -0.025rem;
   text-transform: uppercase;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .risk-headline {
   color: #D7382B;
@@ -310,7 +389,8 @@ icons a:focus {
   font-weight: 500;
   letter-spacing: -0.025rem;
   text-transform: uppercase;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .reference-headline {
   color: #ea8b42;
@@ -318,117 +398,169 @@ icons a:focus {
   font-weight: 500;
   letter-spacing: -0.025rem;
   text-transform: uppercase;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .dataBox-copy {
   font-size: 13px;
   padding-left: 40px;
   position: relative;
   top: -10px;
-  color: #666; }
+  color: #666;
+}
 
 .canopy-cover-graph {
-  width: 100%; }
+  width: 100%;
+}
 
 .graph1 {
   min-width: 20px;
-  background-color: #edf8e9; }
+  background-color: #edf8e9;
+}
 
 /*
 #ecosystem-collapse {
 	padding-bottom: 20px;
 }
 */
+
 #ecosystem-collapse a {
   font-size: 15px;
-  /* color: #a17358; */ }
-  #ecosystem-collapse a:hover {
-    /* color: #666; */ }
+  /* color: #a17358; */
+  &:hover {
+    /* color: #666; */
+  }
+}
 
 /*
 #reference-collapse {
 	padding-bottom: 20px;
 }
 */
+
 #reference-collapse a {
   font-size: 15px;
   /* color: #ea8b42; */
   margin-left: 35px;
-  position: relative; }
-  #reference-collapse a:hover {
-    /* color: #666; */ }
+  position: relative;
+  &:hover {
+    /* color: #666; */
+  }
+}
 
 .tree-cover-btn {
   color: #74c476;
   cursor: pointer;
   padding: 0 20px;
+  -o-transition: color .2s ease-out, background .2s ease-in;
+  -ms-transition: color .2s ease-out, background .2s ease-in;
+  -moz-transition: color .2s ease-out, background .2s ease-in;
   -webkit-transition: color .2s ease-out, background .2s ease-in;
   /* ...and now override with proper CSS property */
-  transition: color .2s ease-out, background .2s ease-in; }
-  .tree-cover-btn.clicked {
-    color: #fff !important; }
-  .tree-cover-btn:hover, .tree-cover-btn:active, .tree-cover-btn:focus {
-    color: #31A354; }
+  transition: color .2s ease-out, background .2s ease-in;
+  &.clicked {
+    color: #fff !important;
+  }
+  &:hover, &:active, &:focus {
+    color: #31A354;
+  }
+}
 
 .ecosystem-btn {
   color: #337ab7;
   cursor: pointer;
   padding: 0 20px;
+  -o-transition: color .2s ease-out, background .2s ease-in;
+  -ms-transition: color .2s ease-out, background .2s ease-in;
+  -moz-transition: color .2s ease-out, background .2s ease-in;
   -webkit-transition: color .2s ease-out, background .2s ease-in;
   /* ...and now override with proper CSS property */
-  transition: color .2s ease-out, background .2s ease-in; }
-  .ecosystem-btn.clicked {
-    color: #fff !important; }
-  .ecosystem-btn:hover {
-    color: #23527c; }
+  transition: color .2s ease-out, background .2s ease-in;
+  &.clicked {
+    color: #fff !important;
+  }
+  &:hover {
+    color: #23527c;
+  }
+}
 
-.tree-cover-btn:active, .tree-cover-btn:focus {
-  color: #23527c; }
+.tree-cover-btn {
+  &:active, &:focus {
+    color: #23527c;
+  }
+}
 
 .fence-btn {
   color: #9B26AF;
   cursor: pointer;
   padding: 0 20px;
+  -o-transition: color .2s ease-out, background .2s ease-in;
+  -ms-transition: color .2s ease-out, background .2s ease-in;
+  -moz-transition: color .2s ease-out, background .2s ease-in;
   -webkit-transition: color .2s ease-out, background .2s ease-in;
   /* ...and now override with proper CSS property */
-  transition: color .2s ease-out, background .2s ease-in; }
-  .fence-btn.clicked {
-    color: #fff !important; }
-  .fence-btn:hover {
-    color: #7A1EA1; }
+  transition: color .2s ease-out, background .2s ease-in;
+  &.clicked {
+    color: #fff !important;
+  }
+  &:hover {
+    color: #7A1EA1;
+  }
+}
 
-.tree-cover-btn:active, .tree-cover-btn:focus {
-  color: #7A1EA1; }
+.tree-cover-btn {
+  &:active, &:focus {
+    color: #7A1EA1;
+  }
+}
 
 .risk-btn {
   color: #d44d42;
   cursor: pointer;
   padding: 0 20px;
+  -o-transition: color .2s ease-out, background .2s ease-in;
+  -ms-transition: color .2s ease-out, background .2s ease-in;
+  -moz-transition: color .2s ease-out, background .2s ease-in;
   -webkit-transition: color .2s ease-out, background .2s ease-in;
   /* ...and now override with proper CSS property */
-  transition: color .2s ease-out, background .2s ease-in; }
-  .risk-btn.clicked {
-    color: #fff !important; }
-  .risk-btn:hover {
-    color: #D7382B; }
+  transition: color .2s ease-out, background .2s ease-in;
+  &.clicked {
+    color: #fff !important;
+  }
+  &:hover {
+    color: #D7382B;
+  }
+}
 
-.tree-cover-btn:active, .tree-cover-btn:focus {
-  color: #D7382B; }
+.tree-cover-btn {
+  &:active, &:focus {
+    color: #D7382B;
+  }
+}
 
 .reference-btn {
   color: #ea8b42;
   cursor: pointer;
   padding: 0 20px;
+  -o-transition: color .2s ease-out, background .2s ease-in;
+  -ms-transition: color .2s ease-out, background .2s ease-in;
+  -moz-transition: color .2s ease-out, background .2s ease-in;
   -webkit-transition: color .2s ease-out, background .2s ease-in;
   /* ...and now override with proper CSS property */
-  transition: color .2s ease-out, background .2s ease-in; }
-  .reference-btn.clicked {
-    color: #fff !important; }
-  .reference-btn:hover {
-    color: #ce691b; }
+  transition: color .2s ease-out, background .2s ease-in;
+  &.clicked {
+    color: #fff !important;
+  }
+  &:hover {
+    color: #ce691b;
+  }
+}
 
-.tree-cover-btn:active, .tree-cover-btn:focus {
-  color: #ce691b; }
+.tree-cover-btn {
+  &:active, &:focus {
+    color: #ce691b;
+  }
+}
 
 #wrapper {
   left: 0px;
@@ -436,27 +568,33 @@ icons a:focus {
   bottom: 40px;
   right: 0;
   position: absolute;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .info {
   float: right;
   position: relative;
   top: 5px;
   cursor: pointer;
-  font-size: 18px; }
+  font-size: 18px;
+}
 
 .shapefile-dl-btn {
   position: relative;
-  top: -10px; }
+  top: -10px;
+}
 
 .panel-group .panel + .panel {
-  margin-top: 0px; }
+  margin-top: 0px;
+}
 
 .panel {
   border: none;
-  box-shadow: none; }
+  box-shadow: none;
+}
 
 /* === Start Toggle Switches ===  */
+
 div.tog {
   background: #cccccc none repeat scroll 0 0;
   border-radius: 20px;
@@ -467,14 +605,15 @@ div.tog {
   height: 20px;
   /* margin: 1em auto; */
   position: relative;
-  -webkit-transition: all 0.2s ease 0s;
   transition: all 0.2s ease 0s;
   width: 40px;
   float: left;
   margin-right: 5px;
   -webkit-transition: all .2s ease;
-  transition: all .2s ease; }
-  div.tog:after {
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  &:after {
     background: #ffffff none repeat scroll 0 0;
     border-radius: 20px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
@@ -484,192 +623,254 @@ div.tog {
     left: 1px;
     position: absolute;
     top: 1px;
-    -webkit-transition: all 0.2s ease 0s;
     transition: all 0.2s ease 0s;
     width: 17px;
     -webkit-transition: all .2s ease;
-    transition: all .2s ease; }
-  div.tog:before {
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+  }
+  &:before {
     content: 'OFF';
     position: absolute;
     right: 4px;
     top: 6px;
-    color: #fff; }
-  div.tog:hover:after {
-    left: 3px; }
-  div.tog.on {
-    background: #0c0; }
-    div.tog.on:before {
+    color: #fff;
+  }
+  &:hover:after {
+    left: 3px;
+  }
+  &.on {
+    &:before {
       content: 'ON';
-      right: 22px; }
-    div.tog.on:after {
-      left: 22px; }
-    div.tog.on:hover:after {
-      left: 19px; }
+      right: 22px;
+    }
+    background: #0c0;
+    &:after {
+      left: 22px;
+    }
+    &:hover:after {
+      left: 19px;
+    }
+  }
+}
 
 /* === End Toggle Switches ===  */
+
 /*-------- Conifer Graph --------*/
+
 .chart {
   clear: both;
   padding: 0;
   width: 100%;
-  text-align: center; }
-  .chart li {
+  text-align: center;
+  li {
     display: block;
     height: 100px;
     /* padding: emCalc(25px) 0; */
     position: relative;
     text-align: center;
     vertical-align: bottom;
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px;
     border-radius: 4px 4px 0 0;
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.6); }
-  .chart .axis {
+    -moz-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+    -webkit-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+  }
+  .axis {
     display: none;
     top: emCalc(-45px);
-    width: 8%; }
-  .chart .label {
+    width: 8%;
+  }
+  .label {
     background: #cccccc;
-    margin: -9px 0 71px 0; }
-  .chart .percent {
+    margin: -9px 0 71px 0;
+  }
+  .percent {
     letter-spacing: -3px;
     opacity: .4;
     width: 100%;
     font-size: 30px;
-    font-size: 1.875rem; }
-    .chart .percent span {
+    font-size: 1.875rem;
+    span {
       font-size: 30px;
-      font-size: 1.875rem; }
-  .chart .skill {
+      font-size: 1.875rem;
+    }
+  }
+  .skill {
     font-weight: 800;
     opacity: .75;
     overflow: hidden;
     text-transform: uppercase;
     width: 100%;
     font-size: 14px;
-    font-size: 0.875rem; }
-  .chart .green1 {
+    font-size: 0.875rem;
+  }
+  .green1 {
     background: #edf8e9;
     border: 1px solid #a8a8a8;
-    background-size: 100%; }
-  .chart .green2 {
+    background-size: 100%;
+  }
+  .green2 {
     background: #c7e9c0;
     border: 1px solid #a8a8a8;
-    background-size: 100%; }
-  .chart .green4 {
+    background-size: 100%;
+  }
+  .green4 {
     background: #74c476;
     border: 1px solid #a8a8a8;
-    background-size: 100%; }
-  .chart .green3 {
+    background-size: 100%;
+  }
+  .green3 {
     background: #a1d99b;
     border: 1px solid #a8a8a8;
-    background-size: 100%; }
-  .chart .green5 {
+    background-size: 100%;
+  }
+  .green5 {
     background: #31a354;
     border: 1px solid #a8a8a8;
-    background-size: 100%; }
-  .chart .green6 {
+    background-size: 100%;
+  }
+  .green6 {
     background: #006d2c;
     border: 1px solid #a8a8a8;
-    background-size: 100%; }
-  .chart .red1 {
+    background-size: 100%;
+  }
+  .red1 {
     background: #E60000;
     border: 1px solid #a8a8a8;
-    background-size: 100%; }
-  .chart .yellow1 {
+    background-size: 100%;
+  }
+  .yellow1 {
     background: #FFFF00;
     border: 1px solid #a8a8a8;
-    background-size: 100%; }
-  .chart .green7 {
+    background-size: 100%;
+  }
+  .green7 {
     background: #38A809;
     border: 1px solid #a8a8a8;
-    background-size: 100%; }
+    background-size: 100%;
+  }
+}
 
 @media (min-width: 700px) {
   .chart {
     height: 100px;
-    margin: 0 auto emCalc(-32px); } }
+    margin: 0 auto emCalc(-32px);
+  }
+}
+
 @media (min-width: 700px) {
   .chart li {
     display: inline-block;
     height: 100px;
     /* margin: 0 1.8% 0 0; */
-    width: 15%; }
-
+    width: 15%;
+  }
   .risk.chart li {
-    width: 12%; }
-
+    width: 12%;
+  }
   .eco li {
     width: 30%;
     display: inline-block;
     height: 100px;
-    text-align: center; } }
+    text-align: center;
+  }
+}
+
 @media (min-width: 700px) {
   .chart .axis {
-    display: inline-block; } }
+    display: inline-block;
+  }
+}
+
 @media (min-width: 700px) {
   .chart .percent {
     position: absolute;
     font-size: 62px;
-    font-size: 3.875rem; } }
+    font-size: 3.875rem;
+  }
+}
+
 @media (min-width: 700px) {
   .chart .skill {
     bottom: 2px;
     position: relative;
     font-size: 16px;
     font-size: .9rem;
-    color: #000; }
-
+    color: #000;
+  }
   .green5 .skill, .green6 .skill {
-    color: #fff; } }
+    color: #fff;
+  }
+}
+
 .green7 .skill, .red1 .skill {
-  color: #fff; }
+  color: #fff;
+}
 
 .chart .blue1 {
   background: #5497D4;
   border: 1px solid #a8a8a8;
-  background-size: 100%; }
+  background-size: 100%;
+}
 
 .blue1 .skill, .red1 .skill {
-  color: #fff; }
+  color: #fff;
+}
 
 .chart.eco {
-  margin-bottom: -30px; }
+  margin-bottom: -30px;
+}
 
 .graph-text {
   text-align: center;
-  font-size: 13px; }
+  font-size: 13px;
+}
 
-.chart .riskcolor1 {
-  background: #4575b4;
-  border: 1px solid #a8a8a8;
-  background-size: 100%; }
-.chart .riskcolor2 {
-  background: #91bfdb;
-  border: 1px solid #a8a8a8;
-  background-size: 100%; }
-.chart .riskcolor3 {
-  background: #e0f3f8;
-  border: 1px solid #a8a8a8;
-  background-size: 100%; }
-.chart .riskcolor4 {
-  background: #ffffbf;
-  border: 1px solid #a8a8a8;
-  background-size: 100%; }
-.chart .riskcolor5 {
-  background: #fee090;
-  border: 1px solid #a8a8a8;
-  background-size: 100%; }
-.chart .riskcolor6 {
-  background: #fc8d59;
-  border: 1px solid #a8a8a8;
-  background-size: 100%; }
-.chart .riskcolor7 {
-  background: #d73027;
-  border: 1px solid #a8a8a8;
-  background-size: 100%; }
+.chart {
+  .riskcolor1 {
+    background: #4575b4;
+    border: 1px solid #a8a8a8;
+    background-size: 100%;
+  }
+  .riskcolor2 {
+    background: #91bfdb;
+    border: 1px solid #a8a8a8;
+    background-size: 100%;
+  }
+  .riskcolor3 {
+    background: #e0f3f8;
+    border: 1px solid #a8a8a8;
+    background-size: 100%;
+  }
+  .riskcolor4 {
+    background: #ffffbf;
+    border: 1px solid #a8a8a8;
+    background-size: 100%;
+  }
+  .riskcolor5 {
+    background: #fee090;
+    border: 1px solid #a8a8a8;
+    background-size: 100%;
+  }
+  .riskcolor6 {
+    background: #fc8d59;
+    border: 1px solid #a8a8a8;
+    background-size: 100%;
+  }
+  .riskcolor7 {
+    background: #d73027;
+    border: 1px solid #a8a8a8;
+    background-size: 100%;
+  }
+}
 
 /*-------- END Conifer Graph --------*/
+
 /*---- Toggle Switches ------*/
+
 .checkbox-switch {
   /* border: 0.1em solid #444; */
   border-radius: 20px;
@@ -682,53 +883,70 @@ div.tog {
   -webkit-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
-  -ms-user-select: none;
-      user-select: none;
-  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   position: relative;
   top: 7px;
-  left: -7px; }
-  .checkbox-switch > input {
-    display: none; }
-    .checkbox-switch > input ~ .checkbox-switch-inner {
-      margin-left: -2.5em;
-      -webkit-transition: margin-left 0.2s ease;
-      transition: margin-left 0.2s ease; }
-    .checkbox-switch > input:checked ~ .checkbox-switch-inner {
-      margin-left: -1.5em; }
-  .checkbox-switch > .checkbox-switch-inner {
-    display: block;
-    width: 8em;
-    height: 2em;
-    color: #fff;
-    overflow: hidden; }
+  left: -7px;
+  > {
+    input {
+      display: none;
+      ~ .checkbox-switch-inner {
+        margin-left: -2.5em;
+        -webkit-transition: margin-left 0.2s ease;
+        -moz-transition: margin-left 0.2s ease;
+        -o-transition: margin-left 0.2s ease;
+        transition: margin-left 0.2s ease;
+      }
+      &:checked ~ .checkbox-switch-inner {
+        margin-left: -1.5em;
+      }
+    }
+    .checkbox-switch-inner {
+      display: block;
+      width: 8em;
+      height: 2em;
+      color: #fff;
+      overflow: hidden;
+    }
+  }
+}
 
-.checkbox-switch-inner > * {
-  display: block;
-  float: left;
-  height: 2em;
-  line-height: 2em; }
-.checkbox-switch-inner > .checkbox-switch-on {
-  background: #31A354;
-  width: 3em;
-  padding-left: 1em; }
-.checkbox-switch-inner > .checkbox-switch-off {
-  background: #b3b3b3;
-  width: 3em;
-  padding-right: 1em;
-  text-align: right; }
+.checkbox-switch-inner > {
+  * {
+    display: block;
+    float: left;
+    height: 2em;
+    line-height: 2em;
+  }
+  .checkbox-switch-on {
+    background: #31A354;
+    width: 3em;
+    padding-left: 1em;
+  }
+  .checkbox-switch-off {
+    background: #b3b3b3;
+    width: 3em;
+    padding-right: 1em;
+    text-align: right;
+  }
+}
 
 #ecosystem-collapse .checkbox-switch-inner > .checkbox-switch-on {
-  background: #23527C; }
+  background: #23527C;
+}
 
 #fence-collapse .checkbox-switch-inner > .checkbox-switch-on {
-  background: #691A99; }
+  background: #691A99;
+}
 
 #reference-collapse .checkbox-switch-inner > .checkbox-switch-on {
-  background: #CE691B; }
+  background: #CE691B;
+}
 
 #risk-collapse .checkbox-switch-inner > .checkbox-switch-on {
-  background: #D7382B; }
+  background: #D7382B;
+}
 
 .checkbox-switch-inner > .checkbox-switch-handle {
   background: #eee;
@@ -736,16 +954,21 @@ div.tog {
   height: 1em;
   margin-left: -3.5em;
   border: 0.1em solid #999;
-  border-radius: 20px; }
+  border-radius: 20px;
+}
 
 /*---- END Toggle Switches ------*/
+
 /*------ TABLES ----------*/
+
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 body {
   background: steelblue;
-  font-family: "Lato", sans-serif; }
+  font-family: "Lato", sans-serif;
+}
 
 table {
   width: 100%;
@@ -754,7 +977,8 @@ table {
   border-collapse: collapse;
   border: 1px solid #38678f;
   margin: 50px auto;
-  background: white; }
+  background: white;
+}
 
 th {
   background: steelblue;
@@ -765,73 +989,80 @@ th {
   color: white;
   border: 1px solid #38678f;
   box-shadow: inset 0px 1px 2px #568ebd;
-  -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  padding: 0 10px; }
+  padding: 0 10px;
+}
 
 tr {
-  border-bottom: 1px solid #cccccc; }
-  tr:last-child {
-    border-bottom: 0px; }
+  border-bottom: 1px solid #cccccc;
+  &:last-child {
+    border-bottom: 0px;
+  }
+}
 
 td {
   border-right: 1px solid #cccccc;
   padding: 10px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s; }
-  td:last-child {
-    border-right: 0px; }
-  td.selected {
-    background: #d7e4ef; }
-  td input {
+  transition: all 0.2s;
+  &:last-child {
+    border-right: 0px;
+  }
+  &.selected {
+    background: #d7e4ef;
+  }
+  input {
     font-size: 14px;
     background: none;
     outline: none;
     border: 0;
     display: table-cell;
     height: 100%;
-    width: 100%; }
-    td input:focus {
+    width: 100%;
+    &:focus {
       box-shadow: 0 1px 0 steelblue;
-      color: steelblue; }
-
-::-moz-selection, ::-moz-selection {
-  background: steelblue;
-  color: white; }
+      color: steelblue;
+    }
+  }
+}
 
 ::-moz-selection, ::selection {
   background: steelblue;
-  color: white; }
+  color: white;
+}
 
 .heavyTable {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  -webkit-animation: float 5s infinite;
-          animation: float 5s infinite; }
+  animation: float 5s infinite;
+}
 
 .main {
   max-width: 600px;
   padding: 10px;
-  margin: auto; }
+  margin: auto;
+}
 
 .content {
   color: white;
-  text-align: center; }
-  .content p, .content pre, .content h2 {
-    text-align: left; }
-  .content pre {
+  text-align: center;
+  p, pre, h2 {
+    text-align: left;
+  }
+  pre {
     padding: 1.2em 0 0.5em;
     background: white;
     background: rgba(255, 255, 255, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.9);
-    color: #38678f; }
-  .content .download {
+    color: #38678f;
+  }
+  .download {
     margin: auto;
     background: rgba(255, 255, 255, 0.1);
     display: inline-block;
     padding: 1em 1em;
     border-radius: 12em;
-    margin-bottom: 2em; }
-  .content .button {
+    margin-bottom: 2em;
+  }
+  .button {
     display: inline-block;
     text-decoration: none;
     color: white;
@@ -842,29 +1073,38 @@ td {
     border: 1px solid #38678f;
     background: steelblue;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 1px 3px rgba(255, 255, 255, 0.2);
-    -webkit-transition: all 0.1s;
-    transition: all 0.1s; }
-    .content .button:hover {
+    transition: all 0.1s;
+    &:hover {
       background: #4f8aba;
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.1); }
-    .content .button:active {
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    &:active {
       color: #294d6b;
       background: #427aa9;
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 0 5px rgba(0, 0, 0, 0.2); }
-    .content .button:focus {
-      outline: none; }
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
 
 h1 {
   text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  text-align: center; }
+  text-align: center;
+}
 
 /*----------END TABLES ----------*/
+
 .popup {
-  width: 800px; }
-  .popup p {
-    padding: 0 20px; }
+  width: 800px;
+  p {
+    padding: 0 20px;
+  }
+}
 
 /*-------------- Buttons ----------------*/
+
 /*
 .inputfile {
 	width: 0.1px;
@@ -912,6 +1152,7 @@ h1 {
     /* in case of FastClick lib use 
 }
 */
+
 .calculateButton, .resetButton, .downloadButton {
   font-size: 14px;
   font-weight: 700;
@@ -921,313 +1162,378 @@ h1 {
   border: 1px solid #691A99;
   padding: 2px 10px;
   border-radius: 20px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .calculateButton:hover, .resetButton:hover, .downloadButton:hover {
   background-color: #7A1EA1 !important;
-  color: #fff !important; }
+  color: #fff !important;
+}
 
 .btn-container {
   margin-left: 35px;
-  margin-top: 0px; }
+  margin-top: 0px;
+}
 
 /*------------ END Buttons ----------------*/
 /*-----------Opactiy Slider------------------*/
-input[type=range] {
-  -webkit-appearance: none;
-  /* Hides the slider so that custom slider can be made */
-  width: 90%;
-  /* Specific width is required for Firefox. */
-  border-radius: 10px;
-  margin: 7px auto; }
-  input[type=range]:focus {
-    outline: none;
-    /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */ }
-  input[type=range]::-ms-track {
-    width: 100%;
-    cursor: pointer;
-    background: transparent;
-    /* Hides the slider so custom styles can be added */
-    border-color: transparent;
-    color: transparent;
+
+input {
+  &[type=range] {
+    -webkit-appearance: none;
+    /* Hides the slider so that custom slider can be made */
+    width: 90%;
+    /* Specific width is required for Firefox. */
+    border-radius: 10px;
+    margin: 7px auto;
+    &:focus {
+      outline: none;
+      /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+    }
+    &::-ms-track {
+      width: 100%;
+      cursor: pointer;
+      background: transparent;
+      /* Hides the slider so custom styles can be added */
+      border-color: transparent;
+      color: transparent;
+      height: 15px;
+      border-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border: 1px solid #ccc;
+      margin: 0px;
+    }
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      /*    border: 1px solid #999;*/
+      height: 16px;
+      width: 16px;
+      border-radius: 10px;
+      background: #eee;
+      cursor: pointer;
+      margin-top: -2.5px;
+      /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+      box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
+      /* Add cool effects to your sliders! */
+    }
+    &::-moz-range-thumb {
+      outline: none;
+      height: 16px;
+      width: 16px;
+      border: 1px solid #999;
+      border-radius: 10px;
+      background: #eee;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
+      /* Add cool effects to your sliders! */
+      cursor: pointer;
+    }
+    &::-ms-thumb {
+      height: 16px;
+      width: 16px;
+      border: 0px;
+      border-radius: 10px;
+      background: #eee;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
+      /* Add cool effects to your sliders! */
+      cursor: pointer;
+    }
+  }
+  &[type="range"]::-webkit-slider-runnable-track {
+    /*  background-color: #74c476; */
+    background: linear-gradient(to right, #fff, #74c476 75%, #31A354);
     height: 15px;
     border-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    margin-top: 5px auto;
     border: 1px solid #ccc;
-    margin: 0px; }
-  input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    /*    border: 1px solid #999;*/
-    height: 16px;
-    width: 16px;
-    border-radius: 10px;
-    background: #eee;
-    cursor: pointer;
-    margin-top: -2.5px;
-    /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-    box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
-    /* Add cool effects to your sliders! */ }
-  input[type=range]::-moz-range-thumb {
-    outline: none;
-    height: 16px;
-    width: 16px;
-    border: 1px solid #999;
-    border-radius: 10px;
-    background: #eee;
-    cursor: pointer;
-    box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
-    /* Add cool effects to your sliders! */
-    cursor: pointer; }
-  input[type=range]::-ms-thumb {
-    height: 16px;
-    width: 16px;
-    border: 0px;
-    border-radius: 10px;
-    background: #eee;
-    cursor: pointer;
-    box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
-    /* Add cool effects to your sliders! */
-    cursor: pointer; }
-input[type="range"]::-webkit-slider-runnable-track {
-  /*  background-color: #74c476; */
-  background: -webkit-linear-gradient(left, #fff, #74c476 75%, #31A354);
-  background: linear-gradient(to right, #fff, #74c476 75%, #31A354);
-  height: 15px;
-  border-radius: 10px;
-  margin-top: 5px auto;
-  border: 1px solid #ccc; }
+  }
+}
 
 /* Special styling for WebKit/Blink */
+
 /* All the same stuff for Firefox */
+
 /* All the same stuff for IE */
+
 .blue-slider input[type="range"]::-webkit-slider-runnable-track {
   /*  background-color: #74c476; */
-  background: -webkit-linear-gradient(left, #fff, #337ab7 75%, #23527c);
   background: linear-gradient(to right, #fff, #337ab7 75%, #23527c);
   height: 15px;
   border-radius: 10px;
   margin-top: 5px;
-  border: 1px solid #ccc; }
+  border: 1px solid #ccc;
+}
 
 .purple-slider input[type="range"]::-webkit-slider-runnable-track {
   /*  background-color: #74c476; */
-  background: -webkit-linear-gradient(left, #fff, #7A1EA1 75%, #691A99);
   background: linear-gradient(to right, #fff, #7A1EA1 75%, #691A99);
   height: 15px;
   border-radius: 10px;
   margin-top: 0px;
-  border: 1px solid #ccc; }
+  border: 1px solid #ccc;
+}
 
 .red-slider input[type="range"]::-webkit-slider-runnable-track {
   /*  background-color: #74c476; */
-  background: -webkit-linear-gradient(left, #fff, #d44d42 75%, #D7382B);
   background: linear-gradient(to right, #fff, #d44d42 75%, #D7382B);
   height: 15px;
   border-radius: 10px;
   margin-top: 5px;
-  border: 1px solid #ccc; }
+  border: 1px solid #ccc;
+}
 
 /*
 input[type="range"]:focus::-webkit-slider-runnable-track {
   background-color: #ccc;
 }
 */
-input[type="range"]::-moz-range-progress {
-  background: linear-gradient(to right, #ccc, #74c476 75%, #31A354);
-  height: 15px;
-  border-radius: 10px;
-  border-bottom-right-radius: 6px;
-  border-top-right-radius: 6px; }
-input[type="range"]::-moz-range-track {
-  background-color: #ccc;
-  height: 15px;
-  border-radius: 10px;
-  border: 1px solid #ccc; }
+
+input[type="range"] {
+  &::-moz-range-progress {
+    background: linear-gradient(to right, #ccc, #74c476 75%, #31A354);
+    height: 15px;
+    border-radius: 10px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+  &::-moz-range-track {
+    background-color: #ccc;
+    height: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+}
 
 .blue-slider input[type="range"]::-moz-range-progress {
   background: linear-gradient(to right, #ccc, #337ab7 75%, #23527c);
   height: 15px;
-  border-radius: 10px; }
+  border-radius: 10px;
+}
 
 .purple-slider input[type="range"]::-moz-range-progress {
   background: linear-gradient(to right, #ccc, #7A1EA1 75%, #691A99);
   height: 15px;
-  border-radius: 10px; }
+  border-radius: 10px;
+}
 
 .red-slider input[type="range"]::-moz-range-progress {
   background: linear-gradient(to right, #fff, #d44d42 75%, #D7382B);
   height: 15px;
-  border-radius: 10px; }
+  border-radius: 10px;
+}
 
 input[type="range"]::-ms-fill-lower {
   background: linear-gradient(to right, #ccc, #74c476 75%, #31A354);
-  border-radius: 10px; }
+  border-radius: 10px;
+}
 
 .blue-slider input[type="range"]::-ms-fill-lower {
   background: linear-gradient(to right, #ccc, #337ab7 75%, #23527c);
-  border-radius: 10px; }
+  border-radius: 10px;
+}
 
 .purple-slider input[type="range"]::-ms-fill-lower {
   background: linear-gradient(to right, #ccc, #7A1EA1 75%, #691A99);
-  border-radius: 10px; }
+  border-radius: 10px;
+}
 
-input[type="range"]::-ms-fill-upper {
-  background-color: #ccc;
-  border-radius: 10px; }
-input[type=range]:focus {
-  outline: none; }
+input {
+  &[type="range"]::-ms-fill-upper {
+    background-color: #ccc;
+    border-radius: 10px;
+  }
+  &[type=range]:focus {
+    outline: none;
+  }
+}
 
 /*-----------END Opactiy Slider------------------*/
+
 /*----------- MEDIA QUERIES -----------------*/
+
 @media all and (max-width: 1330px) {
   .map-logo {
-    left: 1%; }
-
+    left: 1%;
+  }
   .map-nav {
-    right: 1%; } }
+    right: 1%;
+  }
+}
+
 @media all and (Max-width: 1160px) {
   .map-logo {
-    float: none; }
-
+    float: none;
+  }
   .map-nav, .map-nav-mobile {
     float: none;
     top: -10px;
     left: 1%;
-    margin: 0 auto; }
-
+    margin: 0 auto;
+  }
   .grouse {
-    width: 35px; }
-
+    width: 35px;
+  }
   .map-tagline {
-    display: none; }
-
+    display: none;
+  }
   .partners-logo {
-    left: 45%; } }
+    left: 45%;
+  }
+}
+
 @media all and (max-width: 930px) {
   .social-icons {
-    left: 1%; }
-
+    left: 1%;
+  }
   .footer-nav {
-    right: 1%; }
-
+    right: 1%;
+  }
   .tree-cover-btn, .ecosystem-btn, .fence-btn, .reference-btn {
-    padding: 0 10px; }
-
+    padding: 0 10px;
+  }
   .partners-logo {
-    left: 40%; } }
+    left: 40%;
+  }
+}
+
 @media all and (max-width: 800px) {
   .footer-nav {
     font-size: 12px;
-    padding-top: 12px; }
-
+    padding-top: 12px;
+  }
   .social-icons {
-    font-size: 12px; }
-
+    font-size: 12px;
+  }
   .footer-btn {
-    padding: 0 10px; }
-
+    padding: 0 10px;
+  }
   .follow-us {
-    display: none; }
-
+    display: none;
+  }
   .tree-cover-btn, .ecosystem-btn, .fence-btn, .risk-btn, .reference-btn {
-    padding: 0 10px; }
-
+    padding: 0 10px;
+  }
   .ecosystem-headline, .fence-headline, .conifer-headline, .risk-headline, .reference-headline {
-    font-size: 14px; }
-
+    font-size: 14px;
+  }
   #dataBox {
     width: 370px;
-    font-size: 16px; }
-
+    font-size: 16px;
+  }
   .popup {
-    width: 575px; } }
+    width: 575px;
+  }
+}
+
 @media all and (max-width: 725px) {
   #dataBox {
     width: 300px;
-    font-size: 14px; }
-
+    font-size: 14px;
+  }
   .conifer-headline, .ecosystem-headline, .risk-headline, .reference-headline, .fence-headline {
-    font-size: 12px; }
-
+    font-size: 12px;
+  }
   .dataBox-copy {
-    display: none; }
-
+    display: none;
+  }
   .data-container {
-    padding-right: 10px; }
-
+    padding-right: 10px;
+  }
   .tcc-header, .eco-header, .fence-header, .risk-header, .ref-header {
-    height: 30px; }
-
+    height: 30px;
+  }
   .header-text {
-    top: 5px; }
-
+    top: 5px;
+  }
   .icons {
-    font-size: 16px; }
-
+    font-size: 16px;
+  }
   .social-icons {
     height: 0;
-    padding-top: 8px; }
-
+    padding-top: 8px;
+  }
   .footer-nav {
     bottom: 6px;
-    padding-top: 16px; }
-
+    padding-top: 16px;
+  }
   .download-link {
-    display: none; }
-
+    display: none;
+  }
   .partners-logo {
-    left: 35%; } }
+    left: 35%;
+  }
+}
+
 @media all and (max-width: 675px) {
   .popup {
-    width: 500px; }
-
+    width: 500px;
+  }
   .map-nav {
-    font-size: 12px; } }
+    font-size: 12px;
+  }
+}
+
 @media all and (max-width: 600px) {
   .map-nav {
-    display: none; }
-
+    display: none;
+  }
   .map-nav-mobile {
-    display: block; }
-
+    display: block;
+  }
   .partners-logo {
-    display: none; } }
+    display: none;
+  }
+}
+
 @media all and (max-width: 555px) {
   .popup {
-    width: 400px; }
-
+    width: 400px;
+  }
   .tree-cover-btn, .ecosystem-btn, .fence-btn, .risk-btn, .reference-btn {
-    font-size: 11px; } }
+    font-size: 11px;
+  }
+}
+
 @media all and (max-width: 450px) {
   .popup {
-    width: 300px; }
-
+    width: 300px;
+  }
   .tree-cover-btn, .ecosystem-btn, .fence-btn, .risk-btn, .reference-btn {
-    font-size: 10px; } }
+    font-size: 10px;
+  }
+}
+
 @media all and (max-width: 399px) {
   .tree-cover-btn, .ecosystem-btn, .risk-btn, .reference-btn {
     font-size: 9px;
-    padding: 0 4px; }
-
+    padding: 0 4px;
+  }
   .map-title {
-    font-size: 1.1em; }
-
+    font-size: 1.1em;
+  }
   .map-nav-mobile {
     top: -5px;
-    left: 10px; } }
+    left: 10px;
+  }
+}
+
 @media all and (max-width: 360px) {
   #dataBox {
     left: 10px;
-    right: 0px; }
-
+    right: 0px;
+  }
   .tree-cover-btn, .ecosystem-btn, .risk-btn, .reference-btn {
     font-size: 8px;
-    padding: 0 3px; }
-
+    padding: 0 3px;
+  }
   .footer-nav {
-    font-size: 10px; }
-
+    font-size: 10px;
+  }
   .popup {
-    width: 260px; } }
+    width: 260px;
+  }
+}
+
 /*----------- END MEDIA QUERIES -----------------*/
