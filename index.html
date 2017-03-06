@@ -33,7 +33,23 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" type="image/ico" href="favicon.ico" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.1.1/rangeslider.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.1.1/rangeslider.css"> </head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.1.1/rangeslider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webshim/1.16.0/dev/polyfiller.js"></script>
+    <script>
+      // webshim.setOptions('forms-ext', {
+      //   replaceUI: 'auto'
+      // });
+      //set language/UI dateformat || or use lang attribute on html element
+      //webshims.activeLang('hu'); // hu == hungary
+      webshim.polyfill('forms forms-ext');
+      $(function() {
+        $('.check-validity').on('click', function() {
+          $(this).jProp('form').checkValidity();
+          return false;
+        });
+      });
+    </script>
+  </head>
 
   <body>
     <div id="header">
