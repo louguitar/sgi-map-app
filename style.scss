@@ -20,11 +20,11 @@ a {
   display: block;
 }
 
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .green-slider, .blue-slider, .purple-slider, .red-slider, .fence-collision-ie {
-    display: none;
-  }
-}
+// @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+//   .green-slider, .blue-slider, .purple-slider, .red-slider, .fence-collision-ie {
+//     display: none;
+//   }
+// }
 
 
 i.fa-angle-down { position:absolute;
@@ -37,7 +37,7 @@ i.fa-angle-down { position:absolute;
   transition: all 300ms ease-in 0s;}
 
 .ui-state-active i.fa-angle-dow {
-    
+
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -o-transform: rotate(180deg);
@@ -327,7 +327,7 @@ icons a:focus {
 .tcc-header:hover {
   background-color: #31A354;
     color:#fff;
- 
+
 }
 
 .eco-header:hover {
@@ -1149,7 +1149,7 @@ h1 {
 
 .inputfile + label * {
     /* pointer-events: none; */
-    /* in case of FastClick lib use 
+    /* in case of FastClick lib use
 }
 */
 
@@ -1178,176 +1178,176 @@ h1 {
 /*------------ END Buttons ----------------*/
 /*-----------Opactiy Slider------------------*/
 
-input {
-  &[type=range] {
-    -webkit-appearance: none;
-    /* Hides the slider so that custom slider can be made */
-    width: 90%;
-    /* Specific width is required for Firefox. */
-    border-radius: 10px;
-    margin: 7px auto;
-    &:focus {
-      outline: none;
-      /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-    }
-    &::-ms-track {
-      width: 100%;
-      cursor: pointer;
-      background: transparent;
-      /* Hides the slider so custom styles can be added */
-      border-color: transparent;
-      color: transparent;
-      height: 15px;
-      border-radius: 10px;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-      border: 1px solid #ccc;
-      margin: 0px;
-    }
-    &::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      /*    border: 1px solid #999;*/
-      height: 16px;
-      width: 16px;
-      border-radius: 10px;
-      background: #eee;
-      cursor: pointer;
-      margin-top: -2.5px;
-      /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-      box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
-      /* Add cool effects to your sliders! */
-    }
-    &::-moz-range-thumb {
-      outline: none;
-      height: 16px;
-      width: 16px;
-      border: 1px solid #999;
-      border-radius: 10px;
-      background: #eee;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
-      /* Add cool effects to your sliders! */
-      cursor: pointer;
-    }
-    &::-ms-thumb {
-      height: 16px;
-      width: 16px;
-      border: 0px;
-      border-radius: 10px;
-      background: #eee;
-      cursor: pointer;
-      box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
-      /* Add cool effects to your sliders! */
-      cursor: pointer;
-    }
-  }
-  &[type="range"]::-webkit-slider-runnable-track {
-    /*  background-color: #74c476; */
-    background: linear-gradient(to right, #fff, #74c476 75%, #31A354);
-    height: 15px;
-    border-radius: 10px;
-    margin-top: 5px auto;
-    border: 1px solid #ccc;
-  }
-}
-
-/* Special styling for WebKit/Blink */
-
-/* All the same stuff for Firefox */
-
-/* All the same stuff for IE */
-
-.blue-slider input[type="range"]::-webkit-slider-runnable-track {
-  /*  background-color: #74c476; */
-  background: linear-gradient(to right, #fff, #337ab7 75%, #23527c);
-  height: 15px;
-  border-radius: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-}
-
-.purple-slider input[type="range"]::-webkit-slider-runnable-track {
-  /*  background-color: #74c476; */
-  background: linear-gradient(to right, #fff, #7A1EA1 75%, #691A99);
-  height: 15px;
-  border-radius: 10px;
-  margin-top: 0px;
-  border: 1px solid #ccc;
-}
-
-.red-slider input[type="range"]::-webkit-slider-runnable-track {
-  /*  background-color: #74c476; */
-  background: linear-gradient(to right, #fff, #d44d42 75%, #D7382B);
-  height: 15px;
-  border-radius: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-}
-
-/*
-input[type="range"]:focus::-webkit-slider-runnable-track {
-  background-color: #ccc;
-}
-*/
-
-input[type="range"] {
-  &::-moz-range-progress {
-    background: linear-gradient(to right, #ccc, #74c476 75%, #31A354);
-    height: 15px;
-    border-radius: 10px;
-    border-bottom-right-radius: 6px;
-    border-top-right-radius: 6px;
-  }
-  &::-moz-range-track {
-    background-color: #ccc;
-    height: 15px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-  }
-}
-
-.blue-slider input[type="range"]::-moz-range-progress {
-  background: linear-gradient(to right, #ccc, #337ab7 75%, #23527c);
-  height: 15px;
-  border-radius: 10px;
-}
-
-.purple-slider input[type="range"]::-moz-range-progress {
-  background: linear-gradient(to right, #ccc, #7A1EA1 75%, #691A99);
-  height: 15px;
-  border-radius: 10px;
-}
-
-.red-slider input[type="range"]::-moz-range-progress {
-  background: linear-gradient(to right, #fff, #d44d42 75%, #D7382B);
-  height: 15px;
-  border-radius: 10px;
-}
-
-input[type="range"]::-ms-fill-lower {
-  background: linear-gradient(to right, #ccc, #74c476 75%, #31A354);
-  border-radius: 10px;
-}
-
-.blue-slider input[type="range"]::-ms-fill-lower {
-  background: linear-gradient(to right, #ccc, #337ab7 75%, #23527c);
-  border-radius: 10px;
-}
-
-.purple-slider input[type="range"]::-ms-fill-lower {
-  background: linear-gradient(to right, #ccc, #7A1EA1 75%, #691A99);
-  border-radius: 10px;
-}
-
-input {
-  &[type="range"]::-ms-fill-upper {
-    background-color: #ccc;
-    border-radius: 10px;
-  }
-  &[type=range]:focus {
-    outline: none;
-  }
-}
+// input {
+//   &[type=range] {
+//     -webkit-appearance: none;
+//     /* Hides the slider so that custom slider can be made */
+//     width: 90%;
+//     /* Specific width is required for Firefox. */
+//     border-radius: 10px;
+//     margin: 7px auto;
+//     &:focus {
+//       outline: none;
+//       /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+//     }
+//     &::-ms-track {
+//       width: 100%;
+//       cursor: pointer;
+//       background: transparent;
+//       /* Hides the slider so custom styles can be added */
+//       border-color: transparent;
+//       color: transparent;
+//       height: 15px;
+//       border-radius: 10px;
+//       border-top-right-radius: 10px;
+//       border-bottom-right-radius: 10px;
+//       border: 1px solid #ccc;
+//       margin: 0px;
+//     }
+//     &::-webkit-slider-thumb {
+//       -webkit-appearance: none;
+//       /*    border: 1px solid #999;*/
+//       height: 16px;
+//       width: 16px;
+//       border-radius: 10px;
+//       background: #eee;
+//       cursor: pointer;
+//       margin-top: -2.5px;
+//       /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+//       box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
+//       /* Add cool effects to your sliders! */
+//     }
+//     &::-moz-range-thumb {
+//       outline: none;
+//       height: 16px;
+//       width: 16px;
+//       border: 1px solid #999;
+//       border-radius: 10px;
+//       background: #eee;
+//       cursor: pointer;
+//       box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
+//       /* Add cool effects to your sliders! */
+//       cursor: pointer;
+//     }
+//     &::-ms-thumb {
+//       height: 16px;
+//       width: 16px;
+//       border: 0px;
+//       border-radius: 10px;
+//       background: #eee;
+//       cursor: pointer;
+//       box-shadow: 1px 1px 1px #999, 0px 0px 3px #333;
+//       /* Add cool effects to your sliders! */
+//       cursor: pointer;
+//     }
+//   }
+//   &[type="range"]::-webkit-slider-runnable-track {
+//     /*  background-color: #74c476; */
+//     background: linear-gradient(to right, #fff, #74c476 75%, #31A354);
+//     height: 15px;
+//     border-radius: 10px;
+//     margin-top: 5px auto;
+//     border: 1px solid #ccc;
+//   }
+// }
+//
+// /* Special styling for WebKit/Blink */
+//
+// /* All the same stuff for Firefox */
+//
+// /* All the same stuff for IE */
+//
+// .blue-slider input[type="range"]::-webkit-slider-runnable-track {
+//   /*  background-color: #74c476; */
+//   background: linear-gradient(to right, #fff, #337ab7 75%, #23527c);
+//   height: 15px;
+//   border-radius: 10px;
+//   margin-top: 5px;
+//   border: 1px solid #ccc;
+// }
+//
+// .purple-slider input[type="range"]::-webkit-slider-runnable-track {
+//   /*  background-color: #74c476; */
+//   background: linear-gradient(to right, #fff, #7A1EA1 75%, #691A99);
+//   height: 15px;
+//   border-radius: 10px;
+//   margin-top: 0px;
+//   border: 1px solid #ccc;
+// }
+//
+// .red-slider input[type="range"]::-webkit-slider-runnable-track {
+//   /*  background-color: #74c476; */
+//   background: linear-gradient(to right, #fff, #d44d42 75%, #D7382B);
+//   height: 15px;
+//   border-radius: 10px;
+//   margin-top: 5px;
+//   border: 1px solid #ccc;
+// }
+//
+// /*
+// input[type="range"]:focus::-webkit-slider-runnable-track {
+//   background-color: #ccc;
+// }
+// */
+//
+// input[type="range"] {
+//   &::-moz-range-progress {
+//     background: linear-gradient(to right, #ccc, #74c476 75%, #31A354);
+//     height: 15px;
+//     border-radius: 10px;
+//     border-bottom-right-radius: 6px;
+//     border-top-right-radius: 6px;
+//   }
+//   &::-moz-range-track {
+//     background-color: #ccc;
+//     height: 15px;
+//     border-radius: 10px;
+//     border: 1px solid #ccc;
+//   }
+// }
+//
+// .blue-slider input[type="range"]::-moz-range-progress {
+//   background: linear-gradient(to right, #ccc, #337ab7 75%, #23527c);
+//   height: 15px;
+//   border-radius: 10px;
+// }
+//
+// .purple-slider input[type="range"]::-moz-range-progress {
+//   background: linear-gradient(to right, #ccc, #7A1EA1 75%, #691A99);
+//   height: 15px;
+//   border-radius: 10px;
+// }
+//
+// .red-slider input[type="range"]::-moz-range-progress {
+//   background: linear-gradient(to right, #fff, #d44d42 75%, #D7382B);
+//   height: 15px;
+//   border-radius: 10px;
+// }
+//
+// input[type="range"]::-ms-fill-lower {
+//   background: linear-gradient(to right, #ccc, #74c476 75%, #31A354);
+//   border-radius: 10px;
+// }
+//
+// .blue-slider input[type="range"]::-ms-fill-lower {
+//   background: linear-gradient(to right, #ccc, #337ab7 75%, #23527c);
+//   border-radius: 10px;
+// }
+//
+// .purple-slider input[type="range"]::-ms-fill-lower {
+//   background: linear-gradient(to right, #ccc, #7A1EA1 75%, #691A99);
+//   border-radius: 10px;
+// }
+//
+// input {
+//   &[type="range"]::-ms-fill-upper {
+//     background-color: #ccc;
+//     border-radius: 10px;
+//   }
+//   &[type=range]:focus {
+//     outline: none;
+//   }
+// }
 
 /*-----------END Opactiy Slider------------------*/
 
