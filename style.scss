@@ -26,6 +26,12 @@ a {
 //   }
 // }
 
+.switch-label-container {
+  margin: 20px 0 5px 0;
+  .mdl-switch.is-upgraded {
+    padding-left: 57px;
+  }
+}
 
 i.fa-angle-down { position:absolute;
     color: black;
@@ -218,7 +224,7 @@ icons a:focus {
   font-size: 9px;
 }
 
-#dataBox {
+.dataBox {
   position: absolute;
   top: 70px;
   right: 20px;
@@ -351,8 +357,8 @@ icons a:focus {
 }
 
 .data-container {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
   margin-bottom: 20px;
 }
 
@@ -403,10 +409,11 @@ icons a:focus {
 
 .dataBox-copy {
   font-size: 13px;
-  padding-left: 40px;
-  position: relative;
-  top: -10px;
+  // padding-left: 40px;
+  // position: relative;
+  // top: -10px;
   color: #666;
+  margin: 15px 0 10px 0;
 }
 
 .canopy-cover-graph {
@@ -441,8 +448,8 @@ icons a:focus {
 #reference-collapse a {
   font-size: 15px;
   /* color: #ea8b42; */
-  margin-left: 35px;
-  position: relative;
+  // margin-left: 35px;
+  // position: relative;
   &:hover {
     /* color: #666; */
   }
@@ -573,15 +580,15 @@ icons a:focus {
 
 .info {
   float: right;
-  position: relative;
-  top: 5px;
+  // position: relative;
+  // top: 5px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .shapefile-dl-btn {
-  position: relative;
-  top: -10px;
+  // position: relative;
+  // top: -10px;
 }
 
 .panel-group .panel + .panel {
@@ -772,10 +779,11 @@ div.tog {
     width: 12%;
   }
   .eco li {
-    width: 30%;
+    width: 32%;
     display: inline-block;
     height: 100px;
     text-align: center;
+    margin-top: 30px;
   }
 }
 
@@ -1163,6 +1171,7 @@ h1 {
   padding: 2px 10px;
   border-radius: 20px;
   cursor: pointer;
+
 }
 
 .calculateButton:hover, .resetButton:hover, .downloadButton:hover {
@@ -1348,8 +1357,8 @@ h1 {
 //     outline: none;
 //   }
 // }
-
-/*-----------END Opactiy Slider------------------*/
+//
+// /*-----------END Opactiy Slider------------------*/
 
 /*----------- MEDIA QUERIES -----------------*/
 
@@ -1418,7 +1427,7 @@ h1 {
   .ecosystem-headline, .fence-headline, .conifer-headline, .risk-headline, .reference-headline {
     font-size: 14px;
   }
-  #dataBox {
+  .dataBox {
     width: 370px;
     font-size: 16px;
   }
@@ -1428,7 +1437,7 @@ h1 {
 }
 
 @media all and (max-width: 725px) {
-  #dataBox {
+  .dataBox {
     width: 300px;
     font-size: 14px;
   }
@@ -1520,7 +1529,7 @@ h1 {
 }
 
 @media all and (max-width: 360px) {
-  #dataBox {
+  .dataBox {
     left: 10px;
     right: 0px;
   }

@@ -14,6 +14,11 @@ a:focus, a:hover {
 .unhidden {
   display: block; }
 
+.switch-label-container {
+  margin: 20px 0 5px 0; }
+  .switch-label-container .mdl-switch.is-upgraded {
+    padding-left: 57px; }
+
 i.fa-angle-down {
   position: absolute;
   color: black;
@@ -169,7 +174,7 @@ icons a:focus {
 .beta_sml {
   font-size: 9px; }
 
-#dataBox {
+.dataBox {
   position: absolute;
   top: 70px;
   right: 20px;
@@ -273,8 +278,8 @@ icons a:focus {
   color: #fff; }
 
 .data-container {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
   margin-bottom: 20px; }
 
 .conifer-headline {
@@ -319,10 +324,8 @@ icons a:focus {
 
 .dataBox-copy {
   font-size: 13px;
-  padding-left: 40px;
-  position: relative;
-  top: -10px;
-  color: #666; }
+  color: #666;
+  margin: 15px 0 10px 0; }
 
 .canopy-cover-graph {
   width: 100%; }
@@ -349,9 +352,7 @@ icons a:focus {
 */
 #reference-collapse a {
   font-size: 15px;
-  /* color: #ea8b42; */
-  margin-left: 35px;
-  position: relative; }
+  /* color: #ea8b42; */ }
   #reference-collapse a:hover {
     /* color: #666; */ }
 
@@ -437,14 +438,8 @@ icons a:focus {
 
 .info {
   float: right;
-  position: relative;
-  top: 5px;
   cursor: pointer;
-  font-size: 18px; }
-
-.shapefile-dl-btn {
-  position: relative;
-  top: -10px; }
+  font-size: 20px; }
 
 .panel-group .panel + .panel {
   margin-top: 0px; }
@@ -596,10 +591,11 @@ div.tog {
     width: 12%; }
 
   .eco li {
-    width: 30%;
+    width: 32%;
     display: inline-block;
     height: 100px;
-    text-align: center; } }
+    text-align: center;
+    margin-top: 30px; } }
 @media (min-width: 700px) {
   .chart .axis {
     display: inline-block; } }
@@ -930,7 +926,6 @@ h1 {
 
 /*------------ END Buttons ----------------*/
 /*-----------Opactiy Slider------------------*/
-/*-----------END Opactiy Slider------------------*/
 /*----------- MEDIA QUERIES -----------------*/
 @media all and (max-width: 1330px) {
   .map-logo {
@@ -988,14 +983,14 @@ h1 {
   .ecosystem-headline, .fence-headline, .conifer-headline, .risk-headline, .reference-headline {
     font-size: 14px; }
 
-  #dataBox {
+  .dataBox {
     width: 370px;
     font-size: 16px; }
 
   .popup {
     width: 575px; } }
 @media all and (max-width: 725px) {
-  #dataBox {
+  .dataBox {
     width: 300px;
     font-size: 14px; }
 
@@ -1069,7 +1064,7 @@ h1 {
     top: -5px;
     left: 10px; } }
 @media all and (max-width: 360px) {
-  #dataBox {
+  .dataBox {
     left: 10px;
     right: 0px; }
 

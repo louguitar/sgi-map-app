@@ -1,118 +1,262 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>SGI Interactive Map</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="scripts/shp.min.js"></script>
-    <script src="scripts/ee_api_js.js"></script>
-    <script src="scripts/map.js"></script>
-    <script src="scripts/fenceCollision.js"></script>
-    <!--  <script src="scripts/custom-file-input.js"></script> -->
-    <!-- <script src="scripts/bootstrap-filestyle.min.js"></script> -->
-    <script src="http://d3js.org/topojson.v1.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=IM+Fell+English' rel='stylesheet' type='text/css'>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <!-- End Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="fancybox/jquery.fancybox.css" type="text/css" media="screen" />
-    <script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js" type="text/javascript"></script>
-    <!-- Material Design Lite -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" type="text/css" href="style-material-sgi.css">
-    <!--     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" /> -->
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <!-- END Material Design -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" type="image/ico" href="favicon.ico" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.1.1/rangeslider.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.1.1/rangeslider.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webshim/1.16.0/dev/polyfiller.js"></script>
-    <script>
-      // webshim.setOptions('forms-ext', {
-      //   replaceUI: 'auto'
-      // });
-      //set language/UI dateformat || or use lang attribute on html element
-      //webshims.activeLang('hu'); // hu == hungary
-      webshim.polyfill('forms forms-ext');
-      $(function() {
-        $('.check-validity').on('click', function() {
-          $(this).jProp('form').checkValidity();
-          return false;
-        });
+<head>
+  <title>SGI Interactive Map</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="scripts/shp.min.js"></script>
+  <script src="scripts/ee_api_js.js"></script>
+  <script src="scripts/map.js"></script>
+  <script src="scripts/fenceCollision.js"></script>
+  <!--  <script src="scripts/custom-file-input.js"></script> -->
+  <!-- <script src="scripts/bootstrap-filestyle.min.js"></script> -->
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=IM+Fell+English' rel='stylesheet' type='text/css'>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <!-- End Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js" type="text/javascript"></script>
+  <!-- Material Design Lite -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" type="text/css" href="style-material-sgi.css">
+  <!--     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" /> -->
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <!-- END Material Design -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" type="image/ico" href="favicon.ico" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.1.1/rangeslider.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.1.1/rangeslider.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webshim/1.16.0/dev/polyfiller.js"></script>
+  <script>
+    // webshim.setOptions('forms-ext', {
+    //   replaceUI: 'auto'
+    // });
+    //set language/UI dateformat || or use lang attribute on html element
+    //webshims.activeLang('hu'); // hu == hungary
+    webshim.polyfill('forms forms-ext');
+    $(function()
+    {
+      $('.check-validity').on('click', function()
+      {
+        $(this).jProp('form').checkValidity();
+        return false;
       });
-    </script>
-  </head>
+    });
+  </script>
+</head>
 
-  <body>
-    <div id="header">
-      <a href="http://www.sagegrouseinitiative.com/">
-        <div class="map-logo">
-          <img class="grouse" align="left" alt="" src="images/grouse.png">
-          <div class="map-title">Sage Grouse Initiative</div>
-          <br>
-          <div class="map-tagline">Wildlife Conservation Through Sustainable Ranching.</div>
+<body>
+  <div id="header">
+    <a href="http://www.sagegrouseinitiative.com/">
+      <div class="map-logo">
+        <img class="grouse" align="left" alt="" src="images/grouse.png">
+        <div class="map-title">Sage Grouse Initiative</div>
+        <br>
+        <div class="map-tagline">Wildlife Conservation Through Sustainable Ranching.</div>
+      </div>
+    </a>
+    <nav class="map-nav">
+      <a id="toggle1" class="tree-cover-btn">Wildlife</a> |
+      <a id="toggle2" class="ecosystem-btn">Ecosystem</a>
+      <!-- <a id="toggle3" class="fence-btn">Fence Collision</a> |
+        <a id="toggle4" class="risk-btn">Cultivation Risk</a> |
+        <a id="toggle5" class="reference-btn">Reference</a> -->
+    </nav>
+    <nav class="map-nav-mobile">
+      <a id="toggle1" class="tree-cover-btn">Wildlife</a> |
+      <a id="toggle2" class="ecosystem-btn">Ecosystem</a>
+      <!-- <a id="toggle8" class="fence-btn">Fence</a> |
+        <a id="toggle9" class="risk-btn">Cultivation</a> |
+        <a id="toggle10" class="reference-btn">Reference</a> -->
+    </nav>
+  </div>
+  <div id="wrapper">
+    <div id="map" style="overflow: hidden"></div>
+  </div>
+  <div id="wildlife-toggle" class="dataBox panel-group">
+    <!-- Fence Collision panel -->
+    <div id="fence-toggle" class="panel">
+      <a href="#fence-collapse" data-toggle="collapse" data-parent="#dataBox">
+        <div class="fence-header">
+          <span class="header-text">Fence Collision
+            <sup class="beta_lrg">
+              <i>BETA</i>
+            </sup>
+          </span>
         </div>
       </a>
-      <nav class="map-nav">
-        <a id="toggle1" class="tree-cover-btn">Tree Cover</a> |
-        <a id="toggle2" class="ecosystem-btn">Ecosystem R &amp R</a> |
-        <a id="toggle3" class="fence-btn">Fence Collision</a> |
-        <a id="toggle4" class="risk-btn">Cultivation Risk</a> |
-        <a id="toggle5" class="reference-btn">Reference</a>
-      </nav>
-      <nav class="map-nav-mobile">
-        <a id="toggle6" class="tree-cover-btn">Tree</a> |
-        <a id="toggle7" class="ecosystem-btn">Ecosystem</a> |
-        <a id="toggle8" class="fence-btn">Fence</a> |
-        <a id="toggle9" class="risk-btn">Cultivation</a> |
-        <a id="toggle10" class="reference-btn">Reference</a>
-      </nav>
-    </div>
-    <div id="wrapper">
-      <div id="map" style="overflow: hidden"></div>
-    </div>
-    <div id="dataBox" class="panel-group">
-      <!-- Tree Cover panel -->
-      <div id="tree-toggle" class="panel">
-        <a data-toggle="collapse" data-parent="#dataBox" href="#conifer-collapse">
-          <div class="tcc-header">
-            <span class="header-text">TREE CANOPY COVER</span>
-            <i class="fa fa-angle-down"></i>
-          </div>
-        </a>
-        <!-- conifer layer -->
-        <div id="conifer-collapse" class="panel-collapse collapse in">
-          <div class="data-container">
-            <label class="checkbox-switch" onclick>
-              <!-- The onclick attribute is required by iOS -->
-              <input type="checkbox" id="00" name="coniferTiles" class="dataTiles" checked="checked" />
-              <span class="checkbox-switch-inner">
-                <span class="checkbox-switch-on"></span>
-                <span class="checkbox-switch-off"></span>
-                <span class="checkbox-switch-handle"></span>
-              </span>
+      <div id="fence-collapse" class="panel-collapse collapse">
+        <div class="data-container">
+          <div class="switch-label-container">
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect fence-headline" for="03"> Fence Collision
+              <sup class="beta_sml">
+                <i>BETA</i>
+              </sup>
+              <input type="checkbox" id="03" name="fenceCollision" class="mdl-switch__input fenceCollision">
+              <span class="mdl-switch__label"></span>
+              <a id="inline" href="#fence-i" class="fancybox">
+                <i class="fa fa-info-circle info"></i>
+              </a>
             </label>
-            <label for="00" class="conifer-headline">Tree Canopy Cover </label>
-            <a id="inline" href="#conifer-areas-i" class="fancybox">
-              <i class="fa fa-info-circle info"></i>
-            </a>
-            <br />
-            <div class="dataBox-copy">High-resolution map of tree canopy cover across sage grouse habitat.
-              <a id="inline" href="#conifer-areas-i" class="fancybox">Detailed information.</a>
-            </div>
-            <input class="mdl-slider mdl-js-slider" type="range" id="opacitySliderConifer" oninput="changeOpacity(opacitySliderConifer.value, 'coniferTiles')" min="0" max="1" step=".01" value="1">
-            <ul class="chart">
-              <li class="bar green1" style="height: 20%;" title="95">
-                <div class="skill">
-                  < 1</div>
+
+            <br/>
+          </div>
+          <div class="dataBox-copy blue_track">
+            Visualizes and exports sage grouse fence collision risk relative to lek locations. Upload a zipped shapefile or add points manually using the drawing tools. Visualizations are scale dependent; zoom in for greater accuracy.
+              <a id="inline" href="#fence-i"
+                  class="fancybox"> Detailed instructions </a>.
+              <br>
+              <br> UPDATE: Polygon functionality removed. A polygon shapefile cannot be used.
+          </div>
+          <!-- Fence collision placeholder -->
+          <div class="btn-container">
+            <input type="file" id="shapefile" class="shapefile hidden" data-size="sm" data-placeholder="No file selected" onchange="processFile(this.files)" accept=".zip, application/zip, application/octet-stream" style="background-color: rgba(255, 255, 255, 1); font-size: 12px !important;
+	                     color: #7A1EA1 !important; margin-bottom: -20px">
+            <!-- <label for="shapefile"><i class="fa fa-upload" aria-hidden="false"></i>  &nbsp;Choose a file</label> -->
+            <button class="calculateButton hidden" style="
+                font-size: 14px;
+                font-weight: 500;
+                color: #691A99;
+                background-color: transparent;
+                display: inline-block;
+                border: 1px solid #691A99;
+                padding: 0px 10px 2px 10px;
+                border-radius: 20px;
+                cursor: pointer;"> Calculate layer </button>
+            <button class="resetButton hidden" style="
+                font-size: 14px;
+                font-weight: 500;
+                color: #691A99;
+                background-color: transparent;
+                display: inline-block;
+                border: 1px solid #691A99;
+                padding: 0px 10px 2px 10px;
+                border-radius: 15px;
+                cursor: pointer;"> Reset layer </button>
+            <br>
+            <input type="email" id="emailAddress" class="emailAddress hidden" placeholder="Enter email address *" style="
+                font-size: 14px;
+            		font-weight: 500;
+            		background-color: transparent;
+            		display: inline-block;
+            		border: 1px solid #691A99;
+            		padding-left:5px;
+            		border-radius: 5px;
+            		cursor: pointer;
+            		width:200px;">
+            <button class="downloadButton hidden" style="
+                font-size: 14px;
+                font-weight: 500;
+                color: #691A99;
+                background-color: transparent;
+                display: inline-block;
+                border: 1px solid #691A99;
+                padding: 0px 10px 2px 10px;
+                border-radius: 15px;
+                cursor: pointer;"> Download layer </button>
+            <div class="tiles-loading"></div>
+            <div class="downloadConfirmed"></div>
+          </div>
+          <input class="mdl-slider mdl-js-slider" type="range" oninput="changeOpacityEEOverlays(opacitySliderFenceCollision.value, 'fenceCollision')" min="0" max="1" step=".01" value="1" tabindex="0">
+          <!-- green, red, yellow pallete -->
+
+            <ul class="chart eco">
+              <li class="bar green7" style="height: 25%;" title="95">
+                <div class="skill">Low</div>
+              </li>
+              <li class="bar yellow1" style="height: 40%;" title="90">
+                <div class="skill">Moderate</div>
+              </li>
+              <li class="bar red1" style="height: 55%;" title="80">
+                <div class="skill">High</div>
+              </li>
+            </ul>
+
+          <br> </div>
+      </div>
+    </div>
+    <!-- END Fence Collision panel -->
+    <!-- Reference panel -->
+    <div id="ref-toggle" class="panel">
+      <a href="#reference-collapse" data-toggle="collapse" data-parent="#dataBox">
+        <div class="ref-header">
+          <span class="header-text">Reference Layers</span>
+        </div>
+      </a>
+      <div id="reference-collapse" class="panel-collapse collapse">
+        <div class="data-container">
+          <div class="switch-label-container">
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect reference-headline" for="40"> Sage Grouse PAC
+              <input type="checkbox" id="40" name="pacRefLayer" class="mdl-switch__input fenceCollision">
+              <span class="mdl-switch__label"></span>
+            </label>
+            <br/>
+          </div>
+          <div class="dataBox-copy">Priority Areas for Conservation (PAC) represent the most important areas needed for maintaining sage grouse representation, redundancy and resilience across the landscape. </div>
+          <span class="download-link">
+            <a class="shapefile-dl-btn" href="https://storage.googleapis.com/sgi-data/reference/sageGrousePAC.zip">
+              <i class="fa fa-download"></i> &nbsp PAC shapefile </a>
+          </span>
+          <br>
+          <div class="switch-label-container">
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect reference-headline" for="41"> Sage Grouse management zones
+              <input type="checkbox" id="41" name="mgmtZonesRefLayer" class="mdl-switch__input fenceCollision">
+              <span class="mdl-switch__label"></span>
+            </label>
+            <br/>
+          </div>
+          <div class="dataBox-copy">Broad floristic provinces encompassing sage grouse populations and habitats. </div>
+          <span class="download-link">
+            <a class="shapefile-dl-btn" href="https://storage.googleapis.com/sgi-data/reference/sageGrouseMgmtZones.zip">
+              <i class="fa fa-download"></i> &nbsp Management zones shapefile </a>
+          </span>
+          <br> </div>
+      </div>
+    </div>
+  </div>
+  <!-- ecosystem panel -->
+  <div id="ecosystem-toggle" class="dataBox panel-group">
+    <!-- Tree Cover panel -->
+    <div id="tree-toggle" class="panel">
+      <a data-toggle="collapse" data-parent="#dataBox" href="#conifer-collapse">
+        <div class="tcc-header">
+          <span class="header-text">TREE CANOPY COVER</span>
+          <i class="fa fa-angle-down"></i>
+        </div>
+      </a>
+      <!-- conifer layer -->
+      <div id="conifer-collapse" class="panel-collapse collapse in">
+        <div class="data-container">
+          <label class="checkbox-switch" onclick>
+            <!-- The onclick attribute is required by iOS -->
+            <input type="checkbox" id="00" name="coniferTiles" class="dataTiles" checked="checked" />
+            <span class="checkbox-switch-inner">
+              <span class="checkbox-switch-on"></span>
+              <span class="checkbox-switch-off"></span>
+              <span class="checkbox-switch-handle"></span>
+            </span>
+          </label>
+          <label for="00" class="conifer-headline">Tree Canopy Cover </label>
+          <a id="inline" href="#conifer-areas-i" class="fancybox">
+            <i class="fa fa-info-circle info"></i>
+          </a>
+          <br />
+          <div class="dataBox-copy">High-resolution map of tree canopy cover across sage grouse habitat.
+            <a id="inline" href="#conifer-areas-i" class="fancybox">Detailed information.</a>
+          </div>
+          <input class="mdl-slider mdl-js-slider" type="range" id="opacitySliderConifer" oninput="changeOpacity(opacitySliderConifer.value, 'coniferTiles')" min="0" max="1" step=".01" value="1">
+          <ul class="chart">
+            <li class="bar green1" style="height: 20%;" title="95">
+              <div class="skill">
+                < 1</div>
                 </li>
                 <li class="bar green2" style="height: 25%;" title="90">
                   <div class="skill">1 - 4</div>
@@ -210,139 +354,7 @@
       <!-- END Ecosystem RR panel -->
 
 
-      <!-- Fence Collision panel -->
-      <div id="fence-toggle" class="panel">
-        <a href="#fence-collapse" data-toggle="collapse" data-parent="#dataBox">
-          <div class="fence-header"><span class="header-text">Fence Collision <sup class="beta_lrg"><i>BETA</i></sup></span></div>
-        </a>
-        <div id="fence-collapse" class="panel-collapse collapse">
-          <div class="data-container">
-            <div class="fence-collision-ie">
-              <label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
-                <input type="checkbox" id="03" name="fenceCollision" class="fenceCollision">
-                <span class="checkbox-switch-inner">
-                  <span class="checkbox-switch-on"></span>
-                	<span class="checkbox-switch-off"></span>
-               	  <span class="checkbox-switch-handle"></span>
-                </span>
-          	  </label>
-              <label for="03" class="fence-headline">
-                Fence Collision
-                <sup class="beta_sml">
-                  <i>BETA</i>
-                </sup>
-              </label>
-              <a id="inline" href="#fence-i" class="fancybox">
-                <i class="fa fa-info-circle info"></i>
-              </a>
-              <br/>
-            </div>
-            <div class="dataBox-copy blue_track">
-              <div class="fence-collision-ie">
-                Visualizes and exports sage grouse fence collision risk relative to lek locations. Upload a zipped shapefile or add points manually using the drawing tools. Visualizations are scale dependent; zoom in for greater accuracy.
-                <a id="inline"href="#fence-i" class="fancybox">
-                  Detailed instructions
-                </a>.
-                <br>
-                <br>
-                UPDATE: Polygon functionality removed. A polygon shapefile cannot be used.
-              </div>
-              <br>
-              Microsoft Internet Explorer and Edge are not supported. Please use Chrome, Firefox, or Safari.
-            </div>
 
-            <!-- Fence collision placeholder -->
-            <div class="btn-container">
-              <input
-                type="file" id="shapefile"
-                class="shapefile hidden"
-                data-size="sm" data-placeholder="No file selected"
-                onchange="processFile(this.files)"
-                accept=".zip, application/zip, application/octet-stream"
-                style="background-color: rgba(255, 255, 255, 1); font-size: 12px !important;
-	                     color: #7A1EA1 !important; margin-bottom: -20px">
-              <!-- <label for="shapefile"><i class="fa fa-upload" aria-hidden="false"></i>  &nbsp;Choose a file</label> -->
-              <button class="calculateButton hidden"
-                style="
-                font-size: 14px;
-                font-weight: 500;
-                color: #691A99;
-                background-color: transparent;
-                display: inline-block;
-                border: 1px solid #691A99;
-                padding: 0px 10px 2px 10px;
-                border-radius: 20px;
-                cursor: pointer;"
-              >
-                Calculate layer
-              </button>
-              <button class="resetButton hidden"
-                style="
-                font-size: 14px;
-                font-weight: 500;
-                color: #691A99;
-                background-color: transparent;
-                display: inline-block;
-                border: 1px solid #691A99;
-                padding: 0px 10px 2px 10px;
-                border-radius: 15px;
-                cursor: pointer;"
-              >
-                Reset layer
-              </button>
-              <br>
-              <input type="email" id="emailAddress" class="emailAddress hidden" placeholder="Enter email address *"
-                style="
-                font-size: 14px;
-            		font-weight: 500;
-            		background-color: transparent;
-            		display: inline-block;
-            		border: 1px solid #691A99;
-            		padding-left:5px;
-            		border-radius: 5px;
-            		cursor: pointer;
-            		width:200px;"
-              >
-              <button class="downloadButton hidden"
-                style="
-                font-size: 14px;
-                font-weight: 500;
-                color: #691A99;
-                background-color: transparent;
-                display: inline-block;
-                border: 1px solid #691A99;
-                padding: 0px 10px 2px 10px;
-                border-radius: 15px;
-                cursor: pointer;"
-              >
-                Download layer
-              </button>
-              <div class="tiles-loading"></div>
-              <div class="downloadConfirmed"></div>
-            </div>
-            <div class="purple-slider"><input type="range" id="opacitySliderFenceCollision" class="purple_track" oninput="changeOpacityEEOverlays(opacitySliderFenceCollision.value, 'fenceCollision')" min="0" max="1" step=".01" value="1"></div>
-            <br>
-
-            <!-- green, red, yellow pallete -->
-
-            <div class="fence-collision-ie">
-              <ul class="chart eco">
-                <li class="bar green7" style="height: 25%;" title="95">
-                  <div class="skill">Low</div>
-                </li>
-                <li class="bar yellow1" style="height: 40%;" title="90">
-                  <div class="skill">Moderate</div>
-                </li>
-                <li class="bar red1" style="height: 55%;" title="80">
-                  <div class="skill">High</div>
-                </li>
-              </ul>
-            </div>
-            <br>
-          </div>
-        </div>
-      </div>
-      <!-- END Fence Collision panel -->
 
 
 
@@ -419,61 +431,7 @@
       </div>
       <!-- END Risk panel -->
 
-      <!-- Reference panel -->
-      <div id="ref-toggle" class="panel">
-        <a href="#reference-collapse" data-toggle="collapse" data-parent="#dataBox">
-          <div class="ref-header"><span class="header-text">Reference Layers</span></div>
-        </a>
-        <div id="reference-collapse" class="panel-collapse collapse">
-          <div class="data-container">
-            <label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
-              <input type="checkbox" id="40" name="pacRefLayer" class="refLayers" />
-              <span class="checkbox-switch-inner">
-                <span class="checkbox-switch-on"></span>
-                	<span class="checkbox-switch-off"></span>
-               	 <span class="checkbox-switch-handle"></span>
-          	  </span>
-          	</label>
 
-            <label for="40" class="reference-headline">
-              Sage Grouse PAC
-            </label>
-            <!-- <a id="inline" href="#sagegrouse-pac-i" class="fancybox"><i class="fa fa-info-circle info"></i></a> --><br />
-            <div class="dataBox-copy">
-              &nbsp &nbsp Priority Areas for Conservation (PAC) represent the most important areas needed for maintaining sage grouse representation, redundancy and resilience across the landscape.
-            </div>
-            <span class="download-link">
-              <a class="shapefile-dl-btn" href="https://storage.googleapis.com/sgi-data/reference/sageGrousePAC.zip">
-                <i class="fa fa-download"></i>
-                &nbsp PAC shapefile
-              </a>
-            </span>
-            <br>
-            <label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
-              <input type="checkbox" id="41" name="mgmtZonesRefLayer" class="refLayers" />
-              <span class="checkbox-switch-inner">
-                <span class="checkbox-switch-on"></span>
-                	<span class="checkbox-switch-off"></span>
-               	 <span class="checkbox-switch-handle"></span>
-          	  </span>
-          	</label>
-            <label for="41" class="reference-headline">
-              Sage Grouse management zones
-            </label>
-            <br />
-            <div class="dataBox-copy">
-              &nbsp &nbsp Broad floristic provinces encompassing sage grouse populations and habitats.
-            </div>
-            <span class="download-link">
-              <a class="shapefile-dl-btn"href="https://storage.googleapis.com/sgi-data/reference/sageGrouseMgmtZones.zip">
-                <i class="fa fa-download"></i>
-                &nbsp Management zones shapefile
-              </a>
-            </span>
-            <br>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <div class="ee_logo">
@@ -849,11 +807,11 @@
       $(document).ready(function() {
         $("#toggle1").click(function() {
           $(this).toggleClass('clicked');
-          $("#tree-toggle").toggleClass("hidden unhidden");
+          $("#wildlife-toggle").toggleClass("hidden unhidden");
         });
         $("#toggle2").click(function() {
           $(this).toggleClass('clicked');
-          $("#eco-toggle").toggleClass("hidden unhidden");
+          $("#ecosystem-toggle").toggleClass("hidden unhidden");
         });
         $("#toggle3").click(function() {
           $(this).toggleClass('clicked');
