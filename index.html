@@ -235,23 +235,21 @@
       <!-- conifer layer -->
       <div id="conifer-collapse" class="panel-collapse collapse in">
         <div class="data-container">
-          <label class="checkbox-switch" onclick>
-            <!-- The onclick attribute is required by iOS -->
-            <input type="checkbox" id="00" name="coniferTiles" class="dataTiles" checked="checked" />
-            <span class="checkbox-switch-inner">
-              <span class="checkbox-switch-on"></span>
-              <span class="checkbox-switch-off"></span>
-              <span class="checkbox-switch-handle"></span>
-            </span>
-          </label>
-          <label for="00" class="conifer-headline">Tree Canopy Cover </label>
-          <a id="inline" href="#conifer-areas-i" class="fancybox">
-            <i class="fa fa-info-circle info"></i>
-          </a>
-          <br />
+          <div class="switch-label-container">
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect conifer-headline" for="00"> Tree Canopy Cover
+              <a id="inline" href="#conifer-areas-i" class="fancybox">
+                <i class="fa fa-info-circle info"></i>
+              </a>
+              <input type="checkbox" id="00" name="coniferTiles" class="mdl-switch__input dataTiles" checked="checked" >
+              <span class="mdl-switch__label"></span>
+            </label>
+            <br/>
+          </div>
+
           <div class="dataBox-copy">High-resolution map of tree canopy cover across sage grouse habitat.
             <a id="inline" href="#conifer-areas-i" class="fancybox">Detailed information.</a>
           </div>
+          <br />
           <input class="mdl-slider mdl-js-slider" type="range" id="opacitySliderConifer" oninput="changeOpacity(opacitySliderConifer.value, 'coniferTiles')" min="0" max="1" step=".01" value="1">
           <ul class="chart">
             <li class="bar green1" style="height: 20%;" title="95">
@@ -295,27 +293,23 @@
         </a>
         <div id="ecosystem-collapse" class="panel-collapse collapse">
           <div class="data-container">
-            <label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
-              <input type="checkbox" id="01" name="rrClassTiles" class="dataTiles">
-              <span class="checkbox-switch-inner">
-                <span class="checkbox-switch-on"></span>
-                	<span class="checkbox-switch-off"></span>
-               	 <span class="checkbox-switch-handle"></span>
-          	  </span>
-          	</label>
-
-
-            <label for="01" class="ecosystem-headline"> Ecosystem Resilience & Resistance</label><a id="inline" href="#ecosystem-rr-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
-
+            <div class="switch-label-container">
+              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect ecosystem-headline" for="01"> Ecosystem Resilience & Resistance
+                <a id="inline" href="#ecosystem-rr-i" class="fancybox"><i class="fa fa-info-circle info"></i></a><br />
+                <input type="checkbox" id="01" name="rrClassTiles" class="mdl-switch__input dataTiles" >
+                <span class="mdl-switch__label"></span>
+              </label>
+              <br/>
+            </div>
+            <br  />
             <div class="dataBox-copy blue_track">Index of relative ecosystem resilience to disturbance and resistance to cheatgrass based on underlying soil temperature and moisture regimes.
               <a id="inline" style="font-size: 13px" href="#ecosystem-rr-i" class="fancybox">
                 Detailed information.
               </a>
             </div>
+            <br />
+            <input class="mdl-slider mdl-js-slider" type="range" id="opacitySliderRRClass"  oninput="changeOpacity(opacitySliderRRClass.value, 'rrClassTiles')" min="0" max="1" step=".01" value="1">
 
-            <div class="blue-slider">
-              <input type="range" id="opacitySliderRRClass" class="blue_track" oninput="changeOpacity(opacitySliderRRClass.value, 'rrClassTiles')" min="0" max="1" step=".01" value="1">
-            </div>
             <br>
 
             <!-- blue, yellow, red pallete -->
@@ -338,7 +332,7 @@
                 <i class="fa fa-download"></i>
                 &nbsp Ecosystem R &amp R Classes gridded data</a>
             </span>
-            <br>
+
             <span class="download-link" style="font-size: 15px">
               &nbsp &nbsp
               <a href="https://storage.googleapis.com/sgi-data/rr/rrGeodatabase.zip">
@@ -365,30 +359,27 @@
         </a>
         <div id="risk-collapse" class="panel-collapse collapse">
           <div class="data-container">
-            <label class="checkbox-switch" onclick> <!-- The onclick attribute is required by iOS -->
-              <input type="checkbox" id="02" name="cultivationRiskTiles" class="dataTiles">
-              <span class="checkbox-switch-inner">
-                <span class="checkbox-switch-on"></span>
-                	<span class="checkbox-switch-off"></span>
-               	 <span class="checkbox-switch-handle"></span>
-          	  </span>
-          	</label>
-            <label for="02" class="risk-headline">
-              Cultivation Risk
-            </label>
-            <a id="inline" href="#cultivation-risk-i" class="fancybox">
-              <i class="fa fa-info-circle info"></i>
-            </a>
-            <br/>
+            <div class="switch-label-container">
+              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect risk-headline" for="02"> Cultivation Risk
+                <a id="inline" href="#cultivation-risk-i" class="fancybox">
+                  <i class="fa fa-info-circle info"></i>
+                </a><br />
+                <input type="checkbox" id="02" name="cultivationRiskTiles" class="mdl-switch__input dataTiles" >
+                <span class="mdl-switch__label"></span>
+              </label>
+              <br/>
+            </div>
+
+
+
             <div class="dataBox-copy blue_track">
               Suitability for cropping based on climate, soils, and topography to assess potential risk of cultivation to sage grouse habitat.
               <a id="inline" href="#cultivation-risk-i" class="fancybox">
                 Detailed information.
               </a>
             </div>
-            <div class="red-slider">
-              <input type="range" id="opacitySliderCultivationRisk" oninput="changeOpacity(opacitySliderCultivationRisk.value, 'cultivationRiskTiles')" min="0" max="1" step=".01" value="1">
-            </div>
+            <input class="mdl-slider mdl-js-slider" type="range" id="opacitySliderCultivationRisk" oninput="changeOpacity(opacitySliderCultivationRisk.value, 'cultivationRiskTiles')" min="0" max="1" step=".01" value="1">
+            
             <br>
 
             <!-- Risk Chart -->
