@@ -64,8 +64,8 @@
       </div>
     </a>
     <nav class="map-nav">
-      <a id="toggle1" class="tree-cover-btn">Wildlife</a> |
-      <a id="toggle2" class="ecosystem-btn">Ecosystem</a>
+      <a class="tree-cover-btn" onclick="toggle_wildlife();">Wildlife</a> |
+      <a  class="ecosystem-btn" onclick="toggle_eco();">Ecosystem</a>
       <!-- <a id="toggle3" class="fence-btn">Fence Collision</a> |
         <a id="toggle4" class="risk-btn">Cultivation Risk</a> |
         <a id="toggle5" class="reference-btn">Reference</a> -->
@@ -165,7 +165,7 @@
             <div class="tiles-loading"></div>
             <div class="downloadConfirmed"></div>
           </div>
-          <input class="mdl-slider mdl-js-slider" type="range" oninput="changeOpacityEEOverlays(opacitySliderFenceCollision.value, 'fenceCollision')" min="0" max="1" step=".01" value="1" tabindex="0">
+          <input class="mdl-slider mdl-js-slider fence-purple" type="range" oninput="changeOpacityEEOverlays(opacitySliderFenceCollision.value, 'fenceCollision')" min="0" max="1" step=".01" value="1" tabindex="0">
           <!-- green, red, yellow pallete -->
 
             <ul class="chart eco">
@@ -250,7 +250,7 @@
             <a id="inline" href="#conifer-areas-i" class="fancybox">Detailed information.</a>
           </div>
           <br />
-          <input class="mdl-slider mdl-js-slider" type="range" id="opacitySliderConifer" oninput="changeOpacity(opacitySliderConifer.value, 'coniferTiles')" min="0" max="1" step=".01" value="1">
+          <input class="mdl-slider mdl-js-slider canopy-green" type="range" id="opacitySliderConifer" oninput="changeOpacity(opacitySliderConifer.value, 'coniferTiles')" min="0" max="1" step=".01" value="1">
           <ul class="chart">
             <li class="bar green1" style="height: 20%;" title="95">
               <div class="skill">
@@ -378,8 +378,8 @@
                 Detailed information.
               </a>
             </div>
-            <input class="mdl-slider mdl-js-slider" type="range" id="opacitySliderCultivationRisk" oninput="changeOpacity(opacitySliderCultivationRisk.value, 'cultivationRiskTiles')" min="0" max="1" step=".01" value="1">
-            
+            <input class="mdl-slider mdl-js-slider risk-red" type="range" id="opacitySliderCultivationRisk" oninput="changeOpacity(opacitySliderCultivationRisk.value, 'cultivationRiskTiles')" min="0" max="1" step=".01" value="1">
+
             <br>
 
             <!-- Risk Chart -->
@@ -794,51 +794,41 @@
       ga('send', 'pageview');
     </script>
 
-    <script>
+    <!-- <script>
       $(document).ready(function() {
         $("#toggle1").click(function() {
           $(this).toggleClass('clicked');
           $("#wildlife-toggle").toggleClass("hidden unhidden");
+
+
         });
         $("#toggle2").click(function() {
           $(this).toggleClass('clicked');
           $("#ecosystem-toggle").toggleClass("hidden unhidden");
-        });
-        $("#toggle3").click(function() {
-          $(this).toggleClass('clicked');
-          $("#fence-toggle").toggleClass("hidden unhidden");
-        });
-        $("#toggle4").click(function() {
-          $(this).toggleClass('clicked');
-          $("#risk-toggle").toggleClass("hidden unhidden");
-        });
-        $("#toggle5").click(function() {
-          $(this).toggleClass('clicked');
-          $("#ref-toggle").toggleClass("hidden unhidden");
-        });
-        $("#toggle6").click(function() {
-          $(this).toggleClass('clicked');
-          $("#tree-toggle").toggleClass("hidden unhidden");
-        });
-        $("#toggle7").click(function() {
-          $(this).toggleClass('clicked');
-          $("#eco-toggle").toggleClass("hidden unhidden");
-        });
-        $("#toggle8").click(function() {
-          $(this).toggleClass('clicked');
-          $("#fence-toggle").toggleClass("hidden unhidden");
-        });
-        $("#toggle9").click(function() {
-          $(this).toggleClass('clicked');
-          $("#risk-toggle").toggleClass("hidden unhidden");
-        });
-        $("#toggle10").click(function() {
-          $(this).toggleClass('clicked');
-          $("#ref-toggle").toggleClass("hidden unhidden");
+          $("#wildlife-toggle").toggleClass("hidden");
         });
 
+
       });
-    </script>
+    </script> -->
+    <script type="text/javascript">
+      function toggle_wildlife() {
+        var wildlife = document.getElementById("wildlife-toggle")
+        var eco = document.getElementById("ecosystem-toggle")
+        wildlife.style.display = "block";
+        eco.style.display = "none";
+      }
+      function toggle_eco() {
+        var wildlife = document.getElementById("wildlife-toggle")
+        var eco = document.getElementById("ecosystem-toggle")
+        wildlife.style.display = "none";
+        eco.style.display = "block";
+      }
+      // function {
+      //   var switches = document.getElementsByClassName("mdl-switch")
+      //   console.log
+      // }
+     </script>
 
     <script type="text/javascript">
       $(document).ready(function() {
