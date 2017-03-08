@@ -35,6 +35,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.1.1/rangeslider.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.1.1/rangeslider.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/webshim/1.16.0/dev/polyfiller.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
   <script>
     // webshim.setOptions('forms-ext', {
     //   replaceUI: 'auto'
@@ -812,17 +813,45 @@
       });
     </script> -->
     <script type="text/javascript">
+      var wildlife = document.getElementById("wildlife-toggle")
+      var eco = document.getElementById("ecosystem-toggle")
+      var state = {
+        wildlifeDisplayed: false,
+        ecoDisplayed: true
+      };
+      TweenMax.set(wildlife, {y: -500});
+      TweenMax.set(eco, {y: 0});
+
       function toggle_wildlife() {
-        var wildlife = document.getElementById("wildlife-toggle")
-        var eco = document.getElementById("ecosystem-toggle")
-        wildlife.style.display = "block";
-        eco.style.display = "none";
+        if(state.wildlifeDisplayed) {
+          TweenMax.to(wildlife, 1, {y: -500});
+          state.wildlifeDisplayed = false;
+        } else {
+          TweenMax.to(wildlife, 1, {y: 500});
+          state.wildlifeDisplayed = true;
+        }
+
+        if(state.ecoDisplayed) {
+          TweenMax.to(eco, 1 , {y: -500});
+          state.ecoDisplayed = false;
+        }
+
       }
+
       function toggle_eco() {
-        var wildlife = document.getElementById("wildlife-toggle")
-        var eco = document.getElementById("ecosystem-toggle")
-        wildlife.style.display = "none";
-        eco.style.display = "block";
+        if(state.ecoDisplayed) {
+          TweenMax.to(eco, 1, {y: -500});
+          state.ecoDisplayed = false;
+        } else {
+          TweenMax.to(eco, 1, {y: 500});
+          state.ecoDisplayed = true;
+        }
+
+        if(state.wildlifeDisplayed) {
+          TweenMax.to(wildlife, 1 , {y: -500});
+          state.wildlifeDisplayed = false;
+        }
+        
       }
       // function {
       //   var switches = document.getElementsByClassName("mdl-switch")
