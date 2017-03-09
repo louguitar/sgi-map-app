@@ -34,7 +34,9 @@ i.fa-angle-down {
 #header {
   height: 62px;
   background-image: url(images/header_bg.jpg);
-  width: 100%; }
+  width: 100%;
+  position: relative;
+  z-index: 99; }
 
 #footer {
   bottom: 0;
@@ -187,7 +189,9 @@ icons a:focus {
   box-shadow: 2px 2px 10px rgba(75, 75, 75, 0.5);
   width: 415px;
   min-width: 285px;
-  z-index: 1; }
+  z-index: 1;
+  max-height: calc(100vh - 102px);
+  overflow-y: scroll; }
 
 #aboutBox {
   position: absolute;

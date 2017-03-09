@@ -816,42 +816,52 @@
       var wildlife = document.getElementById("wildlife-toggle")
       var eco = document.getElementById("ecosystem-toggle")
       var state = {
-        wildlifeDisplayed: false,
-        ecoDisplayed: true
+        wildlifeState: {
+          displayed: false,
+          height: wildlife.clientHeight
+        },
+        ecoState: {
+          displayed: true,
+          height: eco.clientHeight
+        }
       };
-      TweenMax.set(wildlife, {y: -500});
+      TweenMax.set(wildlife, {y: -state.wildlifeState.height});
       TweenMax.set(eco, {y: 0});
 
       function toggle_wildlife() {
-        if(state.wildlifeDisplayed) {
-          TweenMax.to(wildlife, 1, {y: -500});
-          state.wildlifeDisplayed = false;
+        state.wildlifeState.height = wildlife.clientHeight;
+        state.ecoState.height = eco.clientHeight;
+        if(state.wildlifeState.displayed) {
+          TweenMax.to(wildlife, .35, {y: -state.wildlifeState.height});
+          state.wildlifeState.displayed = false;
         } else {
-          TweenMax.to(wildlife, 1, {y: 500});
-          state.wildlifeDisplayed = true;
+          TweenMax.to(wildlife, .35, {y: 0});
+          state.wildlifeState.displayed = true;
         }
 
-        if(state.ecoDisplayed) {
-          TweenMax.to(eco, 1 , {y: -500});
-          state.ecoDisplayed = false;
+        if(state.ecoState.displayed) {
+          TweenMax.to(eco, .35 , {y: -state.ecoState.height});
+          state.ecoState.displayed = false;
         }
-
+        console.log(state.wildlifeState.height)
       }
 
       function toggle_eco() {
-        if(state.ecoDisplayed) {
-          TweenMax.to(eco, 1, {y: -500});
-          state.ecoDisplayed = false;
+        state.ecoState.height = eco.clientHeight;
+        state.wildlifeState.height = wildlife.clientHeight;
+        if(state.ecoState.displayed) {
+          TweenMax.to(eco, .35, {y: -state.ecoState.height});
+          state.ecoState.displayed = false;
         } else {
-          TweenMax.to(eco, 1, {y: 500});
-          state.ecoDisplayed = true;
+          TweenMax.to(eco, .35, {y: 0});
+          state.ecoState.displayed = true;
         }
 
-        if(state.wildlifeDisplayed) {
-          TweenMax.to(wildlife, 1 , {y: -500});
-          state.wildlifeDisplayed = false;
+        if(state.wildlifeState.displayed) {
+          TweenMax.to(wildlife, .35 , {y: -state.wildlifeState.height});
+          state.wildlifeState.displayed = false;
         }
-        
+
       }
       // function {
       //   var switches = document.getElementsByClassName("mdl-switch")
